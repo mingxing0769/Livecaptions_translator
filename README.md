@@ -1,0 +1,2 @@
+# livecpations_translator_to_sub
+用Windows自带的livecaptions程序识别语音，转录文本后用语言模型翻译后输出到字幕

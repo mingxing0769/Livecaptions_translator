@@ -161,7 +161,7 @@ class Translator:
                 history_to_out = ' '.join(history['zh'][-5:]) + ' ' + out_put
                 history_to_out = self.split_text(history_to_out, 'zh')
 
-                self.text_data.put('\n'.join(history_to_out[-2:]) + '\n' + out_put)
+                self.text_data.put('\n'.join(history_to_out[-3:]))
 
                 total_tokens = completion['usage']['total_tokens']
                 # 如果总tokens接近模型设置的n_ctx时 只保留最近几条历史记录

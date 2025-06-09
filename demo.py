@@ -158,7 +158,7 @@ class Translator:
                 print('输出：', out_put)
                 del messages[-1]  #不保存临时对话
 
-                history_to_out = '\n'.join(history['zh'][-5:])
+                history_to_out = ' '.join(history['zh'][-5:]) + ' ' + out_put
                 history_to_out = self.split_text(history_to_out, 'zh')
 
                 self.text_data.put('\n'.join(history_to_out[-2:]) + '\n' + out_put)

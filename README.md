@@ -1,5 +1,6 @@
 # livecpations_translator_to_sub
 [中文说明]
+
 本代码，使用Windows 11 自带的livecaptions程序识别语音，转录文本后用本地LLM模型翻译后输出到字幕
 
 工作流程说明：

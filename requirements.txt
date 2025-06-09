@@ -1,0 +1,39 @@
+
+docutils~=0.21.2
+einops~=0.8.1
+matplotlib~=3.8.2
+nltk~=3.9.1
+numpy~=1.26.4
+onnx==1.18.0
+packaging~=24.2
+PyQt5~=5.15.11
+python-dotenv~=1.0.0
+pywinauto~=0.6.9
+requests~=2.32.3
+tabulate==0.9.0
+transformers~=4.32.0
+translators~=5.9.9
+setuptools~=80.9.0
+wheel~=0.41.2
+# pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu126
+# $env:CMAKE_ARGS = "-DGGML_CUDA=on -DCMAKE_C_COMPILER=cl"
+# pip install --upgrade --force-reinstall --no-cache-dir llama-cpp-python --verbose
+
+#$env:CMAKE_ARGS = "-DGGML_CUDA=on -DCMAKE_C_COMPILER=cl"
+#pip install --upgrade --force-reinstall --no-cache-dir llama-cpp-python --verbose
+
+llama-cpp-python
+torch~=2.7.0+cu126
+torchvision~=0.22.0+cu126
+PyYAML~=6.0.1
+pip~=23.2.1
+attrs~=23.1.0
+distro~=1.8.0
+PySocks~=1.7.1
+protobuf~=6.31.1
+cryptography~=45.0.3
+Pillow~=10.0.0
+tornado~=6.3.3
+Jinja2~=3.1.6
+pyparsing~=3.0.9
+typing_extensions~=4.14.0

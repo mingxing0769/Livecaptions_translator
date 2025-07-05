@@ -311,7 +311,7 @@ class SubtitleWindow(QWidget):
 
 def main():
     try:
-        # 建议将 QApplication 的创建放在最前面
+        
         app = QApplication(sys.argv)
 
         # 1. 在 main 函数中创建共享的 Queue

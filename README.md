@@ -1,89 +1,128 @@
-# livecpations_translator_to_sub
-[中文说明]
+## `README.md`
 
-本代码，使用Windows 11 自带的livecaptions程序识别语音，转录文本后用本地LLM模型翻译后输出到字幕
+````markdown
+# 单模型实时字幕翻译器（Single-Model Live Caption Translator）
 
-# 工作流程说明
+## 项目简介 | Project Overview
 
-# 1.使用llama-cpp-python库加载量化版模型
+本项目是一个基于本地大语言模型（如 DeepSeek、Qwen2.5）实现的**英文语音字幕实时翻译工具**。它通过读取 Windows 实时字幕（Live Captions）窗口中的英文内容，分句处理后发送给本地模型翻译，最终以半透明字幕的形式显示中文结果。适合会议、视频或直播内容的实时辅助翻译。
 
-  个人建议使用qwen2.5，比较稳定，但翻译不够灵活，可能不太准确。
-  
-  使用deepseek-v2-lite模型翻译比较准确，但不稳定，会出现各种问题。
-  
-  其它模型测试不多。
-  
-# 2.启动windows内置的Livecaptions实时字幕程序
-  经过文本处理断句，只返回最后3句。
+This project is a **real-time English-to-Chinese subtitle translator** based on local large language models. It captures text from Windows Live Captions, sends it to the local LLM (e.g., DeepSeek, Qwen2.5) for translation, and displays Chinese subtitles in a semi-transparent overlay.
 
-# 3.模型翻译
+---
 
-  获取实时字幕程序返回的最后三句，进行处理。
-  
-  1.已经翻译的中 英文保存到历史信息中。
-  
-  2.对收到的英文句子（最后一句可能不完整，单独处理），如果没有存在于历史信息中，用模型翻译后保存到历史信息中，并保存到对话历史。
-  
-  3.最后一句单独翻译，不加入历史信息及模型对话历史，当做即时信息处理。
-  
-  4.将历史信息中最后几句翻译和即时翻译合并，取最后三句（断句处理后），输出到字幕。
+## 功能特点 | Features
 
-# 4.文本处理
+- 🎯 实时捕捉 Windows 实时字幕内容
+- 🧠 使用本地 LLM 进行上下文感知的精准翻译
+- 🖼️ 可定制的浮动字幕窗口（字体、尺寸、透明度等）
+- 🧩 多句缓存机制，避免重复翻译
+- 📈 分词优化与句子识别（支持 NLTK）
 
-  1.英文按“.;?!”或使用nltk.sent_tokenize 库进行断句，各有千秋，都不是完全准确，目前暂用sent_tokenize库进行断句
-  
-    注：标点以Livecaptions自动生成的，并没有后续添加。有时Livecaptions会生成很长都没有标点的句子，会增加模型翻译的延时。可以和断句模型处理，但不稳定，所以暂时没加上。
-    
-  2.中文按“。；？！”进行断句，仅用时字幕显示，最后三句，避免显示文本太多。
+---
 
-# 5.对话历史维护
+## 环境依赖 | Requirements
 
-  模型的对话历史，设置为小于模型设置的n_ctx * 75% total_tokens大于n_ctx*0.75时 仅保留最后3组对话及系统指令。
+确保使用 Python 3.8+。以下依赖可通过 pip 安装：
 
-# 流程循环
-  1.Livecaptions文本 --> 2.文本处理得到最后三句 --> 3.模型翻译（判断输入，翻译历史信息存储、对话信息处理，字幕文本处理) --> 4.输出到字幕程序 --> 1.
+```bash
+pip install -r requirements.txt
+````
 
-# 延时
-  正常情况下(Livecaptions断句合理),关键在翻译模型处理时间，目前最少设置为1秒，如果本地GPU处理能力强，可以看情况设置，但意义不大，因为0.5秒内可能就增加一两个单词，只会增加电费。
+`requirements.txt` 示例：
 
-[EN]:
+```
+pyqt5
+pywinauto
+nltk
+llama-cpp-python
+```
 
-# Live Captions Translator to Subtitles  
+> ⚠️ 初次运行需下载 `punkt` 分句器：
 
-This tool utilizes Windows 11's built-in Live Captions for speech recognition, transcribes the text, and translates it using a local LLM before outputting subtitles.  
+```python
+import nltk
+nltk.download('punkt')
+```
 
-## Workflow  
+---
 
-### 1. Model Loading  
-- Uses `llama-cpp-python` to load a quantized LLM.  
-- **Recommended models:**  
-  - **Qwen2.5**: More stable but less flexible in translation (may be inaccurate).  
-  - **Deepseek-v2-lite**: More accurate but prone to instability.  
-  - Other models have limited testing.  
+## 文件结构 | File Structure
 
-### 2. Live Captions Processing  
-- Launches Windows' Live Captions and processes the text to extract the last **3 sentences**.  
+```text
+.
+├── 单模型翻译.py           # 主程序，启动翻译和字幕显示逻辑
+├── config.py              # 配置文件，模型、字幕UI、LLM参数等
+├── models/                # 存放本地量化的 GGUF 模型文件
+└── README.md              # 本文件
+```
 
-### 3. Translation Process  
-1. **History Storage**: Translated Chinese/English pairs are saved in history.  
-2. **New Sentences**:  
-   - If an English sentence (last one may be incomplete) isn’t in history, the model translates and stores it.  
-3. **Last Sentence Handling**:  
-   - Translated separately as real-time text (not added to history or model context).  
-4. **Output**: Combines the latest translations (from history) and real-time translation, then displays the last **3 processed sentences** as subtitles.  
+---
 
-### 4. Text Segmentation  
-- **English**: Split using `.;?!` or `nltk.sent_tokenize` (currently default).  
-  - *Note*: Live Captions generates punctuation natively. Long, unpunctuated sentences may delay translation.  
-- **Chinese**: Split by `。；？！` and limited to the last **3 sentences** for cleaner subtitles.  
+## 使用方法 | Usage
 
-### 5. Context Management  
-- Model context is capped at **75% of `n_ctx` tokens**.  
-- If exceeded, only the last **3 exchanges + system instructions** are retained.  
+### 1️⃣ 准备模型文件
 
-## Loop  
-1. Live Captions → 2. Extract last 3 sentences → 3. Translate (history/real-time) → 4. Output subtitles → (Repeat)  
+将 GGUF 格式的模型文件放入 `models/` 文件夹，并修改 `config.py` 中的路径：
 
-## Latency  
-- Primary delay comes from model translation (minimum **1-second interval**).  
-- GPU power can reduce this, but sub-0.5s updates may only add minor words at higher power cost.  
+```python
+MODEL_PATH = 'models/deepseek-v2-lite-chat-q4_k_m.gguf'
+```
+
+支持任何 llama.cpp 兼容模型。
+
+### 2️⃣ 启动 Windows 实时字幕
+
+前往设置：
+**设置 > 无障碍 > 听力 > 实时字幕**
+启用并设置为 **“英语 (美国)”**。
+
+### 3️⃣ 运行程序
+
+```bash
+python 单模型翻译.py
+```
+
+程序将自动：
+
+* 打开 Live Captions（如未打开）
+* 启动本地 LLM
+* 捕捉并翻译字幕
+* 显示浮动中文翻译窗口
+
+---
+
+## 注意事项 | Notes
+
+* 请确认 `config.py` 中的路径与你的实际环境一致：
+
+  * `caption_path`: Live Captions 的路径（Windows 11 默认无需修改）
+  * `model_path`: 本地模型路径
+* 模型占用较高，建议使用性能较好的 CPU 或 GPU 环境。
+* 若字幕识别异常或程序无响应，请尝试关闭并重启实时字幕。
+* 当前仅支持英文到中文翻译（后续可拓展为双向翻译）。
+
+---
+
+## 自定义配置 | Customization
+
+可在 `config.py` 中调整以下内容：
+
+* 🔧 模型设置（上下文窗口、token设置）
+* 🎨 字幕窗口大小、字体、颜色、行数
+* 🧠 翻译缓存策略、最大句数等
+
+---
+
+## 许可协议 | License
+
+MIT License - 可自由修改、使用和分发。
+
+---
+
+## 联系方式 | Contact
+
+欢迎提出建议或参与改进本项目。
+
+Issues | Discussions | Pull Requests 欢迎提交 🙌
+

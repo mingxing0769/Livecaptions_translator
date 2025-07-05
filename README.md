@@ -51,7 +51,7 @@ nltk.download('punkt')
 
 ```text
 .
-├── 单模型翻译.py           # 主程序，启动翻译和字幕显示逻辑
+├── demo.py           # 主程序，启动翻译和字幕显示逻辑
 ├── config.py              # 配置文件，模型、字幕UI、LLM参数等
 ├── models/                # 存放本地量化的 GGUF 模型文件
 └── README.md              # 本文件
@@ -80,7 +80,7 @@ MODEL_PATH = 'models/deepseek-v2-lite-chat-q4_k_m.gguf'
 ### 3️⃣ 运行程序
 
 ```bash
-python 单模型翻译.py
+python demo.py
 ```
 
 程序将自动：

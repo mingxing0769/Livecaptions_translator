@@ -1,4 +1,5 @@
 import re
+import re
 import subprocess
 import sys
 import threading
@@ -18,11 +19,12 @@ import config
 
 class Translator:
     def __init__(self, text_data_queue: Queue):
-        self.llm = None
+        self.llm = Llama(**config.LLAMA_CONFIG)
         self.window = None
         self.static_control = None
         self.text_data = text_data_queue
         self.last_text = ''
+
         self.en_pattern = re.compile(
             r'(?<!Mr\.|Ms\.|Dr\.|St\.|vs\.|jr\.|sr\.)(?<!Mrs\.|Rev\.|Hon\.|etc\.|inc\.)(?<!Prof\.|Capt\.|corp\.)(?<![A-Z]\.)(?<!\d.)(?<!\d,\d{3})(?<=[.!;?])\s*'
         )
@@ -30,9 +32,6 @@ class Translator:
             r'''(?<![A-Z]\.)(?<!\d\.)(?<!\d,\d{3})((?<=[。！；？]['"”’』》])|(?<=[。！；？])(?![’"”』》]))\s*''',
             flags=re.VERBOSE
         )
-
-    def init_model(self, ):
-        self.llm = Llama(**config.LLAMA_CONFIG)
 
     def split_text(self, text, language):
         if language == 'english':
@@ -44,6 +43,11 @@ class Translator:
         elif language == 'zh':
             sentences = self.zh_pattern.split(text)
             return [s for s in sentences if s]
+
+    def preprocess(self, text):
+        #删除除数字标记之外的标点  返回的是无标点的 小写字母文本
+        text = re.sub(r"(?<!\d)[.,;:!?](?!\d)", "", text).lower()
+        return text
 
     def get_text(self):
         try:
@@ -61,13 +65,10 @@ class Translator:
             # 获取控件文本
             text = self.static_control.window_text().rstrip()
 
-            replace_dict = {'已准备好在 英语(美国) 中显示实时字幕': '',
-                            '\n': ' '
-                            }
-            for old, new in replace_dict.items():
-                text = text.replace(old, new)
+            text = text.replace('已准备好在 英语(美国) 中显示实时字幕', '')
 
             # 分割单词
+
             words = text.split()
             text = ' '.join(words[-config.MAX_INPUT_WORDS:])
 
@@ -84,77 +85,98 @@ class Translator:
 
     def model_translate(self):
         n_ctx = self.llm.n_ctx()
-        translator_cache = {'en': [], 'zh': []}
-        last_inputs = []
+        messages = [{"role": "system", "content": config.SYS_PROMPT}]
         total_tokens = 0
 
-        sys_prompt = config.SYS_PROMPT
-        messages = [{"role": "system", "content": sys_prompt}]
+        #去重变量
+        endswith = 'end'
+        startswith = 'start'
+        last_fullSentence = ''
+        translator_cache = {'en': [], 'zh': []}
+        last_inputs = []
 
         while True:
             start_dt = time.time()
-            inputs = self.get_text()
+            inputs = self.get_text()  #最后几句的文本列表
 
-            if inputs and inputs != last_inputs:
+            if inputs and inputs != last_inputs:  #文本列表不为空， 且和上次不一致
                 last_inputs = inputs
-                # print('输入：', ' '.join(inputs))
-
-                # 最后一条缓存标点之前的内容 在 当前输入中, 以免字幕重复
-                if translator_cache['en'] and translator_cache['en'][-1][:-1] in inputs[-1].lower():
-                    del translator_cache['en'][-1]
-                    del translator_cache['zh'][-1]
 
                 # 处理完整句子
-                if len(inputs) > 1:
-                    for sen in inputs[:-1]:
-                        if sen.lower() not in translator_cache['en']:
+                complete_sentences = inputs[:-1]
+                # 最后一个句子视为可能不完整的实时句子
+                live_sentence = inputs[-1]
+
+                # 整合完整的句子，并进行去标点及小写化
+                fullSentence = self.preprocess(' '.join(complete_sentences))
+
+                if fullSentence != last_fullSentence and \
+                                not fullSentence.endswith(endswith):
+                    #此处可以跳过 整体内容一样，但标点有改变的文本。若中间有英文数字 转换为了阿拉伯数字 无法判断！
+                    #同时避免第一句前部发生变化 而后部完全一样而重复。
+
+                    last_fullSentence = fullSentence
+
+                    for sen in complete_sentences:
+                        sen_To_Tran = sen
+                        if self.preprocess(sen) not in translator_cache['en'] :
+                            # 句子不在缓存中
+
+                            # print(f'当前输入: {sen}\n上次结尾: {endswith}\n上次开头: {startswith}\n')
+
+                            if self.preprocess(sen).startswith(startswith):   #和上次输入开头部分相同
+                                sen_To_Tran = ' '.join(sen.split()[len(startswith.split()):])
+                                # print(f'句子开头 {startswith} 相同\n裁剪为:{sen_To_Tran}')
+
+                            if not sen_To_Tran or self.preprocess(sen) in startswith:
+                                #裁剪后为空，或者当前输入的文本在上次的开头里面，可以避免将上次的输入重新断句，去掉了上次句子的尾部。
+                                # print('sen_TO_tran为空跳过翻译！\n')
+                                continue
+
+                            endswith = self.preprocess(sen)
+                            startswith = endswith
+
                             messages.append({"role": "user",
-                                             "content": f'{config.PROMPT_2}{sen}'})
+                                             "content": f'{config.LIVE_PROMPT}{sen_To_Tran}'})
                             completion = self.llm.create_chat_completion(messages, **config.COMPLETION_CONFIG)
                             total_tokens = completion['usage']['total_tokens']
 
-                            out_put = completion['choices'][0]['message']['content'].strip()
+                            out_put = completion['choices'][0]['message']['content'].strip().replace(
+                                '请继续将英文翻译为中文，仅输出译文不添加任何解释或评论：\n', '')
                             # print('输出：', out_put)
 
-                            translator_cache['en'].append(sen.lower())
+                            translator_cache['en'].append(self.preprocess(sen))
                             translator_cache['zh'].append(out_put)
 
-                            messages[-1]["content"] = sen
+                            messages[-1]["content"] = sen_To_Tran  # 更新user内容 不包含 即时指令config.COMPLETION_PROMPT
                             messages.append({"role": "assistant", "content": out_put})
 
                 # 处理最后一句,不完整句子
-                last_sen = config.PROMPT_1 + inputs[-1]
-                if not re.search(r'[.?!]$', last_sen.strip()):
-                    last_sen = f'{last_sen.strip()}...'
+                # 去掉已经翻译的 重复前段句子 startswith
+                if self.preprocess(live_sentence).startswith(startswith):
+                    live_sentence = ' '.join(inputs[-1].split()[len(startswith.split()):]).strip()
+                    # print(f'即时翻译句子开头 {startswith} 相同被裁切\n{live_sentence}')
 
-                messages.append({"role": "user", "content": last_sen})
+                if not live_sentence:
+                    # print('跳过即时翻译')
+                    continue
+
+                if not re.search(r'[.?!]$', live_sentence.strip()):
+                    live_sentence = f'{live_sentence.strip()}...'
+
+                messages.append({"role": "user", "content": config.LIVE_PROMPT + live_sentence})
                 temp_completion = self.llm.create_chat_completion(messages, **config.LIVE_COMPLETION_CONFIG)
-                live_out_put = temp_completion['choices'][0]['message']['content'].strip()
+                live_out_put = temp_completion['choices'][0]['message']['content'].strip().replace(
+                    '请继续将英文翻译为中文，仅输出译文不添加任何解释或评论：\n', '')
                 # print('输出：', live_out_put)
-                del messages[-1]
+                del messages[-1]  # 删除临时信息
 
                 # 处理字幕文本
-                history_to_out = ' '.join(translator_cache['zh'][-5:]) + live_out_put
-                history_to_out = self.split_text(history_to_out, 'zh')
-
-                to_ui_sen = []
-                for sen in history_to_out:
-                    if sen not in to_ui_sen:
-                        to_ui_sen.append(sen)  #去重
-                output = '\n'.join(to_ui_sen[-config.MAX_TO_UI:])
-
-                self.text_data.put(output)
+                self.sub_text_processing(live_out_put, translator_cache)
 
                 # 维护翻译缓存及对话记录
-                # 如果总tokens接近模型设置的n_ctx时 只保留最近几条历史记录
-                translator_cache['en'], translator_cache['zh'] = translator_cache['en'][-config.TRANSLATOR_CACHE:], \
-                translator_cache['zh'][-config.TRANSLATOR_CACHE:]
-
-                if total_tokens >= n_ctx * config.MESSAGES_PRUNE_THRESHOLD:
-                    if len(messages) > 6:
-                        messages = [messages[0]] + messages[-6:]
-                    else:
-                        messages = [messages[0]]
+                translator_cache, messages = self.information_maintenance(translator_cache, total_tokens, n_ctx,
+                                                                          messages)
 
                 #处理循环间隔
                 run_time = time.time() - start_dt
@@ -164,6 +186,35 @@ class Translator:
                     time.sleep(config.DELAY_TIME - run_time)
             else:
                 time.sleep(config.DELAY_TIME)
+
+    def sub_text_processing(self, text, translator_cache):
+        # 处理字幕文本
+        history_to_out = ' '.join(translator_cache['zh']) + ' ' + text
+        history_to_out = self.split_text(history_to_out, 'zh')
+
+        # 去重
+        to_ui_sen = []
+        for sen in history_to_out:
+            if sen not in to_ui_sen:
+                to_ui_sen.append(sen)  # 去重
+
+        output = '\n'.join(to_ui_sen[-config.MAX_TO_UI:])
+
+        self.text_data.put(output)
+
+    @staticmethod
+    def information_maintenance(translator_cache, total_tokens, n_ctx, messages):
+        # 维护翻译缓存及对话记录
+        translator_cache['en'] = translator_cache['en'][-config.TRANSLATOR_CACHE:]
+        translator_cache['zh'] = translator_cache['zh'][-config.TRANSLATOR_CACHE:]
+
+        if total_tokens >= n_ctx * config.MESSAGES_PRUNE_THRESHOLD:
+            if len(messages) > 6:
+                messages = [messages[0]] + messages[-6:]
+            else:
+                messages = [messages[0]]
+
+        return translator_cache, messages
 
 
 class SubtitleWindow(QWidget):
@@ -285,13 +336,14 @@ class SubtitleWindow(QWidget):
                 if is_at_bottom:
                     scrollbar.setValue(scrollbar.maximum())
 
+    # 在 SubtitleWindow 类中
     def mousePressEvent(self, event):
         if event.button() == Qt.LeftButton:
-            # 检查点击位置是否在文本区域内
-            if self.text_display.rect().contains(event.pos()):
+            # 只要鼠标不在尺寸调节器上，就启动拖动
+            if not self.size_grip.geometry().contains(event.pos()):
                 self.drag_position = event.globalPos() - self.frameGeometry().topLeft()
-            elif not self.size_grip.underMouse():
-                self.drag_position = event.globalPos() - self.frameGeometry().topLeft()
+            else:
+                self.drag_position = None  # 确保在点击size_grip时不拖动
 
     def mouseMoveEvent(self, event):
         if event.buttons() & Qt.LeftButton and self.drag_position:
@@ -311,7 +363,7 @@ class SubtitleWindow(QWidget):
 
 def main():
     try:
-        
+        # 建议将 QApplication 的创建放在最前面
         app = QApplication(sys.argv)
 
         # 1. 在 main 函数中创建共享的 Queue
@@ -319,7 +371,6 @@ def main():
 
         # 2. 创建 Translator 实例，并将队列“注入”进去
         translator = Translator(text_data_queue)
-        translator.init_model()
 
         # 3. 创建并启动翻译线程，将 translator.model_translate 作为目标
         translate_thread = threading.Thread(target=translator.model_translate)

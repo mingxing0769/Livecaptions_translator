@@ -77,7 +77,7 @@ class Translator:
             return []
 
     @staticmethod
-    def is_similar(a, b, thresh=0.97):
+    def is_similar(a, b, thresh=0.98):
         return SequenceMatcher(None, a, b).ratio() >= thresh
 
     def model_translate(self):
@@ -111,8 +111,10 @@ class Translator:
                     for sen in complete_sentences:
 
                         preprocessed_sen = self.preprocess(sen)
-
-                        if preprocessed_sen not in ' '.join(translator_cache['en'][-4:]):
+                        temp_cache = ' '.join(translator_cache['en'][-4:])
+                        
+                        if self.preprocess(complete_sentences[-1]) not in temp_cache \
+                                and preprocessed_sen not in temp_cache:  #首先得确定最后一句没有翻译
                             sen_to_tran = sen
 
                             # 和上次输入开头部分相同

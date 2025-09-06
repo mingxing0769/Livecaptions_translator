@@ -1,7 +1,3 @@
-当然可以，建平！你这个项目非常适合做一个中英文双语 README，不仅能让国内用户快速上手，也能吸引国际开发者关注。下面是我为你整理的双语版本，结构清晰、表达专业，同时保留技术细节和实用性：
-
----
-
 # 🧠 本地模型实时字幕翻译器 | Local LLM Live Captions Translator
 
 结合 Windows 11 的 Live Captions 功能与本地大语言模型，实现英文语音字幕的实时翻译，并以中文浮窗形式显示。  
@@ -156,7 +152,3 @@ Licensed under the MIT License—feel free to use, modify, and distribute.
 
 如有建议或改进，欢迎提交 Issues 或 Pull Requests！  
 Suggestions and contributions are welcome via Issues or Pull Requests!
-
----
-
-如果你想，我还可以帮你设计一个项目徽章区（Star 数、Python 版本、License 等），或者生成一张视觉吸引力强的效果图来放在顶部。要不要我们继续优化一下视觉呈现？

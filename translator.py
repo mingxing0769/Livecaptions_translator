@@ -1,12 +1,14 @@
 import re
 import subprocess
 import time
-from difflib import SequenceMatcher
 from queue import Queue
+
 from llama_cpp import Llama
 from nltk import sent_tokenize
 from pywinauto import Desktop
+
 import config
+
 
 class Translator:
     def __init__(self, text_data_queue: Queue):
@@ -76,10 +78,6 @@ class Translator:
             self.window = None
             return []
 
-    @staticmethod
-    def is_similar(a, b, thresh=0.98):
-        return SequenceMatcher(None, a, b).ratio() >= thresh
-
     def model_translate(self):
         n_ctx = self.llm.n_ctx()
         messages = [{"role": "system", "content": config.SYS_PROMPT}]
@@ -87,7 +85,6 @@ class Translator:
 
         translator_cache = {'en': [], 'zh': []}
         startswith = 'start'
-        last_complete_sentences = ''
 
         last_inputs = []
 
@@ -100,43 +97,40 @@ class Translator:
 
                 # 完整句子
                 complete_sentences = inputs[:-1]
-                preprocessed_complete_sentences = self.preprocess(' '.join(complete_sentences))
 
                 # 最后一个句子视为可能不完整的实时句子
                 live_sentence = inputs[-1]
 
-                if not self.is_similar(last_complete_sentences, preprocessed_complete_sentences):
-                    last_complete_sentences = preprocessed_complete_sentences
 
-                    for sen in complete_sentences:
+                for sen in complete_sentences:
+                    preprocessed_sen = self.preprocess(sen)
+                    temp_cache = ' '.join(translator_cache['en'][-4:])
 
-                        preprocessed_sen = self.preprocess(sen)
-                        temp_cache = ' '.join(translator_cache['en'][-4:])
-                        
-                        if self.preprocess(complete_sentences[-1]) not in temp_cache \
-                                and preprocessed_sen not in temp_cache:  #首先得确定最后一句没有翻译
-                            sen_to_tran = sen
+                    # 首先得确定最后一句没有翻译 再者当前句没有翻译
+                    if self.preprocess(complete_sentences[-1]) not in temp_cache \
+                            and preprocessed_sen not in temp_cache:
+                        sen_to_tran = sen
 
-                            # 和上次输入开头部分相同
-                            if preprocessed_sen.startswith(startswith):
-                                sen_to_tran = ' '.join(sen.split()[len(startswith.split()):])
+                        # 和上次输入开头部分相同
+                        if preprocessed_sen.startswith(startswith):
+                            sen_to_tran = ' '.join(sen.split()[len(startswith.split()):])
 
-                            # 和上次输入结尾部分相同
-                            if preprocessed_sen.endswith(startswith) or not sen_to_tran:
-                                continue
+                        # 和上次输入结尾部分相同
+                        if preprocessed_sen.endswith(startswith) or not sen_to_tran:
+                            continue
 
-                            messages.append({"role": "user", "content": sen_to_tran})
-                            completion = self.llm.create_chat_completion(messages, **config.COMPLETION_CONFIG)
-                            out_put = completion['choices'][0]['message']['content'].strip()
+                        messages.append({"role": "user", "content": sen_to_tran})
+                        completion = self.llm.create_chat_completion(messages, **config.COMPLETION_CONFIG)
+                        out_put = completion['choices'][0]['message']['content'].strip()
 
-                            print(f'======\n输入：{sen}\n输出：{out_put}')
+                        print(f'======\n输入：{sen}\n输出：{out_put}')
 
-                            total_tokens = completion['usage']['total_tokens']
-                            startswith = preprocessed_sen
-                            translator_cache['en'].append(preprocessed_sen)
-                            translator_cache['zh'].append(out_put)
+                        total_tokens = completion['usage']['total_tokens']
+                        startswith = preprocessed_sen
+                        translator_cache['en'].append(preprocessed_sen)
+                        translator_cache['zh'].append(out_put)
 
-                            messages.append({"role": "assistant", "content": out_put})
+                        messages.append({"role": "assistant", "content": out_put})
 
                 # 处理最后一句,不完整句子
                 if self.preprocess(live_sentence).startswith(startswith):

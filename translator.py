@@ -22,18 +22,11 @@ class Translator:
             from punctuation import PunctuationModel
             self.reset_punctuation= PunctuationModel()
 
-        self.zh_pattern = re.compile(
-            r'''(?<![A-Z]\.)(?<!\d\.)(?<!\d,\d{3})((?<=[。！；？]['"”’』》])|(?<=[。！；？])(?![’"”』》]))\s*''',
-            flags=re.VERBOSE
-        )
 
-    def split_text(self, text, language):
-        if language == 'english':
-            return sent_tokenize(text, language=language)
+    @staticmethod
+    def split_text(text, language="english"):
+        return sent_tokenize(text, language=language)
 
-        elif language == 'zh':
-            sentences = self.zh_pattern.split(text)
-            return [s for s in sentences if s]
 
     @staticmethod
     def preprocess(text):
@@ -69,7 +62,7 @@ class Translator:
                 if config.RESET_PUNCTUATION:
                     text = self.reset_punctuation.restore_punctuation(text)
 
-                sentences = self.split_text(text, language="english")
+                sentences = self.split_text(text)
 
                 return sentences[-config.SENTENCES_TO_TRANSLATE:]
 
@@ -163,18 +156,8 @@ class Translator:
 
     def sub_text_processing(self, text, translator_cache):
         # 处理字幕文本
-        history_to_out = ' '.join(translator_cache['zh']) + ' ' + text
-        history_to_out = self.split_text(history_to_out, 'zh')
-
-        # 去重 避免英文数字转阿拉伯数字的重复
-        # to_ui_sen = ['\n'] * 10
-        # for sen in history_to_out:
-        #     if sen not in to_ui_sen:
-        #         to_ui_sen.append(sen)  # 去重
-
-        output = '\n'.join(history_to_out)
-
-        self.text_data.put(output)
+        history_to_out = '\n'.join(translator_cache['zh']) + '\n' + text
+        self.text_data.put(history_to_out)
 
     def information_maintenance(self, translator_cache, total_tokens, n_ctx, messages):
         # 维护翻译缓存及对话记录

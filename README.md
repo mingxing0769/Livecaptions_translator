@@ -23,9 +23,9 @@
 ### 🛠️ 环境依赖
 
 - Python 3.8+
-- 推荐使用 GPU（如 RTX 2060）或高性能 CPU
+- 推荐使用性能至少或强于RTX 2060 12G GPU
 
-安装依赖：
+安装依赖前请查看并修改requirements.txt：
 
 ```bash
 pip install -r requirements.txt

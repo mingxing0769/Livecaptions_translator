@@ -1,18 +1,2 @@
 $env:CMAKE_ARGS = "-DGGML_CUDA=on -DCMAKE_C_COMPILER=cl"
 pip install --upgrade --force-reinstall --no-cache-dir llama-cpp-python --verbose
-
-# 下载源码安装
-git config --global http.proxy https://127.0.0.1:10808
-git config --global http.proxy http://127.0.0.1:10808
-
-git clone https://github.com/JamePeng/llama-cpp-python.git src/llama-cpp-python
-cd src/llama-cpp-python
-
-git submodule update --init --recursive
-
-#if (Test-Path .\build\) {
-#    Remove-Item -Path .\build\ -Recurse -Force
-
-git clone https://github.com/ggerganov/llama.cpp.git vendor/llama.cpp
-$env:CMAKE_ARGS = "-DGGML_CUDA=on -DCMAKE_C_COMPILER=cl"
-pip install -e . --verbose

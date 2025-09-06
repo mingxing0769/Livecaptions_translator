@@ -77,7 +77,7 @@ class Translator:
             return []
 
     @staticmethod
-    def is_similar(a, b, thresh=0.9):
+    def is_similar(a, b, thresh=0.97):
         return SequenceMatcher(None, a, b).ratio() >= thresh
 
     def model_translate(self):
@@ -87,7 +87,7 @@ class Translator:
 
         translator_cache = {'en': [], 'zh': []}
         startswith = 'start'
-        live_startswith ='start'
+        last_complete_sentences = ''
 
         last_inputs = []
 
@@ -100,40 +100,43 @@ class Translator:
 
                 # 完整句子
                 complete_sentences = inputs[:-1]
+                preprocessed_complete_sentences = self.preprocess(' '.join(complete_sentences))
+
                 # 最后一个句子视为可能不完整的实时句子
                 live_sentence = inputs[-1]
 
-                if not self.preprocess(live_sentence).startswith(live_startswith):
-                    for sen in complete_sentences:
-                        sen_To_Tran = sen
-                        complete_en = ' '.join(translator_cache['en'][-5:])
+                if not self.is_similar(last_complete_sentences, preprocessed_complete_sentences):
+                    last_complete_sentences = preprocessed_complete_sentences
 
-                        #避免第1句 英文数字转换为阿拉伯数字
-                        if self.preprocess(sen) not in complete_en and self.preprocess(complete_sentences[-1]) not in complete_en:
+                    for sen in complete_sentences:
+
+                        preprocessed_sen = self.preprocess(sen)
+
+                        if preprocessed_sen not in ' '.join(translator_cache['en'][-4:]):
+                            sen_to_tran = sen
 
                             # 和上次输入开头部分相同
-                            if self.preprocess(sen).startswith(startswith):
-                                sen_To_Tran = ' '.join(sen.split()[len(startswith.split()):])
+                            if preprocessed_sen.startswith(startswith):
+                                sen_to_tran = ' '.join(sen.split()[len(startswith.split()):])
 
-                            # 裁剪后为空。
-                            if not sen_To_Tran: continue
+                            # 和上次输入结尾部分相同
+                            if preprocessed_sen.endswith(startswith) or not sen_to_tran:
+                                continue
 
-                            messages.append({"role": "user", "content": sen_To_Tran})
+                            messages.append({"role": "user", "content": sen_to_tran})
                             completion = self.llm.create_chat_completion(messages, **config.COMPLETION_CONFIG)
                             out_put = completion['choices'][0]['message']['content'].strip()
 
                             print(f'======\n输入：{sen}\n输出：{out_put}')
 
                             total_tokens = completion['usage']['total_tokens']
-                            startswith = self.preprocess(sen)
-                            translator_cache['en'].append(self.preprocess(sen))
+                            startswith = preprocessed_sen
+                            translator_cache['en'].append(preprocessed_sen)
                             translator_cache['zh'].append(out_put)
 
                             messages.append({"role": "assistant", "content": out_put})
 
                 # 处理最后一句,不完整句子
-                live_startswith = self.preprocess(live_sentence)
-
                 if self.preprocess(live_sentence).startswith(startswith):
                     live_sentence = ' '.join(live_sentence.split()[len(startswith.split()):])
 

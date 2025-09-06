@@ -2,8 +2,6 @@
 # $env:CMAKE_ARGS = "-DGGML_CUDA=on -DCMAKE_C_COMPILER=cl"
 # pip install --upgrade --force-reinstall --no-cache-dir llama-cpp-python --verbose
 
-#$env:CMAKE_ARGS = "-DGGML_CUDA=on -DCMAKE_C_COMPILER=cl"
-#pip install --upgrade --force-reinstall --no-cache-dir llama-cpp-python --verbose
 click==8.2.1
 colorama==0.4.6
 comtypes  ==        1.4.11
@@ -34,3 +32,4 @@ torchaudio ==       2.7.1+cu128
 torchvision ==      0.22.1+cu128
 tqdm      ==        4.67.1
 typing_extensions== 4.14.1
+

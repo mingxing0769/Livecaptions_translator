@@ -5,9 +5,15 @@
 
 ## 项目简介 | Project Overview
 
-本项目是一个基于本地大语言模型（如 DeepSeek、Qwen2.5）实现的**英文语音字幕实时翻译工具**。它通过读取 Windows 实时字幕（Live Captions）窗口中的英文内容，分句处理后发送给本地模型翻译，最终以半透明字幕的形式显示中文结果。适合会议、视频或直播内容的实时辅助翻译。
+本项目是一个基于本地大语言模型（如 DeepSeek、Qwen2.5）实现的**英文语音字幕实时翻译工具**。
+它通过读取 Windows 实时字幕（Live Captions）窗口中的英文内容，分句处理后发送给本地模型翻译，
+最终以半透明字幕的形式显示中文结果。适合会议、视频或直播内容的实时辅助翻译。
 
-This project is a **real-time English-to-Chinese subtitle translator** based on local large language models. It captures text from Windows Live Captions, sends it to the local LLM (e.g., DeepSeek, Qwen2.5) for translation, and displays Chinese subtitles in a semi-transparent overlay.
+This project is a **real-time English-to-Chinese subtitle translator**
+based on local large language models.
+It captures text from Windows Live Captions, sends it to the local
+LLM (e.g., DeepSeek, Qwen2.5) for translation, and displays Chinese subtitles
+in a semi-transparent overlay.
 
 ---
 
@@ -51,9 +57,9 @@ nltk.download('punkt')
 
 ```text
 .
-├── demo.py           # 主程序，启动翻译和字幕显示逻辑
+├── main.py           # 主程序，启动翻译和字幕显示逻辑
 ├── config.py              # 配置文件，模型、字幕UI、LLM参数等
-├── models/                # 存放本地量化的 GGUF 模型文件
+├── models/                # 存放本地量化的 GGUF 模型文件 及标点重置模型
 └── README.md              # 本文件
 ```
 
@@ -66,7 +72,7 @@ nltk.download('punkt')
 将 GGUF 格式的模型文件放入 `models/` 文件夹，并修改 `config.py` 中的路径：
 
 ```python
-MODEL_PATH = 'models/deepseek-v2-lite-chat-q4_k_m.gguf'
+MODEL_PATH = "models/ERNIE-4.5-21B-A3B-PT-UD-Q3_K_XL.gguf"
 ```
 
 支持任何 llama.cpp 兼容模型。
@@ -80,7 +86,7 @@ MODEL_PATH = 'models/deepseek-v2-lite-chat-q4_k_m.gguf'
 ### 3️⃣ 运行程序
 
 ```bash
-python demo.py
+python main.py
 ```
 
 程序将自动：

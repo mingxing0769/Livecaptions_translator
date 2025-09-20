@@ -72,8 +72,6 @@ SYS_PROMPT = f"""你好！现在是中国时间:{now.strftime("%m/%d/%Y, %H:%M")
 The US President Trump said...
 美国总统 特朗普(Trump) 表示……
 """
-#
-LIVE_PROMPT = """"""
 
 # --- Translation Logic Settings ---
 AVAILABLE_TOKENS = 256  # n_ctx-total_tokens<AVAILABLE_TOKENS 时重置历史记录
@@ -90,4 +88,5 @@ MAX_WINDOW_WIDTH = 1200  # 最大窗口Width
 UPDATE_INTERVAL_MS = 50  # UI刷新率
 DISPLAY_LINES = 3  #字幕显示行数
 ScrollBarPolicy = False  #是否显示滚动条
+
 

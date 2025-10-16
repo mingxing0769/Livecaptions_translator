@@ -1,171 +1,88 @@
+# E:/Python/PythonProject/translator.py
+
 import re
-import subprocess
 import time
 from queue import Queue
-
 from llama_cpp import Llama
-from nltk import sent_tokenize
-from pywinauto import Desktop
-
 import config
+from livecaptions import Get_text
 
 
 class Translator:
     def __init__(self, text_data_queue: Queue):
         self.llm = Llama(**config.LLAMA_CONFIG)
-        self.window = None
-        self.static_control = None
+        self.text_getter = Get_text()
         self.text_data = text_data_queue
-        self.last_text = ''
-
-        if config.RESET_PUNCTUATION:
-            from punctuation import PunctuationModel
-            self.reset_punctuation= PunctuationModel()
-
-
-    @staticmethod
-    def split_text(text, language="english"):
-        return sent_tokenize(text, language=language)
-
 
     @staticmethod
     def preprocess(text):
-        #删除除数字标记之外的标点  返回的是无标点的 小写字母文本
+        # 删除除数字标记之外的标点 返回的是无标点的 小写字母文本
         text = re.sub(r"(?<!\d)[.,;:!?-](?!\d)", "", text).lower()
         return text
-
-    def get_text(self):
-        try:
-            if not self.window:
-                try:
-                    subprocess.Popen(config.CAPTION_APP_PATH)
-                except FileNotFoundError:
-                    print(f"错误：找不到实时字幕软件，请检查路径是否正确：{config.CAPTION_APP_PATH}")
-                    return None
-                window_title = config.CAPTION_WINDOW_TITLE
-                desktop = Desktop(backend='uia')
-                self.window = desktop.window(title=window_title)
-                self.static_control = self.window.child_window(control_type=config.CAPTION_CONTROL_TYPE)
-
-            # 获取控件文本
-            text = self.static_control.window_text().rstrip()
-            text = text.replace('已准备好在 英语(美国) 中显示实时字幕', '').replace('\n', ' ')
-
-            # 分割单词
-            words = text.split()
-            text = ' '.join(words[-config.MAX_INPUT_WORDS:])
-
-            if text != self.last_text and text:
-                self.last_text = text
-
-                # 重置标点
-                if config.RESET_PUNCTUATION:
-                    text = self.reset_punctuation.restore_punctuation(text)
-
-                sentences = self.split_text(text)
-
-                return sentences[-config.SENTENCES_TO_TRANSLATE:]
-
-        except Exception as e:
-            print(f"程序运行出错: {e}")
-            self.window = None
-            return []
 
     def model_translate(self):
         n_ctx = self.llm.n_ctx()
         messages = [{"role": "system", "content": config.SYS_PROMPT}]
         total_tokens = 0
-
         translator_cache = {'en': [], 'zh': []}
-        startswith = 'start'
-
-        last_inputs = []
 
         while True:
             start_dt = time.time()
-            inputs = self.get_text()
 
-            if inputs and inputs != last_inputs:  #文本列表不为空， 且和上次不一致
-                last_inputs = inputs
+            # 1. 获取文本块
+            complete_sentences, live_sentence = self.text_getter.main_event()
 
-                # 完整句子
-                complete_sentences = inputs[:-1]
+            # 如果没有任何新内容，则短暂休眠后继续
+            if not complete_sentences and not live_sentence:
+                time.sleep(0.1)  # 避免空轮询占用CPU
+                continue
 
-                # 最后一个句子视为不完整的实时句子
-                live_sentence = inputs[-1]
+            live_out_put = "..."  # 默认的实时句子翻译
 
+            # 2. 翻译完整句子 (如果存在)
+            if complete_sentences:
+                sen_to_tran = ' '.join(complete_sentences)
+                messages.append({"role": "user", "content": sen_to_tran})
+                completion = self.llm.create_chat_completion(messages, **config.COMPLETION_CONFIG)
+                out_put = completion['choices'][0]['message']['content'].strip()
 
-                sen_to_tran = []
-                for sen in complete_sentences:
-                    preprocessed_sen = self.preprocess(sen)
-                    temp_cache = ' '.join(translator_cache['en'][-(config.SENTENCES_TO_TRANSLATE+1):])
+                print(f'\033[1;32m[完整句翻译]\n输入: {sen_to_tran}\n输出: {out_put}\033[0m')
 
-                    # 首先得确定最后一句没有翻译 再者当前句没有翻译
-                    if self.preprocess(complete_sentences[-1]) not in temp_cache \
-                            and preprocessed_sen not in temp_cache:
+                total_tokens = completion['usage']['total_tokens']
+                translator_cache['en'].append(self.preprocess(sen_to_tran))
+                translator_cache['zh'].append(out_put)
+                messages.append({"role": "assistant", "content": out_put})
 
-                        # 和上次输入开头部分相同
-                        if preprocessed_sen.startswith(startswith):
-                            sen_to_tran.append(' '.join(sen.split()[len(startswith.split()):]))
-                        else:
-                            sen_to_tran.append(sen)
+            # 3. 翻译实时不完整句子 (如果存在)
+            if live_sentence:
+                # 为LLM准备一个提示，表示这是不完整的
+                live_prompt = f'{live_sentence.strip()}...'
 
-                        # 和上次输入结尾部分相同
-                        if preprocessed_sen.endswith(startswith) or not sen_to_tran:
-                            continue
-
-                        startswith = preprocessed_sen
-
-
-                # 翻译完整句子
-                if sen_to_tran:
-                    sen_to_tran = ' '.join(sen_to_tran)
-                    messages.append({"role": "user", "content": sen_to_tran})
-                    completion = self.llm.create_chat_completion(messages, **config.COMPLETION_CONFIG)
-                    out_put = completion['choices'][0]['message']['content'].strip()
-
-                    print(f'======\n输入：{sen_to_tran}\n输出：{out_put}')
-
-                    total_tokens = completion['usage']['total_tokens']
-
-                    translator_cache['en'].append(self.preprocess(sen_to_tran))
-                    translator_cache['zh'].append(out_put)
-
-                    messages.append({"role": "assistant", "content": out_put})
-
-                # 处理最后一句,不完整句子
-                if self.preprocess(live_sentence).startswith(startswith):
-                    live_sentence = ' '.join(live_sentence.split()[len(startswith.split()):])
-
-                if not live_sentence: continue
-
-                if not re.search(r'[.?!]$', live_sentence.strip()):
-                    live_sentence = f'{live_sentence.strip()}...'
-
-                messages.append({"role": "user", "content": live_sentence})
+                # 使用临时消息进行实时翻译，不污染对话历史
+                messages.append({"role": "user", "content": live_prompt})
                 temp_completion = self.llm.create_chat_completion(messages, **config.LIVE_CONFIG)
                 live_out_put = temp_completion['choices'][0]['message']['content'].strip()
-                print(f'------\n输入：{live_sentence}\n输出：{live_out_put}')
                 del messages[-1]  # 删除临时信息
 
-                # 处理字幕文本
+                print(f'\033[94m[实时句翻译]\n输入: {live_sentence}\n输出: {live_out_put}\033[0m')
+
+            # 4. 更新UI队列
+            if live_out_put:
                 self.sub_text_processing(live_out_put, translator_cache)
 
-                # 维护翻译缓存及对话记录
-                translator_cache, messages = self.information_maintenance(translator_cache, total_tokens, n_ctx,
-                                                                          messages)
+            # 5. 维护信息 (token和缓存)
+            translator_cache, messages = self.information_maintenance(translator_cache, total_tokens, n_ctx,
+                                                                      messages)
 
-                #处理循环间隔
-                run_time = time.time() - start_dt
-                print(f"运行时间：{run_time:.2f}秒\t total_tokens:{total_tokens}\n")
+            # 6. 处理循环延时
+            run_time = time.time() - start_dt
+            print(f"--- 循环用时: {run_time:.2f}s | Tokens: {total_tokens} ---\n")
 
-                if run_time < config.DELAY_TIME:
-                    time.sleep(config.DELAY_TIME - run_time)
-            else:
-                time.sleep(0.1)
+            if run_time < config.DELAY_TIME:
+                time.sleep(config.DELAY_TIME - run_time)
 
     def sub_text_processing(self, text, translator_cache):
-        # 处理字幕文本
+        # 将历史记录和当前实时翻译组合后放入队列
         history_to_out = '\n'.join(translator_cache['zh']) + '\n' + text
         self.text_data.put(history_to_out)
 
@@ -175,6 +92,7 @@ class Translator:
         translator_cache['zh'] = translator_cache['zh'][-config.TRANSLATOR_CACHE:]
 
         if total_tokens >= n_ctx - config.AVAILABLE_TOKENS:
+            print("\033[1;33m[警告] Token 上下文接近上限，重置对话历史。\033[0m")
             self.llm.reset()
             if len(messages) > 6:
                 messages = [messages[0]] + messages[-6:]

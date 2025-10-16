@@ -9,10 +9,16 @@ from livecaptions import Get_text
 
 
 class Translator:
-    def __init__(self, text_data_queue: Queue):
+    def __init__(self, text_data_queue: Queue, text_getter: Get_text):
         self.llm = Llama(**config.LLAMA_CONFIG)
-        self.text_getter = Get_text()
+        self.text_getter = text_getter
         self.text_data = text_data_queue
+        self.running = True
+
+    def stop(self):
+        """设置停止标志，用于从外部停止线程"""
+        print("翻译线程收到停止信号...")
+        self.running = False
 
     @staticmethod
     def preprocess(text):
@@ -26,7 +32,7 @@ class Translator:
         total_tokens = 0
         translator_cache = {'en': [], 'zh': []}
 
-        while True:
+        while self.running:
             start_dt = time.time()
 
             # 1. 获取文本块
@@ -67,8 +73,7 @@ class Translator:
                 print(f'\033[94m[实时句翻译]\n输入: {live_sentence}\n输出: {live_out_put}\033[0m')
 
             # 4. 更新UI队列
-            if live_out_put:
-                self.sub_text_processing(live_out_put, translator_cache)
+            self.sub_text_processing(live_out_put, translator_cache)
 
             # 5. 维护信息 (token和缓存)
             translator_cache, messages = self.information_maintenance(translator_cache, total_tokens, n_ctx,
@@ -80,6 +85,8 @@ class Translator:
 
             if run_time < config.DELAY_TIME:
                 time.sleep(config.DELAY_TIME - run_time)
+
+        print("翻译线程已安全退出。")
 
     def sub_text_processing(self, text, translator_cache):
         # 将历史记录和当前实时翻译组合后放入队列

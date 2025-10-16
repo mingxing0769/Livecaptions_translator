@@ -1,12 +1,12 @@
 import re
 import subprocess
 import time
-import win32gui
 import win32con
-import win32api
+import win32gui
 from pywinauto import Desktop
 from pywinauto.findwindows import ElementNotFoundError
 from pywinauto.timings import TimeoutError as PywinautoTimeoutError
+
 import config
 
 # 确保已安装 nltk
@@ -23,13 +23,13 @@ except ImportError:
     nltk.download('punkt')
     print("模型下载完成。")
 
-
 # 定义每个锚点“下一句预览”最多保留的单词数
 NEXT_SENTENCE_PREVIEW_WORDS = 5
 
 
 class Get_text:
     def __init__(self):
+        self.caption_process = None
         self.text_control_wrapper = None
         self.window_wrapper = None
 
@@ -86,71 +86,75 @@ class Get_text:
             if main_list[i:i + sub_len] == sub_list:
                 return i
         return -1
-    
 
-    def get_text(self):
+    def start_livecaptions_windows(self):
         """
-        [优化方案] 使用动态等待和性能分析。
+        使用动态等待和性能分析。
         """
         try:
-            if not self.window_wrapper or not self.window_wrapper.exists():
+
+            if not self.caption_process or self.caption_process.poll() is not None:
                 print("包装器失效或未初始化，开始查找窗口...")
                 try:
-                    subprocess.Popen(self.CAPTION_APP_PATH)
-                    # [优化一] 使用动态等待代替 time.sleep(2)
-                    # 我们给它最多5秒的时间去启动和出现
+                    self.caption_process = subprocess.Popen(self.CAPTION_APP_PATH)
                     print("等待 livecaptions.exe 启动...")
-                    time.sleep(1)  # 等待进程创建
+                    time.sleep(2)  # 给予更充足的启动时间
+
                 except FileNotFoundError:
                     print(f"错误：找不到实时字幕软件，请检查路径：{self.CAPTION_APP_PATH}")
-                    return None
+                    return  # 如果启动失败，直接返回
 
                 desktop = Desktop(backend='uia')
                 print(f"正在使用 pywinauto 查找窗口: '{self.CAPTION_WINDOW_TITLE}'...")
 
                 try:
-                    # 使用 wait 方法，它会轮询直到找到窗口或超时
                     self.window_wrapper = desktop.window(title=self.CAPTION_WINDOW_TITLE)
-                    self.window_wrapper.wait('exists', timeout=5)
                     self.text_control_wrapper = self.window_wrapper.child_window(control_type="Text")
-                    self.text_control_wrapper.wait('exists', timeout=5)
-                except PywinautoTimeoutError:
-                    print("错误：查找窗口或控件超时，将在下次循环重试。")
-                    return ''
+                    print("成功连接到主窗口和文本控件的包装器。")
 
-                print(f"成功连接到主窗口和文本控件的包装器。")
-
-                window_hwnd = self.window_wrapper.handle
-                print(f"提取到主窗口句柄 (HWND: {window_hwnd}) 用于移动。")
-
-                if window_hwnd:
-                    print("将窗口移出屏幕，实现“隐藏”效果...")
-                    try:
-                        win32gui.SetWindowPos(window_hwnd, 0, -2000, -2000, 0, 0,
+                    window_hwnd = self.window_wrapper.handle
+                    if window_hwnd:
+                        print("将窗口移出屏幕，实现“隐藏”效果...")
+                        win32gui.SetWindowPos(window_hwnd, 0, -3000, -3000, 0, 0,
                                               win32con.SWP_NOSIZE | win32con.SWP_NOZORDER)
-                        print("窗口移动成功 (使用 WinAPI SetWindowPos)。")
-                    except Exception as move_error:
-                        print(f"警告：移动窗口失败，它可能会保持可见。错误: {move_error or '无详细错误信息'}")
-                else:
-                    print("警告：未能获取主窗口句柄，无法将其移出屏幕。")
-            
-            text = self.text_control_wrapper.window_text()           
+                        print("窗口移动成功。")
+                    else:
+                        print("警告：未能获取主窗口句柄，无法将其移出屏幕。")
 
-            return ' '.join(text.split()[-300:]).replace("已准备好在 英语(美国) 中显示实时字幕", '').replace('\n',
-                                                                                                             ' ').strip()
+                except (PywinautoTimeoutError, ElementNotFoundError) as e:
+                    print(f"错误：查找窗口或控件超时。错误: {e}")
+                    # 如果查找失败，可能进程启动有问题，终止它
+                    if self.caption_process:
+                        self.caption_process.terminate()
+                        self.caption_process = None
+                    return
 
-        except (ElementNotFoundError, win32api.error, PywinautoTimeoutError) as e:
-            print(f"窗口或控件已关闭/失效，将在下次循环时重试... 错误: {e}")
-            self.window_wrapper = None
-            self.text_control_wrapper = None
-            return ''
         except Exception as e:
-            print(f"获取文本时发生未知错误: {e}")
-            self.window_wrapper = None
-            self.text_control_wrapper = None
-            return ''
+            print(f"start_livecaptions_windows 发生未知错误: {e}")
+            self.shutdown()  # 发生严重错误时，尝试清理
 
-    # ---------------- 锚点与句子处理 ---------------- #
+    def shutdown(self):
+        """在程序退出时，主动关闭 livecaptions.exe 进程"""
+        if self.caption_process and self.caption_process.poll() is None:
+            print("正在关闭 livecaptions.exe 进程...")
+            self.caption_process.terminate()  # 发送终止信号
+            try:
+                # 等待最多2秒，确保进程已关闭
+                self.caption_process.wait(timeout=2)
+                print("livecaptions.exe 已成功关闭。")
+            except subprocess.TimeoutExpired:
+                print("警告：livecaptions.exe 未能在2秒内响应关闭信号，可能需要手动关闭。")
+            self.caption_process = None
+
+    def get_text(self):
+        try:
+            text = self.text_control_wrapper.window_text()
+            return ' '.join(text.split()[-config.MAX_INPUT_WORDS:]).replace("已准备好在 英语(美国) 中显示实时字幕", '').replace('\n', ' ').strip()
+        except Exception as e:
+            # 捕获所有可能的 pywinauto 异常
+            print(f"get_text 发生错误: {e}")
+            return ""
+
 
     def _handle_sentence_batch(self, sentences_to_process, last_incomplete_sentence):
         """
@@ -213,13 +217,15 @@ class Get_text:
             return [], ''
 
         newly_added_sentences = []
-        new_text_to_process = ''
+        live_sentence_fragment = ''
         action_taken = None
 
         # ----------- 首次运行 ----------- #
         if not self.anchor_history:
             action_taken = "[首次运行]"
             newly_added_sentences = self._reset_and_process_all(current_sentences)
+            live_sentence_fragment = current_sentences[-1] if current_sentences else ''
+            return newly_added_sentences, live_sentence_fragment
 
         # ----------- 后续运行 ----------- #
         else:
@@ -300,6 +306,12 @@ class Get_text:
                         new_potential_sentences[-1]
                     )
 
+                    live_sentence_fragment = new_potential_sentences[-1]
+                else:
+                    # 如果只分割出一个或零个句子，说明还没有新的完整句
+                    # 那么整块新文本都是实时句
+                    live_sentence_fragment = new_text_to_process
+
         # --- 打印结果 --- #
         # if newly_added_sentences:
         #     print(f"{'=' * 60}\n原始文本：{raw_text}\n")
@@ -312,13 +324,14 @@ class Get_text:
         #         print(f"  [{idx}] {sent}")
         #     print("=" * 60 + "\n")
 
-        return newly_added_sentences, new_text_to_process
+        return newly_added_sentences, live_sentence_fragment
 
 
 # ---------------- 程序入口 ---------------- #
 if __name__ == "__main__":
     text_getter = Get_text()
     try:
+        text_getter.start_livecaptions_windows()
         while True:
             text_getter.main_event()
             time.sleep(0.5)

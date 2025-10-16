@@ -50,7 +50,7 @@ class PunctuationModel:
         result = ""
         for word, label, _ in prediction:
             result += word
-            if label == "0":
+            if label == "O":   # 数字"0" 或 大写字母"O"  待测试
                 result += " "
             if label in ".,?-:":
                 result += label + " "

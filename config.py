@@ -11,7 +11,7 @@ CAPTION_APP_PATH = os.getenv('caption_path', 'C:\\Windows\\System32\\livecaption
 CAPTION_WINDOW_TITLE = '实时辅助字幕'
 CAPTION_CONTROL_TYPE = "Text"
 MAX_INPUT_WORDS = 300  # 从窗口截取的最大单词数
-SENTENCES_TO_TRANSLATE = 3  # 每次从窗口发送给模型的句子数
+SENTENCES_TO_TRANSLATE = 3  # 每次从窗口发送给模型的句子数 最后一句是不完整句子 不建议设置1
 
 # --- Extended Feature Settings ---
 RESET_PUNCTUATION = False  # 重置标点
@@ -59,19 +59,50 @@ LIVE_CONFIG = {
 }
 
 # --- System Prompt ---
+DRIVERS = """
+| ID | Driver            | Nat. | Car          |
+|----|-------------------|------|--------------|
+| 1  | Oscar Piastri     | AUS  | McLaren      |
+| 2  | Lando Norris      | GBR  | McLaren      |
+| 3  | Max Verstappen    | NED  | Red Bull     |
+| 4  | George Russell    | GBR  | Mercedes     |
+| 5  | Charles Leclerc   | MON  | Ferrari      |
+| 6  | Lewis Hamilton    | GBR  | Ferrari      |
+| 7  | Kimi Antonelli    | ITA  | Mercedes     |
+| 8  | Alexander Albon   | THA  | Williams     |
+| 9  | Esteban Ocon      | FRA  | Haas         |
+| 10 | Lance Stroll      | CAN  | Aston Martin |
+| 11 | Carlos Sainz      | ESP  | Williams     |
+| 12 | Yuki Tsunoda      | JPN  | Red Bull     |
+| 13 | Pierre Gasly      | FRA  | Alpine       |
+| 14 | Isack Hadjar      | FRA  | Racing Bulls |
+| 15 | Nico Hulkenberg   | GER  | Kick Sauber  |
+| 16 | Oliver Bearman    | GBR  | Haas         |
+| 17 | Fernando Alonso   | ESP  | Aston Martin |
+| 18 | Liam Lawson       | NZL  | Racing Bulls |
+| 19 | Gabriel Bortoleto | BRA  | Kick Sauber  |
+| 20 | Franco Colapinto  | ARG  | Alpine       |
+| 21 | Jack Doohan       | AUS  | Alpine       |
+"""
+
+LOCATION = '新加坡'
+F1TV_LIVE_INFO = f"""目前播放的是:F1TV，正在直播{LOCATION}大奖赛正赛。车手名单:{DRIVERS}，车手 Yuki Tsunoda 的中文名是：角田裕毅"""
+EXTENDED_INFO = """目前播放的是:Sky News"""
+
 SYS_PROMPT = f"""你好！现在是中国时间:{now.strftime("%m/%d/%Y, %H:%M")}。
 你是我的同声传译助手，请将实时语音转录的英文文本翻译为简洁、自然、准确的中文。
 请注意以下几点：
-1.**人名规范**：统一格式为'中文译名(英文原名)'，如'维斯塔潘(Verstappen)'。
-2.**自动纠错**：如语音转录出现 同音/近音单词转录错误或语法错误，自动修正为最合理的表达。
+1.**人名规范**：统一格式为'中文译名(英文名)'，如'维斯塔潘(Verstappen)'。
+2.**自动纠错**：如语音转录出现 同音/近音单词转录错误，自动修正为最合理的表达。
 3.**不完整处理**：当输入不完整时，不确定信息暂用'……'代替，待输入更新补充翻译，不要输出任何额外提示。
-4.**翻译一致**：连续翻译时，尽量保持与上下文一致性。
-5.**立场中立**：忠实翻译文本，禁止发表任何观点、评论。
+4.**立场中立**：忠实翻译文本，禁止发表任何观点、评论。
 
 示例：
 The US President Trump said...
-美国总统 特朗普(Trump) 表示……
+美国总统特朗普(Trump)表示……
 """
+#
+LIVE_PROMPT = """"""
 
 # --- Translation Logic Settings ---
 AVAILABLE_TOKENS = 256  # n_ctx-total_tokens<AVAILABLE_TOKENS 时重置历史记录
@@ -88,5 +119,3 @@ MAX_WINDOW_WIDTH = 1200  # 最大窗口Width
 UPDATE_INTERVAL_MS = 50  # UI刷新率
 DISPLAY_LINES = 3  #字幕显示行数
 ScrollBarPolicy = False  #是否显示滚动条
-
-

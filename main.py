@@ -1,4 +1,4 @@
-# E:/Python/PythonProject/main.py (最终集成版)
+# E:/Python/PythonProject/main.py
 
 import sys
 import threading
@@ -14,38 +14,59 @@ import config
 
 class MainApplication:
     """
-    封装主应用程序逻辑，以便在设置完成后启动。
-    这有助于管理窗口、线程等对象的生命周期。
+    封装主应用程序逻辑，管理窗口、线程和应用状态。
     """
-
-    # --- 修改这里 (1/3) ---
-    # 让 MainApplication 持有 Get_text 实例
-    def __init__(self, text_getter: Get_text):
+    # <--- 修改：传入 settings_window 实例 ---
+    def __init__(self, text_getter: Get_text, settings_window: SettingsWindow):
         self.translator = None
         self.translate_thread = None
         self.subtitle_window = None
-        self.text_getter = text_getter  # 保存传入的实例
+        self.text_getter = text_getter
+        self.settings_window = settings_window  # 保存对设置窗口的引用
+
+        # <--- 新增：应用状态变量 ---
+        self.is_translating = False
+
+    # <--- 新增：切换翻译状态的核心方法 ---
+    def toggle_translation_process(self):
+        """根据当前状态，开始或停止翻译。"""
+        if self.is_translating:
+            self.stop_translation_process()
+        else:
+            self.start_translation_process()
 
     def start_translation_process(self):
         """
-        这是应用程序的核心启动方法。
-        它会在接收到来自设置窗口的信号后被调用。
+        启动翻译流程：加载配置、创建实例、启动线程和窗口。
         """
+        if self.is_translating:
+            print("翻译已在运行中。")
+            return
+
         print("收到启动信号，正在初始化翻译程序...")
 
+        # 禁用UI控件并更新按钮文本
+        self.settings_window.set_controls_enabled(False)
+
         # 关键步骤：重新加载配置模块
-        # 这可以确保刚才在UI上保存的设置被正确加载
         importlib.reload(config)
         print("配置已重新加载。")
 
-        # --- 以下是你原来 main 函数的核心逻辑 ---
+
+        # 启动实时辅助字幕程序
+        self.text_getter.start_livecaptions_windows()
 
         # 创建共享的 Queue
         text_data_queue = Queue()
 
-        # --- 修改这里 (2/3) ---
-        # 创建 Translator 实例时，将 text_getter 实例传递进去
-        self.translator = Translator(text_data_queue, self.text_getter)
+        # 创建 Translator 实例
+        try:
+            self.translator = Translator(text_data_queue, self.text_getter)
+        except Exception as e:
+            print(f"\033[91m错误：初始化 Translator 失败！请检查模型路径和配置。 {e}\033[0m")
+            # 如果初始化失败，需要恢复UI状态
+            self.settings_window.set_controls_enabled(True)
+            return
 
         # 创建并启动翻译线程
         self.translate_thread = threading.Thread(target=self.translator.model_translate)
@@ -58,46 +79,81 @@ class MainApplication:
         self.subtitle_window.show()
         print("字幕窗口已显示。")
 
-    def cleanup(self):
-        """在应用退出前被调用，用于安全地停止后台线程。"""
-        print("应用程序即将退出，正在停止翻译线程...")
+        # <--- 新增：更新状态 ---
+        self.is_translating = True
+
+    # <--- 新增：停止翻译流程的方法 ---
+    def stop_translation_process(self):
+        """安全地停止翻译线程和相关窗口。"""
+        if not self.is_translating:
+            print("翻译尚未开始。")
+            return
+
+        print("收到停止信号，正在停止翻译...")
+
+        # 1. 停止翻译线程
         if self.translator:
-            self.translator.stop()  # 在 Translator 类中设置停止标志
+            self.translator.stop()
 
         if self.translate_thread and self.translate_thread.is_alive():
-            # 等待线程最多5秒钟，然后主程序退出
-            self.translate_thread.join(timeout=5)
+            self.translate_thread.join(timeout=2)  # 等待线程结束
             if self.translate_thread.is_alive():
                 print("警告：翻译线程在超时后仍未退出。")
             else:
                 print("翻译线程已成功停止。")
+
+        # 2. 关闭字幕窗口
+        if self.subtitle_window:
+            self.subtitle_window.close()
+            print("字幕窗口已关闭。")
+
+        # 关闭实时辅助字幕
+        self.text_getter.shutdown()
+
+        # 3. 清理实例
+        self.translator = None
+        self.translate_thread = None
+        self.subtitle_window = None
+
+        # 4. 更新状态并恢复UI
+        self.is_translating = False
+        self.settings_window.set_controls_enabled(True)
+        print("翻译已停止，UI控件已解锁。")
+
+    def cleanup(self):
+        """在应用退出前被调用，用于安全地停止所有后台进程。"""
+        print("应用程序即将退出...")
+        # 如果翻译仍在运行，则停止它
+        if self.is_translating:
+            self.stop_translation_process()
+
+        # 停止字幕源
+        if self.text_getter:
+            self.text_getter.shutdown()
+
+        print("清理完成，程序退出。")
 
 
 def main():
     try:
         app = QApplication(sys.argv)
 
-        # 1. 创建唯一的 Get_text 实例
+        # 1. 创建 Get_text 实例并初始化
         get_text_app = Get_text()
-        # 2. 初始化它
-        get_text_app.start_livecaptions_windows()
 
-        # --- 修改这里 (3/3) ---
-        # 3. 将这个唯一的实例传递给 MainApplication
-        main_app = MainApplication(get_text_app)
-
+        # 2. 创建设置窗口
         settings_window = SettingsWindow()
-
-        # 将设置窗口的 "start_requested" 信号连接到主应用的启动方法上
-        settings_window.start_requested.connect(main_app.start_translation_process)
-
-        # 连接 aboutToQuit 信号到清理函数，实现优雅退出
-        app.aboutToQuit.connect(main_app.cleanup)
-
-        # 显示设置窗口
         settings_window.show()
 
-        # 启动 Qt 事件循环 (PyQt5 中是 exec_())
+        # 3. 创建主应用实例，并传入字幕源和设置窗口的引用
+        main_app = MainApplication(get_text_app, settings_window)
+
+        # 4. 将设置窗口的 "toggle" 信号连接到主应用的 "toggle" 方法上
+        settings_window.toggle_translation_requested.connect(main_app.toggle_translation_process)
+
+        # 5. 连接 aboutToQuit 信号到清理函数，实现优雅退出
+        app.aboutToQuit.connect(main_app.cleanup)
+
         sys.exit(app.exec_())
 
     except Exception as e:

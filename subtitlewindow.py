@@ -68,7 +68,8 @@ class SubtitleWindow(QWidget):
 
         # 设置初始高度
         font_metrics = self.text_display.fontMetrics()
-        initial_height = int(font_metrics.height() * config.DISPLAY_LINES)
+        vertical_padding = 4
+        initial_height = int(font_metrics.lineSpacing() * config.DISPLAY_LINES) + vertical_padding
         self.text_display.setMinimumHeight(initial_height)
 
         # 设置样式

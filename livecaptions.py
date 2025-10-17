@@ -112,14 +112,15 @@ class Get_text:
                     self.text_control_wrapper = self.window_wrapper.child_window(control_type="Text")
                     print("成功连接到主窗口和文本控件的包装器。")
 
-                    window_hwnd = self.window_wrapper.handle
-                    if window_hwnd:
-                        print("将窗口移出屏幕，实现“隐藏”效果...")
-                        win32gui.SetWindowPos(window_hwnd, 0, -3000, -3000, 0, 0,
-                                              win32con.SWP_NOSIZE | win32con.SWP_NOZORDER)
-                        print("窗口移动成功。")
-                    else:
-                        print("警告：未能获取主窗口句柄，无法将其移出屏幕。")
+                    if config.HIDE_LIVECAPTIONS_WINDOW:
+                        window_hwnd = self.window_wrapper.handle
+                        if window_hwnd:
+                            print("将窗口移出屏幕，实现“隐藏”效果...")
+                            win32gui.SetWindowPos(window_hwnd, 0, -3000, -3000, 0, 0,
+                                                  win32con.SWP_NOSIZE | win32con.SWP_NOZORDER)
+                            print("窗口移动成功。")
+                        else:
+                            print("警告：未能获取主窗口句柄，无法将其移出屏幕。")
 
                 except (PywinautoTimeoutError, ElementNotFoundError) as e:
                     print(f"错误：查找窗口或控件超时。错误: {e}")
@@ -199,7 +200,7 @@ class Get_text:
         self.anchor_history.clear()
 
         if len(current_sentences) > 1:
-            return self._handle_sentence_batch(current_sentences[-3:-1], current_sentences[-1])
+            return self._handle_sentence_batch(current_sentences[-5:-1], current_sentences[-1])
         return []
 
     # ---------------- 主循环逻辑 ---------------- #
@@ -257,19 +258,24 @@ class Get_text:
                     )
 
                     if next_preview_start_idx != -1:
-                        action_taken = "[修正流程]"
-                        print(f"\033[93m  [调试] {action_taken} 启动！使用上下文重构锚点...\033[0m")
-
                         reconstructed_words = current_text_words[prev_anchor_end_idx:next_preview_start_idx]
 
-                        print(f"    旧锚点: {latest_anchor['words']}")
-                        print(f"    新锚点: {reconstructed_words}")
+                        # --- 漏洞修复点：只有当重构结果非空时才更新锚点 ---
+                        if reconstructed_words:  # 确保重构的词列表不为空
+                            action_taken = "[修正流程]"
+                            print(f"\033[93m  [调试] {action_taken} 启动！使用上下文重构锚点...\033[0m")
 
-                        self.anchor_history[-1]['words'] = reconstructed_words
-                        latest_anchor = self.anchor_history[-1]
-                        anchor_end_word_index = self.find_last_sublist_end_index(current_text_words,
-                                                                                 latest_anchor['words'])
+                            print(f"    旧锚点: {latest_anchor['words']}")
+                            print(f"    新锚点: {reconstructed_words}")
 
+                            self.anchor_history[-1]['words'] = reconstructed_words
+                            latest_anchor = self.anchor_history[-1]  # 更新本地引用
+                            anchor_end_word_index = self.find_last_sublist_end_index(current_text_words,
+                                                                                     latest_anchor['words'])
+                        else:
+                            # 如果重构结果为空，说明修正失败，不更新锚点，让其进入“重大跳跃”逻辑
+                            print(f"\033[91m  [调试] [修正流程] 失败：重构词列表为空。将尝试重大跳跃。\033[0m")
+                            action_taken = None  # 重置 action_taken，以便触发后续的“重大跳跃”
                 else:
                     # 降级方案：若前锚点也失效但 next_preview 还存在
                     next_preview_start_idx = self.find_first_sublist_start_index(
@@ -312,18 +318,6 @@ class Get_text:
                     # 那么整块新文本都是实时句
                     live_sentence_fragment = new_text_to_process
 
-        # --- 打印结果 --- #
-        # if newly_added_sentences:
-        #     print(f"{'=' * 60}\n原始文本：{raw_text}\n")
-        #     print("=" * 60)
-        #     print(f"【本轮新增句子】({action_taken}):")
-        #     for sent in newly_added_sentences:
-        #         print(f"  -> {sent}")
-        #     print("\n【当前句子总列表（最近3句）】: ")
-        #     for idx, sent in enumerate(self.total_sentences_list[-3:]):
-        #         print(f"  [{idx}] {sent}")
-        #     print("=" * 60 + "\n")
-
         return newly_added_sentences, live_sentence_fragment
 
 
@@ -336,4 +330,5 @@ if __name__ == "__main__":
             text_getter.main_event()
             time.sleep(0.5)
     except KeyboardInterrupt:
+        text_getter.shutdown()
         print("\n程序已停止。")

@@ -21,6 +21,9 @@ Ideal for meetings, livestreams, and educational scenarios.
 
 ---
 
+## 流程 | workflow
+![](images/workflow.png)
+
 ## 🚀 功能亮点 | Key Features
 
 - 🎯 实时捕捉 Windows Live Captions 内容  

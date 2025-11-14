@@ -6,8 +6,8 @@
 
 本项目是一个运行于 Windows 平台的桌面应用程序，旨在提供实时的同声传译功能。它能够捕捉系统内置“实时辅助字幕”功能所转录的英文文本，将其发送至一个大型语言模型（LLM）进行翻译，并将翻译结果显示在一个可自定义的、置顶的字幕窗口中。
 
-![项目截图](https://user-images.githubusercontent.com/your-username/your-repo/assets/screenshot.png)
-*(建议：请将此处的图片链接替换为你自己项目的截图)*
+![项目截图](https://github.com/mingxing0769/Livecaptions_translator/blob/main/images/livecaption_demo.png)
+
 
 ---
 
@@ -72,5 +72,6 @@
 
     
 ## 📄 许可证
+
 
 本项目采用 MIT License 授权。

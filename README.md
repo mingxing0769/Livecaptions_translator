@@ -8,7 +8,7 @@
 
 ![项目截图](https://github.com/mingxing0769/Livecaptions_translator/blob/main/images/livecaption_demo.png)
 
-(ttps://github.com/mingxing0769/Livecaptions_translator/blob/main/images/ui.png)
+(https://github.com/mingxing0769/Livecaptions_translator/blob/main/images/ui.png)
 
 
 ---
@@ -77,4 +77,5 @@
 
 
 本项目采用 MIT License 授权。
+
 

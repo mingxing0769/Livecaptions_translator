@@ -2,12 +2,13 @@ from PyQt5.QtCore import Qt, QTimer
 from PyQt5.QtGui import QFont, QColor
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QSizeGrip, QTextEdit, QSizePolicy, \
     QGraphicsDropShadowEffect
-
-import config
+import configparser
 
 class SubtitleWindow(QWidget):
     def __init__(self, text_data):
         super().__init__()
+        self.config = configparser.ConfigParser()
+        self.config.read('config.ini', encoding='utf-8')
         self.background_widget = None
         self.size_grip = None
         self.drag_position = None
@@ -18,22 +19,30 @@ class SubtitleWindow(QWidget):
 
         self.timer: QTimer = QTimer()
         self.timer.timeout.connect(self.update_text)
-        self.timer.start(config.UPDATE_INTERVAL_MS)
+        update_interval = self.config.getint('Display_set', 'update_interval_ms', fallback=50)
+        self.timer.start(update_interval)
 
     def setup_ui(self):
+        # 读取配置
+        initial_geometry = (
+            self.config.getint('Display_set', 'x', fallback=390),
+            self.config.getint('Display_set', 'y', fallback=700),
+            self.config.getint('Display_set', 'width', fallback=1000),
+            self.config.getint('Display_set', 'height', fallback=80)
+        )
+        bg_color = self.config.get('Display_set', 'background_color', fallback='0, 0, 0, 70')
+        max_width = self.config.getint('Display_set', 'max_window_width', fallback=1200)
+
         self.setWindowFlags(Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint)
         self.setAttribute(Qt.WA_TranslucentBackground)
-        self.setGeometry(*config.INITIAL_WINDOW_GEOMETRY)
+        self.setGeometry(*initial_geometry)
 
         main_layout = QVBoxLayout(self)
         main_layout.setContentsMargins(0, 0, 0, 0)
 
         self.background_widget = QWidget()
-        self.background_widget.setStyleSheet(f"""
-            background-color: rgba{config.BACKGROUND_COLOR};
-            border-radius: 5px;
-        """)
-        self.background_widget.setMaximumWidth(config.MAX_WINDOW_WIDTH)
+        self.background_widget.setStyleSheet(f"background-color: rgba({bg_color}); border-radius: 5px;")
+        self.background_widget.setMaximumWidth(max_width)
 
         # 添加阴影效果
         shadow = QGraphicsDropShadowEffect()
@@ -55,10 +64,13 @@ class SubtitleWindow(QWidget):
         self.text_display = QTextEdit()
         self.text_display.setReadOnly(True)
         self.text_display.setTextInteractionFlags(Qt.NoTextInteraction)
-        self.text_display.setFont(QFont(config.FONT_FAMILY, config.FONT_SIZE))
+        font_family = self.config.get('Display_set', 'font_family', fallback='微软雅黑')
+        font_size = self.config.getint('Display_set', 'font_size', fallback=15)
+        self.text_display.setFont(QFont(font_family, font_size))
 
         #是否显示 滚动条
-        if config.ScrollBarPolicy:
+        scrollbar_policy = self.config.getboolean('Display_set', 'scrollbarpolicy', fallback=False)
+        if scrollbar_policy:
             self.text_display.setVerticalScrollBarPolicy(Qt.ScrollBarAsNeeded)
         else:
             self.text_display.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
@@ -68,8 +80,9 @@ class SubtitleWindow(QWidget):
 
         # 设置初始高度
         font_metrics = self.text_display.fontMetrics()
+        display_lines = self.config.getint('Display_set', 'display_lines', fallback=3)
         vertical_padding = 4
-        initial_height = int(font_metrics.lineSpacing() * config.DISPLAY_LINES) + vertical_padding
+        initial_height = int(font_metrics.lineSpacing() * display_lines) + vertical_padding
         self.text_display.setMinimumHeight(initial_height)
 
         # 设置样式
@@ -138,11 +151,13 @@ class SubtitleWindow(QWidget):
     def mouseReleaseEvent(self, event):
         self.drag_position = None
 
-    def mouseDoubleClickEvent(self, event):
-        """双击关闭窗口"""
-        if event.button() == Qt.LeftButton:
-            self.close()
+    # def mouseDoubleClickEvent(self, event):
+    #     """双击关闭窗口"""
+    #     if event.button() == Qt.LeftButton:
+    #         from main import MainApplication
+    #         main_app = MainApplication()
+    #         main_app.stop_translation_process()
+
 
     def resizeEvent(self, event):
         super().resizeEvent(event)
-

@@ -2,14 +2,15 @@
 
 import sys
 import threading
-import importlib
 from queue import Queue
+
 from PyQt5.QtWidgets import QApplication
+
+import configparser
 from livecaptions import Get_text
 from settings_ui import SettingsWindow
 from subtitlewindow import SubtitleWindow
 from translator import Translator
-import config
 
 
 class MainApplication:
@@ -48,10 +49,8 @@ class MainApplication:
         # 禁用UI控件并更新按钮文本
         self.settings_window.set_controls_enabled(False)
 
-        # 关键步骤：重新加载配置模块
-        importlib.reload(config)
-        print("配置已重新加载。")
-
+        # 关键：重新加载 Get_text 的配置，以应用最新的UI设置
+        self.text_getter.reload_config()
 
         # 启动实时辅助字幕程序
         self.text_getter.start_livecaptions_windows()
@@ -59,9 +58,18 @@ class MainApplication:
         # 创建共享的 Queue
         text_data_queue = Queue()
 
+        # 创建并显示字幕窗口
+        self.subtitle_window = SubtitleWindow(text_data_queue)
+        self.subtitle_window.show()
+        print("字幕窗口已显示。")
+
+
         # 创建 Translator 实例
         try:
-            self.translator = Translator(text_data_queue, self.text_getter)
+            # 关键：每次启动都重新加载最新的配置
+            latest_config = configparser.ConfigParser()
+            latest_config.read('config.ini', encoding='utf-8')
+            self.translator = Translator(latest_config, text_data_queue, self.text_getter)
         except Exception as e:
             print(f"\033[91m错误：初始化 Translator 失败！请检查模型路径和配置。 {e}\033[0m")
             # 如果初始化失败，需要恢复UI状态
@@ -69,15 +77,11 @@ class MainApplication:
             return
 
         # 创建并启动翻译线程
+        # self.translator.model_translate()
         self.translate_thread = threading.Thread(target=self.translator.model_translate)
         self.translate_thread.daemon = True
         self.translate_thread.start()
         print("翻译线程已启动。")
-
-        # 创建并显示字幕窗口
-        self.subtitle_window = SubtitleWindow(text_data_queue)
-        self.subtitle_window.show()
-        print("字幕窗口已显示。")
 
         # <--- 新增：更新状态 ---
         self.is_translating = True
@@ -96,7 +100,7 @@ class MainApplication:
             self.translator.stop()
 
         if self.translate_thread and self.translate_thread.is_alive():
-            self.translate_thread.join(timeout=2)  # 等待线程结束
+            self.translate_thread.join(timeout=5)  # 等待线程结束
             if self.translate_thread.is_alive():
                 print("警告：翻译线程在超时后仍未退出。")
             else:

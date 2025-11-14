@@ -7,9 +7,9 @@ import psutil
 import uiautomation as auto
 import win32con
 import win32gui
+import os
+import configparser
 from uiautomation import UIAutomationInitializerInThread
-
-import config
 
 # 确保已安装 nltk
 try:
@@ -31,9 +31,12 @@ NEXT_SENTENCE_PREVIEW_WORDS = 5
 
 class Get_text:
     def __init__(self):
-        # 从 config.py 读取实时字幕软件路径和窗口标题
-        self.CAPTION_APP_PATH = config.CAPTION_APP_PATH
-        self.CAPTION_WINDOW_TITLE = config.CAPTION_WINDOW_TITLE
+        self.config = configparser.ConfigParser()
+        self.reload_config() # 初始化时加载一次配置
+
+        # Windows Live Captions
+        self.CAPTION_APP_PATH = os.getenv('caption_path', 'C:\\Windows\\System32\\livecaptions.exe')
+        self.CAPTION_WINDOW_TITLE = '实时辅助字幕'
 
         # 存储所有完整句子
         self.total_sentences_list = []
@@ -42,6 +45,12 @@ class Get_text:
         # 存储上一次抓到的完整原始文本
         self.previous_raw_text = ""
 
+    def reload_config(self):
+        """从 config.ini 重新加载配置"""
+        self.config.read('config.ini', encoding='utf-8')
+        self.MAX_INPUT_WORDS = self.config.getint('Logic', 'max_input_words', fallback=300)
+        self.HIDE_LIVECAPTIONS_WINDOW = self.config.getboolean("Display_set", "hide_livecaptions_window", fallback=True)
+        print("Get_text 配置已重新加载。")
 
 
     def start_livecaptions_windows(self):
@@ -62,7 +71,7 @@ class Get_text:
                     print(f"错误：找不到实时字幕软件，请检查路径：{self.CAPTION_APP_PATH}")
                     return
 
-            if config.HIDE_LIVECAPTIONS_WINDOW:
+            if self.HIDE_LIVECAPTIONS_WINDOW:
                 win32gui.SetWindowPos(window.NativeWindowHandle, 0, -3000, -3000, 0, 0,
                                       win32con.SWP_NOSIZE | win32con.SWP_NOZORDER)
                 print("窗口移动成功。")
@@ -116,7 +125,7 @@ class Get_text:
                         print("⚠️ Live Captions 窗口已关闭，正在尝试重启...")
                         self.start_livecaptions_windows()
 
-                return ' '.join(text.split()[-config.MAX_INPUT_WORDS:]).replace("已准备好在 英语(美国) 中显示实时字幕",
+                return ' '.join(text.split()[-self.MAX_INPUT_WORDS:]).replace("已准备好在 英语(美国) 中显示实时字幕",
                                                                                 '').replace('\n', ' ').strip()
 
         except concurrent.futures.TimeoutError:
@@ -217,11 +226,9 @@ class Get_text:
 
     # ---------------- 主循环逻辑 ---------------- #
 
-    def main_event(self):
+    def main_event(self, raw_text: str):
         """实时抓取文本 + 上下文锚点逻辑"""
-        raw_text = self.get_text()
         if not raw_text or raw_text == self.previous_raw_text:
-            # time.sleep(0.5)
             return [], ''
 
         self.previous_raw_text = raw_text
@@ -339,7 +346,8 @@ if __name__ == "__main__":
     try:
         text_getter.start_livecaptions_windows()
         while True:
-            text_getter.main_event()
+            new_raw_text = text_getter.get_text()
+            text_getter.main_event(new_raw_text)
             time.sleep(0.5)
     except KeyboardInterrupt:
         text_getter.shutdown()

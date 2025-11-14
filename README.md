@@ -8,7 +8,7 @@
 
 ![项目截图](https://github.com/mingxing0769/Livecaptions_translator/blob/main/images/livecaption_demo.png)
 
-(https://github.com/mingxing0769/Livecaptions_translator/blob/main/images/ui.png)
+![项目截图](https://github.com/mingxing0769/Livecaptions_translator/blob/main/images/ui.png)
 
 
 ---

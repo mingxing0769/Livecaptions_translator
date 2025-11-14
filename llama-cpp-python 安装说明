@@ -1,2 +1,0 @@
-$env:CMAKE_ARGS = "-DGGML_CUDA=on -DCMAKE_C_COMPILER=cl"
-pip install --upgrade --force-reinstall --no-cache-dir llama-cpp-python --verbose

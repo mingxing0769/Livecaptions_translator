@@ -54,7 +54,7 @@
 
 1.  确保你的语言模型服务正在运行。
 2.  在 Windows 中启动“实时辅助字幕”（快捷键 `Win + Ctrl + L`）。
-3.  运行主程序：main.py
+3.  运行主程序：python main.py
 4.  程序会首先启动“参数设置”窗口。检查配置无误后，点击 **“开始翻译”**。
 5.  一个半透明的字幕窗口会出现在屏幕上，开始显示实时翻译结果。
 6.  你可以随时在设置窗口中修改参数，点击 **“保存”**，然后“停止”再“开始”翻译以应用新设置。
@@ -64,18 +64,22 @@
 如果你希望将项目打包成一个独立的可执行文件，可以按照以下步骤操作：
 
 1.  确保 `pyinstaller` 已安装：pip install pyinstaller
-2.  找到 NLTK `punkt` 数据包的本地路径。运行 `find_nltk_path.py` 脚本： python find_nltk_path.py
-    复制输出的完整路径。
+2.  找到 NLTK `punkt` 数据包的本地路径。运行 `find_nltk_path.py` 脚本：
+  
+    python find_nltk_path.py
+    
+    复制输出的完整路径。如：
     "C:\Users\***\AppData\Roaming\nltk_data\tokenizers\punkt"    
 
 3.  在项目根目录执行以下打包命令（**请务必将 NLTK 路径替换为你自己的**）：
     **示例:**
-     pyinstaller --name "实时翻译" --onefile --windowed --icon="logo/t.png" --add-data "config.ini;." --add-data "C:\Users\***\AppData\Roaming\nltk_data\tokenizers\punkt;nltk_data/tokenizers/punkt" main.py
+     pyinstaller --name "实时翻译" --onefile --windowed --icon="logo/t.png" --add-data "config.ini;." --add-data C:\Users\***\AppData\Roaming\nltk_data\tokenizers\punkt; nltk_data/tokenizers/punkt" main.py
 
     
 ## 📄 许可证
 
 
 本项目采用 MIT License 授权。
+
 
 

@@ -6,8 +6,6 @@
 本项目是一个运行于 Windows 平台的桌面应用程序，旨在提供实时的同声传译功能。它能够捕捉系统内置“实时辅助字幕”功能所转录的英文文本，将其发送至一个大型语言模型（LLM）进行翻译，并将翻译结果显示在一个可自定义的、置顶的字幕窗口中。
 
 ![项目截图](https://github.com/mingxing0769/Livecaptions_translator/blob/main/images/livecaption_demo.png)
-我看到了，你正在编辑 **Livecaptions_translator** 项目的 README 文件，内容已经有了，但排版和格式可能有点乱。别担心，我帮你整理一个更清晰、规范的 Markdown 结构，你可以直接复制到 GitHub 编辑器里。
-
 ![项目截图](https://github.com/mingxing0769/Livecaptions_translator/blob/main/images/ui.png)
 
 
@@ -103,5 +101,6 @@ nltk.download('punkt')
 这样排版后，README 会更清晰、易读，GitHub 上也会显示漂亮的标题、代码块和分隔线。  
 
 要不要我帮你再加一个 **中英文双语版本**，让国际用户也能快速上手？
+
 
 

@@ -24,6 +24,14 @@
 5. 一个半透明的字幕窗口会出现在屏幕上，显示实时翻译结果  
 6. 你可以在设置窗口中/或打开config.ini 修改参数.  
 
+  
+  本地LLM API服务：
+  使用llama-server、Ollama 或 LM Studio都可以。
+  模型建议 ：
+  ERNIE-4.5-21B-A3B-PT-UD-Q3_K_XL.gguf
+  Qwen3-VL-30B-A3B-Instruct-UD-Q3_K_XL.gguf
+  低配置电脑 可以用2bit量化版 效果都差不多。 
+  
 ---
 
 
@@ -33,6 +41,7 @@
 
 ## 📄 许可证
 本项目采用 **MIT License** 授权。
+
 
 
 

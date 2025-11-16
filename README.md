@@ -51,7 +51,7 @@ nltk.download('punkt')
 ---
 
 ## ▶️ 使用方法
-1. 从Releases 下载压缩包 解压到任意目录
+1. 从Releases 下载 default.zip 压缩包 解压到任意目录
 2. 确保你的语言模型服务正在运行  
 3. 运行主程序： 实时语音.exe
 4. 程序会启动“参数设置”窗口，设置正常的API参数后，点击 **开始翻译**  
@@ -92,6 +92,7 @@ nltk.download('punkt')
 
 ## 📄 许可证
 本项目采用 **MIT License** 授权。
+
 
 
 

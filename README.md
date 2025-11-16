@@ -5,48 +5,14 @@
 
 本项目是一个运行于 Windows 平台的桌面应用程序，旨在提供实时的同声传译功能。它能够捕捉系统内置“实时辅助字幕”功能所转录的英文文本，将其发送至一个大型语言模型（LLM）进行翻译，并将翻译结果显示在一个可自定义的、置顶的字幕窗口中。
 
-![项目截图](https://github.com/mingxing0769/Livecaptions_translator/blob/main/images/livecaption_demo.png)
+
+
 ![项目截图](https://github.com/mingxing0769/Livecaptions_translator/blob/main/images/ui.png)
 
 
----
+![项目截图](https://github.com/mingxing0769/Livecaptions_translator/blob/main/images/livecaption_demo.png)
 
-## 🚀 安装与配置
 
-### 1. 克隆项目
-```bash
-git clone https://github.com/mingxing0769/Livecaptions_translator.git
-cd Livecaptions_translator
-```
-
-### 2. 创建并激活虚拟环境
-```bash
-python -m venv venv
-source venv/bin/activate   # Linux / macOS
-venv\Scripts\activate      # Windows
-```
-
-### 3. 安装依赖
-项目所需的所有依赖都已在 `requirements.txt` 文件中列出：
-```bash
-pip install -r requirements.txt
-```
-
-### 4. 下载 NLTK 数据包
-项目使用 NLTK 库进行英文分句，需要下载 `punkt` 数据模型：
-```python
-import nltk
-nltk.download('punkt')
-```
-
-### 5. 配置 `config.ini`
-在首次运行前，请打开项目根目录下的 `config.ini` 文件，并至少完成以下核心配置：
-- [Server]
-- [COMPLETION_CONFIG]
-- [LIVE_CONFIG]
-- [Prompt_...]
-
-你可以根据需要调整其他参数。
 
 ---
 
@@ -60,31 +26,6 @@ nltk.download('punkt')
 
 ---
 
-## 📦 打包为 .exe
-
-如果你希望将项目打包成一个独立的可执行文件，可以按照以下步骤操作：
-
-1. 确保 `pyinstaller` 已安装：
-   ```bash
-   pip install pyinstaller
-   ```
-2. 找到 NLTK `punkt` 数据包的本地路径，运行：
-   ```bash
-   python find_nltk_path.py
-   ```
-   复制输出的完整路径，如：
-   ```
-   C:\Users\***\AppData\Roaming\nltk_data\tokenizers\punkt
-   ```
-3. 在项目根目录执行以下打包命令（请替换为你自己的路径）：
-   ```bash
-   pyinstaller --name "实时翻译" --onefile --windowed --icon="logo/t.png" \
-   --add-data "config.ini;." \
-   --add-data "C:\Users\***\AppData\Roaming\nltk_data\tokenizers\punkt;nltk_data/tokenizers/punkt" \
-   main.py
-   ```
-
----
 
 ### 特别说明:
 本项目,原本个人爱好和需要完成部分,后来大部分由AI补充改写,个人使用也因水平有限.代码可能存在问题.
@@ -92,6 +33,7 @@ nltk.download('punkt')
 
 ## 📄 许可证
 本项目采用 **MIT License** 授权。
+
 
 
 

@@ -52,9 +52,6 @@ class SettingsWindow(QWidget):
         self.delay_time_spinbox = QDoubleSpinBox()
         self.delay_time_spinbox.setRange(0.1, 10.0)
         self.delay_time_spinbox.setSingleStep(0.1)
-        self.max_input_words_spinbox = QSpinBox()
-        self.max_input_words_spinbox.setRange(50,500)
-        self.max_input_words_spinbox.setSingleStep(5)
 
         # [Display_set]
         self.font_family_edit = QLineEdit()
@@ -63,7 +60,7 @@ class SettingsWindow(QWidget):
         self.display_lines_spinbox = QSpinBox()
         self.display_lines_spinbox.setRange(1, 20)
         self.scrollbar_policy_checkbox = QCheckBox("显示滚动条")
-        self.livecaptions_window_policy_checkbox = QCheckBox("隐藏实时辅助字幕窗口")
+        self.livecaptions_window_policy_checkbox = QCheckBox("隐藏 实时辅助字幕")
 
         # [Prompts]
         self.prompt_selector = QComboBox()
@@ -81,7 +78,7 @@ class SettingsWindow(QWidget):
             self.base_url_edit, self.api_key_edit, self.model_name_edit, self.model_context_spinbox,
             self.comp_temp_spinbox, self.comp_tokens_spinbox,
             self.live_temp_spinbox, self.live_tokens_spinbox,
-            self.available_tokens_spinbox, self.delay_time_spinbox,self.max_input_words_spinbox,
+            self.available_tokens_spinbox, self.delay_time_spinbox,
             self.font_family_edit, self.font_size_spinbox, self.display_lines_spinbox,
             self.scrollbar_policy_checkbox, self.livecaptions_window_policy_checkbox, self.save_button,
             self.prompt_selector, self.prompt_name_edit, self.prompt_content_edit
@@ -118,7 +115,6 @@ class SettingsWindow(QWidget):
         logic_layout = QFormLayout()
         logic_layout.addRow("上下文重置阈值:", self.available_tokens_spinbox)
         logic_layout.addRow("翻译间隔 (秒):", self.delay_time_spinbox)
-        logic_layout.addRow("输入字数:", self.max_input_words_spinbox)
         logic_group.setLayout(logic_layout)
 
         # Display Group
@@ -198,7 +194,6 @@ class SettingsWindow(QWidget):
         # Logic
         self.available_tokens_spinbox.setValue(self.config_parser.getint('Logic', 'available_tokens', fallback=256))
         self.delay_time_spinbox.setValue(self.config_parser.getfloat('Logic', 'delay_time', fallback=1.0))
-        self.max_input_words_spinbox.setValue(self.config_parser.getint('Logic', 'max_input_words', fallback=300))
         # Display
         self.font_family_edit.setText(self.config_parser.get('Display_set', 'font_family', fallback='微软雅黑'))
         self.font_size_spinbox.setValue(self.config_parser.getint('Display_set', 'font_size', fallback=15))
@@ -237,7 +232,6 @@ class SettingsWindow(QWidget):
             # Logic
             self.config_parser.set('Logic', 'available_tokens', str(self.available_tokens_spinbox.value()))
             self.config_parser.set('Logic', 'delay_time', str(self.delay_time_spinbox.value()))
-            self.config_parser.set('Logic', 'max_input_words', str(self.max_input_words_spinbox.value()))
 
             # 确保写入的值是字符串
             active_prompt_data = self.prompt_selector.currentData()
@@ -254,7 +248,7 @@ class SettingsWindow(QWidget):
             if current_prompt_section:
                 self.config_parser.set(current_prompt_section, 'name', self.prompt_name_edit.text())
                 content = self.prompt_content_edit.toPlainText()
-                formatted_content = '\n|' + '\n|'.join(content.split('\n')) if content else ''
+                formatted_content = '\n'.join(content.split('\n')) if content else ''
                 self.config_parser.set(current_prompt_section, 'content', formatted_content)
 
             with open(self.CONFIG_PATH, 'w', encoding='utf-8') as f:
@@ -274,7 +268,7 @@ class SettingsWindow(QWidget):
         for w in widgets_to_block: w.blockSignals(True)
 
         self.prompt_name_edit.setText(self.config_parser.get(current_section, 'name', fallback=current_section))
-        raw_content = self.config_parser.get(current_section, 'content', fallback='').replace('|', '').strip()
+        raw_content = self.config_parser.get(current_section, 'content', fallback='')
         self.prompt_content_edit.setPlainText(raw_content)
 
         for w in widgets_to_block: w.blockSignals(False)

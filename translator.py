@@ -59,7 +59,7 @@ class Translator:
         """动态生成系统提示，确保时间总是最新的"""
         active_prompt_section = self.config.get('Logic', 'active_prompt', fallback='Prompt_General')
         now_str = datetime.now().strftime("%m/%d/%Y, %H:%M")
-        raw_prompt = self.config.get(active_prompt_section, 'content', fallback='').replace('|', '').strip()
+        raw_prompt = self.config.get(active_prompt_section, 'content', fallback='')
         return raw_prompt.format(now=now_str)
 
     def model_translate(self):
@@ -148,5 +148,6 @@ class Translator:
                 messages = [messages[0]] + messages[-6:]
             else:
                 messages = [messages[0]]
+
 
         return translator_cache, messages

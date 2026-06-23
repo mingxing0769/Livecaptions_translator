@@ -1,1 +1,30 @@
-IyBQeXRob24gYnl0ZWNvZGUgYW5kIGNhY2hlcwpfX3B5Y2FjaGVfXy8KKi5weVtjb2RdCiokcHkuY2xhc3MKCiMgVmlydHVhbCBlbnZpcm9ubWVudHMKLnZlbnYvCnZlbnYvCmVudi8KCiMgSURFIGZpbGVzCi5pZGVhLwoudnNjb2RlLwoKIyBCdWlsZCBhbmQgcGFja2FnaW5nIGFydGlmYWN0cwpiYWNrdXAvCmRpc3QvCmJ1aWxkLwoqLmV4ZQoqLmRsbAoqLnB5ZAoqLnNvCiouZHlsaWIKKi56aXAKKi5udXBrZwoqLm51cGtnLnNoYTUxMgoqLmJhawoKIyBMb2dzCioubG9nCg==
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE files
+.idea/
+.vscode/
+
+# Build and packaging artifacts
+backup/
+dist/
+build/
+*.exe
+*.dll
+*.pyd
+*.so
+*.dylib
+*.zip
+*.nupkg
+*.nupkg.sha512
+*.bak
+
+# Logs
+*.log

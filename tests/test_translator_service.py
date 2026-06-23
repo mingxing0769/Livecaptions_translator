@@ -1,1 +1,64 @@
-aW1wb3J0IGNvbmZpZ3BhcnNlcgppbXBvcnQgdW5pdHRlc3QKZnJvbSBxdWV1ZSBpbXBvcnQgUXVldWUKZnJvbSB0eXBlcyBpbXBvcnQgU2ltcGxlTmFtZXNwYWNlCgpmcm9tIGxpdmVfdHJhbnNsYXRvci5jb25maWcgaW1wb3J0IGJ1aWxkX2FwcF9jb25maWcsIG5vcm1hbGl6ZV9jb25maWcKZnJvbSBsaXZlX3RyYW5zbGF0b3IudHJhbnNsYXRvcl9zZXJ2aWNlIGltcG9ydCBUcmFuc2xhdG9yU2VydmljZQoKCmNsYXNzIEZha2VDb21wbGV0aW9uczoKICAgIGRlZiBfX2luaXRfXyhzZWxmKToKICAgICAgICBzZWxmLmNhbGxzID0gW10KCiAgICBkZWYgY3JlYXRlKHNlbGYsICoqa3dhcmdzKToKICAgICAgICBzZWxmLmNhbGxzLmFwcGVuZChrd2FyZ3MpCiAgICAgICAgcmV0dXJuIFNpbXBsZU5hbWVzcGFjZSgKICAgICAgICAgICAgY2hvaWNlcz1bU2ltcGxlTmFtZXNwYWNlKG1lc3NhZ2U9U2ltcGxlTmFtZXNwYWNlKGNvbnRlbnQ9IuivkeaWhyIpKV0sCiAgICAgICAgICAgIHVzYWdlPVNpbXBsZU5hbWVzcGFjZSh0b3RhbF90b2tlbnM9NDIpLAogICAgICAgICkKCgpjbGFzcyBGYWtlQ2xpZW50OgogICAgZGVmIF9faW5pdF9fKHNlbGYpOgogICAgICAgIHNlbGYuY29tcGxldGlvbnMgPSBGYWtlQ29tcGxldGlvbnMoKQogICAgICAgIHNlbGYuY2hhdCA9IFNpbXBsZU5hbWVzcGFjZShjb21wbGV0aW9ucz1zZWxmLmNvbXBsZXRpb25zKQoKCmNsYXNzIFRyYW5zbGF0b3JTZXJ2aWNlVGVzdHModW5pdHRlc3QuVGVzdENhc2UpOgogICAgZGVmIG1ha2Vfc2VydmljZShzZWxmKToKICAgICAgICBwYXJzZXIgPSBjb25maWdwYXJzZXIuQ29uZmlnUGFyc2VyKCkKICAgICAgICBub3JtYWxpemVfY29uZmlnKHBhcnNlcikKICAgICAgICBjb25maWcgPSBidWlsZF9hcHBfY29uZmlnKHBhcnNlciwgcGF0aD1Ob25lKQogICAgICAgIHJldHVybiBUcmFuc2xhdG9yU2VydmljZShjb25maWcsIGNhcHRpb25zPU5vbmUsIHN1YnRpdGxlX3F1ZXVlPVF1ZXVlKCksIHN0YXR1c19xdWV1ZT1RdWV1ZSgpLCBjbGllbnQ9RmFrZUNsaWVudCgpKQoKICAgIGRlZiB0ZXN0X2NvbXBsZXRlX3RyYW5zbGF0aW9uX2FwcGVuZHNfdXNlcl9tZXNzYWdlX29uX3N1Y2Nlc3Moc2VsZik6CiAgICAgICAgc2VydmljZSA9IHNlbGYubWFrZV9zZXJ2aWNlKCkKICAgICAgICBtZXNzYWdlcyA9IFt7InJvbGUiOiAic3lzdGVtIiwgImNvbnRlbnQiOiAic3lzIn1dCiAgICAgICAgb3V0cHV0LCB0b2tlbnMgPSBzZXJ2aWNlLl90cmFuc2xhdGVfY29tcGxldGUobWVzc2FnZXMsICJIZWxsby4iLCAwKQogICAgICAgIHNlbGYuYXNzZXJ0RXF1YWwob3V0cHV0LCAi6K+R5paHIikKICAgICAgICBzZWxmLmFzc2VydEVxdWFsKHRva2VucywgNDIpCiAgICAgICAgc2VsZi5hc3NlcnRFcXVhbChtZXNzYWdlc1stMV0sIHsicm9sZSI6ICJ1c2VyIiwgImNvbnRlbnQiOiAiSGVsbG8uIn0pCgogICAgZGVmIHRlc3RfbGl2ZV90cmFuc2xhdGlvbl9yZW1vdmVzX3RlbXBvcmFyeV91c2VyX21lc3NhZ2Uoc2VsZik6CiAgICAgICAgc2VydmljZSA9IHNlbGYubWFrZV9zZXJ2aWNlKCkKICAgICAgICBtZXNzYWdlcyA9IFt7InJvbGUiOiAic3lzdGVtIiwgImNvbnRlbnQiOiAic3lzIn1dCiAgICAgICAgb3V0cHV0LCB0b2tlbnMgPSBzZXJ2aWNlLl90cmFuc2xhdGVfbGl2ZShtZXNzYWdlcywgIkhlbGxvIiwgMCkKICAgICAgICBzZWxmLmFzc2VydEVxdWFsKG91dHB1dCwgIuivkeaWhyIpCiAgICAgICAgc2VsZi5hc3NlcnRFcXVhbCh0b2tlbnMsIDQyKQogICAgICAgIHNlbGYuYXNzZXJ0RXF1YWwobWVzc2FnZXMsIFt7InJvbGUiOiAic3lzdGVtIiwgImNvbnRlbnQiOiAic3lzIn1dKQoKICAgIGRlZiB0ZXN0X2NvbnRleHRfbWFpbnRlbmFuY2VfdHJpbXNfbWVzc2FnZXNfd2hlbl9uZWFyX2xpbWl0KHNlbGYpOgogICAgICAgIHNlcnZpY2UgPSBzZWxmLm1ha2Vfc2VydmljZSgpCiAgICAgICAgbWVzc2FnZXMgPSBbeyJyb2xlIjogInN5c3RlbSIsICJjb250ZW50IjogInN5cyJ9XSArIFsKICAgICAgICAgICAgeyJyb2xlIjogInVzZXIiLCAiY29udGVudCI6IHN0cihpbmRleCl9IGZvciBpbmRleCBpbiByYW5nZSgxMCkKICAgICAgICBdCiAgICAgICAgY2FjaGUsIHRyaW1tZWQgPSBzZXJ2aWNlLl9tYWludGFpbl9jb250ZXh0KHsiZW4iOiBbXSwgInpoIjogW119LCA5OTk5LCBtZXNzYWdlcykKICAgICAgICBzZWxmLmFzc2VydEVxdWFsKHRyaW1tZWRbMF1bInJvbGUiXSwgInN5c3RlbSIpCiAgICAgICAgc2VsZi5hc3NlcnRMZXNzRXF1YWwobGVuKHRyaW1tZWQpLCA3KQogICAgICAgIHNlbGYuYXNzZXJ0RXF1YWwoY2FjaGUsIHsiZW4iOiBbXSwgInpoIjogW119KQoKCmlmIF9fbmFtZV9fID09ICJfX21haW5fXyI6CiAgICB1bml0dGVzdC5tYWluKCkKCg==
+import configparser
+import unittest
+from queue import Queue
+from types import SimpleNamespace
+
+from live_translator.config import build_app_config, normalize_config
+from live_translator.translator_service import TranslatorService
+
+
+class FakeCompletions:
+    def __init__(self):
+        self.calls = []
+
+    def create(self, **kwargs):
+        self.calls.append(kwargs)
+        return SimpleNamespace(
+            choices=[SimpleNamespace(message=SimpleNamespace(content="译文"))],
+            usage=SimpleNamespace(total_tokens=42),
+        )
+
+
+class FakeClient:
+    def __init__(self):
+        self.completions = FakeCompletions()
+        self.chat = SimpleNamespace(completions=self.completions)
+
+
+class TranslatorServiceTests(unittest.TestCase):
+    def make_service(self):
+        parser = configparser.ConfigParser()
+        normalize_config(parser)
+        config = build_app_config(parser, path=None)
+        return TranslatorService(config, captions=None, subtitle_queue=Queue(), status_queue=Queue(), client=FakeClient())
+
+    def test_complete_translation_appends_user_message_on_success(self):
+        service = self.make_service()
+        messages = [{"role": "system", "content": "sys"}]
+        output, tokens = service._translate_complete(messages, "Hello.", 0)
+        self.assertEqual(output, "译文")
+        self.assertEqual(tokens, 42)
+        self.assertEqual(messages[-1], {"role": "user", "content": "Hello."})
+
+    def test_live_translation_removes_temporary_user_message(self):
+        service = self.make_service()
+        messages = [{"role": "system", "content": "sys"}]
+        output, tokens = service._translate_live(messages, "Hello", 0)
+        self.assertEqual(output, "译文")
+        self.assertEqual(tokens, 42)
+        self.assertEqual(messages, [{"role": "system", "content": "sys"}])
+
+    def test_context_maintenance_trims_messages_when_near_limit(self):
+        service = self.make_service()
+        messages = [{"role": "system", "content": "sys"}] + [
+            {"role": "user", "content": str(index)} for index in range(10)
+        ]
+        cache, trimmed = service._maintain_context({"en": [], "zh": []}, 9999, messages)
+        self.assertEqual(trimmed[0]["role"], "system")
+        self.assertLessEqual(len(trimmed), 7)
+        self.assertEqual(cache, {"en": [], "zh": []})
+
+
+if __name__ == "__main__":
+    unittest.main()
+

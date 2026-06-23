@@ -1,1 +1,28 @@
-aW1wb3J0IHVuaXR0ZXN0Cgpmcm9tIGxpdmVfdHJhbnNsYXRvci5zZW50ZW5jZSBpbXBvcnQgc3BsaXRfZW5nbGlzaF9zZW50ZW5jZXMKCgpjbGFzcyBTZW50ZW5jZVNwbGl0VGVzdHModW5pdHRlc3QuVGVzdENhc2UpOgogICAgZGVmIHRlc3RfYmFzaWNfc2VudGVuY2VfbWFya3Moc2VsZik6CiAgICAgICAgc2VsZi5hc3NlcnRFcXVhbCgKICAgICAgICAgICAgc3BsaXRfZW5nbGlzaF9zZW50ZW5jZXMoIkhlbGxvIHdvcmxkLiBBcmUgeW91IHJlYWR5PyBHbyEiKSwKICAgICAgICAgICAgWyJIZWxsbyB3b3JsZC4iLCAiQXJlIHlvdSByZWFkeT8iLCAiR28hIl0sCiAgICAgICAgKQoKICAgIGRlZiB0ZXN0X2RlY2ltYWxfbnVtYmVyc19hcmVfbm90X3NwbGl0KHNlbGYpOgogICAgICAgIHNlbGYuYXNzZXJ0RXF1YWwoCiAgICAgICAgICAgIHNwbGl0X2VuZ2xpc2hfc2VudGVuY2VzKCJUaGUgZ2FwIGlzIDEuMjMgc2Vjb25kcy4gVmVyc3RhcHBlbiBsZWFkcyIpLAogICAgICAgICAgICBbIlRoZSBnYXAgaXMgMS4yMyBzZWNvbmRzLiIsICJWZXJzdGFwcGVuIGxlYWRzIl0sCiAgICAgICAgKQoKICAgIGRlZiB0ZXN0X2NvbW1vbl9hYmJyZXZpYXRpb25zX2FyZV9ub3Rfc3BsaXQoc2VsZik6CiAgICAgICAgc2VsZi5hc3NlcnRFcXVhbCgKICAgICAgICAgICAgc3BsaXRfZW5nbGlzaF9zZW50ZW5jZXMoIkRyLiBTbWl0aCB0YWxrcyB0byB0aGUgVS5TLiB0ZWFtLiBUaGV5IGFncmVlLiIpLAogICAgICAgICAgICBbIkRyLiBTbWl0aCB0YWxrcyB0byB0aGUgVS5TLiB0ZWFtLiIsICJUaGV5IGFncmVlLiJdLAogICAgICAgICkKCgppZiBfX25hbWVfXyA9PSAiX19tYWluX18iOgogICAgdW5pdHRlc3QubWFpbigpCgo=
+import unittest
+
+from live_translator.sentence import split_english_sentences
+
+
+class SentenceSplitTests(unittest.TestCase):
+    def test_basic_sentence_marks(self):
+        self.assertEqual(
+            split_english_sentences("Hello world. Are you ready? Go!"),
+            ["Hello world.", "Are you ready?", "Go!"],
+        )
+
+    def test_decimal_numbers_are_not_split(self):
+        self.assertEqual(
+            split_english_sentences("The gap is 1.23 seconds. Verstappen leads"),
+            ["The gap is 1.23 seconds.", "Verstappen leads"],
+        )
+
+    def test_common_abbreviations_are_not_split(self):
+        self.assertEqual(
+            split_english_sentences("Dr. Smith talks to the U.S. team. They agree."),
+            ["Dr. Smith talks to the U.S. team.", "They agree."],
+        )
+
+
+if __name__ == "__main__":
+    unittest.main()
+

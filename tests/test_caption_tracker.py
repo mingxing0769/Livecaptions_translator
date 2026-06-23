@@ -1,1 +1,46 @@
-aW1wb3J0IHVuaXR0ZXN0Cgpmcm9tIGxpdmVfdHJhbnNsYXRvci5jYXB0aW9uX3RyYWNrZXIgaW1wb3J0IENhcHRpb25UcmFja2VyCgoKY2xhc3MgQ2FwdGlvblRyYWNrZXJUZXN0cyh1bml0dGVzdC5UZXN0Q2FzZSk6CiAgICBkZWYgdGVzdF9maXJzdF9ydW5fYWRkc19yZWNlbnRfY29tcGxldGVfc2VudGVuY2VfYW5kX2xpdmVfdGFpbChzZWxmKToKICAgICAgICB0cmFja2VyID0gQ2FwdGlvblRyYWNrZXIoKQogICAgICAgIHVwZGF0ZSA9IHRyYWNrZXIucHJvY2VzcygiT25lIHNlbnRlbmNlLiBUd28gaXMgc3RpbGwgbGl2ZSIpCiAgICAgICAgc2VsZi5hc3NlcnRFcXVhbCh1cGRhdGUuY29tcGxldGVfc2VudGVuY2VzLCBbIk9uZSBzZW50ZW5jZS4iXSkKICAgICAgICBzZWxmLmFzc2VydEVxdWFsKHVwZGF0ZS5saXZlX3NlbnRlbmNlLCAiVHdvIGlzIHN0aWxsIGxpdmUiKQogICAgICAgIHNlbGYuYXNzZXJ0RXF1YWwodXBkYXRlLmFjdGlvbiwgImZpcnN0X3J1biIpCgogICAgZGVmIHRlc3RfcmVwZWF0ZWRfdGV4dF9pc19pZ25vcmVkKHNlbGYpOgogICAgICAgIHRyYWNrZXIgPSBDYXB0aW9uVHJhY2tlcigpCiAgICAgICAgdHJhY2tlci5wcm9jZXNzKCJPbmUgc2VudGVuY2UuIFR3byBpcyBsaXZlIikKICAgICAgICB1cGRhdGUgPSB0cmFja2VyLnByb2Nlc3MoIk9uZSBzZW50ZW5jZS4gVHdvIGlzIGxpdmUiKQogICAgICAgIHNlbGYuYXNzZXJ0RXF1YWwodXBkYXRlLmNvbXBsZXRlX3NlbnRlbmNlcywgW10pCiAgICAgICAgc2VsZi5hc3NlcnRFcXVhbCh1cGRhdGUubGl2ZV9zZW50ZW5jZSwgIiIpCiAgICAgICAgc2VsZi5hc3NlcnRFcXVhbCh1cGRhdGUuYWN0aW9uLCAibm9fY2hhbmdlIikKCiAgICBkZWYgdGVzdF9ub3JtYWxfYW5jaG9yX2Zsb3dfZmluZHNfbmV3X2NvbXBsZXRlX3NlbnRlbmNlKHNlbGYpOgogICAgICAgIHRyYWNrZXIgPSBDYXB0aW9uVHJhY2tlcigpCiAgICAgICAgdHJhY2tlci5wcm9jZXNzKCJPbmUgc2VudGVuY2UuIFR3byBpcyBsaXZlIikKICAgICAgICB1cGRhdGUgPSB0cmFja2VyLnByb2Nlc3MoIk9uZSBzZW50ZW5jZS4gVHdvIGlzIGNvbXBsZXRlLiBUaHJlZSBpcyBsaXZlIikKICAgICAgICBzZWxmLmFzc2VydEVxdWFsKHVwZGF0ZS5jb21wbGV0ZV9zZW50ZW5jZXMsIFsiVHdvIGlzIGNvbXBsZXRlLiJdKQogICAgICAgIHNlbGYuYXNzZXJ0RXF1YWwodXBkYXRlLmxpdmVfc2VudGVuY2UsICJUaHJlZSBpcyBsaXZlIikKICAgICAgICBzZWxmLmFzc2VydEVxdWFsKHVwZGF0ZS5hY3Rpb24sICJub3JtYWwiKQoKICAgIGRlZiB0ZXN0X21ham9yX2p1bXBfcmVzZXRzX3N0YXRlKHNlbGYpOgogICAgICAgIHRyYWNrZXIgPSBDYXB0aW9uVHJhY2tlcigpCiAgICAgICAgdHJhY2tlci5wcm9jZXNzKCJBbHBoYSBkb25lLiBCZXRhIGxpdmUiKQogICAgICAgIHVwZGF0ZSA9IHRyYWNrZXIucHJvY2VzcygiQ29tcGxldGVseSBkaWZmZXJlbnQuIE5ldyBsaXZlIikKICAgICAgICBzZWxmLmFzc2VydEVxdWFsKHVwZGF0ZS5jb21wbGV0ZV9zZW50ZW5jZXMsIFsiQ29tcGxldGVseSBkaWZmZXJlbnQuIl0pCiAgICAgICAgc2VsZi5hc3NlcnRFcXVhbCh1cGRhdGUubGl2ZV9zZW50ZW5jZSwgIiIpCiAgICAgICAgc2VsZi5hc3NlcnRFcXVhbCh1cGRhdGUuYWN0aW9uLCAicmVzZXQiKQoKICAgIGRlZiB0ZXN0X2xhc3RfcHJldmlld193b3JkX2lzX3JlbW92ZWRfd2hlbl9mcmFnbWVudF9oYXNfbm9fdHJhaWxpbmdfc3BhY2Uoc2VsZik6CiAgICAgICAgdHJhY2tlciA9IENhcHRpb25UcmFja2VyKCkKICAgICAgICB0cmFja2VyLnByb2Nlc3MoIkZpcnN0IGRvbmUuIFNlY29uZCBmcmFnbWVudCIpCiAgICAgICAgc2VsZi5hc3NlcnRFcXVhbCh0cmFja2VyLmFuY2hvcl9oaXN0b3J5Wy0xXVsibmV4dF9wcmV2aWV3Il0sIFsic2Vjb25kIl0pCgoKaWYgX19uYW1lX18gPT0gIl9fbWFpbl9fIjoKICAgIHVuaXR0ZXN0Lm1haW4oKQoK
+import unittest
+
+from live_translator.caption_tracker import CaptionTracker
+
+
+class CaptionTrackerTests(unittest.TestCase):
+    def test_first_run_adds_recent_complete_sentence_and_live_tail(self):
+        tracker = CaptionTracker()
+        update = tracker.process("One sentence. Two is still live")
+        self.assertEqual(update.complete_sentences, ["One sentence."])
+        self.assertEqual(update.live_sentence, "Two is still live")
+        self.assertEqual(update.action, "first_run")
+
+    def test_repeated_text_is_ignored(self):
+        tracker = CaptionTracker()
+        tracker.process("One sentence. Two is live")
+        update = tracker.process("One sentence. Two is live")
+        self.assertEqual(update.complete_sentences, [])
+        self.assertEqual(update.live_sentence, "")
+        self.assertEqual(update.action, "no_change")
+
+    def test_normal_anchor_flow_finds_new_complete_sentence(self):
+        tracker = CaptionTracker()
+        tracker.process("One sentence. Two is live")
+        update = tracker.process("One sentence. Two is complete. Three is live")
+        self.assertEqual(update.complete_sentences, ["Two is complete."])
+        self.assertEqual(update.live_sentence, "Three is live")
+        self.assertEqual(update.action, "normal")
+
+    def test_major_jump_resets_state(self):
+        tracker = CaptionTracker()
+        tracker.process("Alpha done. Beta live")
+        update = tracker.process("Completely different. New live")
+        self.assertEqual(update.complete_sentences, ["Completely different."])
+        self.assertEqual(update.live_sentence, "")
+        self.assertEqual(update.action, "reset")
+
+    def test_last_preview_word_is_removed_when_fragment_has_no_trailing_space(self):
+        tracker = CaptionTracker()
+        tracker.process("First done. Second fragment")
+        self.assertEqual(tracker.anchor_history[-1]["next_preview"], ["second"])
+
+
+if __name__ == "__main__":
+    unittest.main()
+

@@ -1,1 +1,196 @@
-aW1wb3J0IHJlCmltcG9ydCB0aHJlYWRpbmcKaW1wb3J0IHRpbWUKZnJvbSBkYXRldGltZSBpbXBvcnQgZGF0ZXRpbWUKZnJvbSBxdWV1ZSBpbXBvcnQgUXVldWUKZnJvbSB0eXBpbmcgaW1wb3J0IFRZUEVfQ0hFQ0tJTkcsIEFueQoKZnJvbSAuY29uZmlnIGltcG9ydCBBcHBDb25maWcKCmlmIFRZUEVfQ0hFQ0tJTkc6CiAgICBmcm9tIC5saXZlY2FwdGlvbnMgaW1wb3J0IExpdmVDYXB0aW9uc1NvdXJjZQoKCmNsYXNzIFRyYW5zbGF0b3JTZXJ2aWNlOgogICAgZGVmIF9faW5pdF9fKAogICAgICAgIHNlbGYsCiAgICAgICAgY29uZmlnOiBBcHBDb25maWcsCiAgICAgICAgY2FwdGlvbnM6ICJMaXZlQ2FwdGlvbnNTb3VyY2UiLAogICAgICAgIHN1YnRpdGxlX3F1ZXVlOiBRdWV1ZSwKICAgICAgICBzdGF0dXNfcXVldWU6IFF1ZXVlLAogICAgICAgIGNsaWVudDogQW55IHwgTm9uZSA9IE5vbmUsCiAgICApOgogICAgICAgIHNlbGYuY29uZmlnID0gY29uZmlnCiAgICAgICAgc2VsZi5jYXB0aW9ucyA9IGNhcHRpb25zCiAgICAgICAgc2VsZi5zdWJ0aXRsZV9xdWV1ZSA9IHN1YnRpdGxlX3F1ZXVlCiAgICAgICAgc2VsZi5zdGF0dXNfcXVldWUgPSBzdGF0dXNfcXVldWUKICAgICAgICBzZWxmLmNsaWVudCA9IGNsaWVudCBvciBzZWxmLl9jcmVhdGVfY2xpZW50KGNvbmZpZykKICAgICAgICBzZWxmLl90aHJlYWQ6IHRocmVhZGluZy5UaHJlYWQgfCBOb25lID0gTm9uZQogICAgICAgIHNlbGYuX3N0b3BfZXZlbnQgPSB0aHJlYWRpbmcuRXZlbnQoKQogICAgICAgIHNlbGYuX3J1bm5pbmcgPSBGYWxzZQoKICAgIEBwcm9wZXJ0eQogICAgZGVmIGlzX3J1bm5pbmcoc2VsZikgLT4gYm9vbDoKICAgICAgICByZXR1cm4gc2VsZi5fcnVubmluZwoKICAgIGRlZiBzdGFydChzZWxmKSAtPiBOb25lOgogICAgICAgIGlmIHNlbGYuX3J1bm5pbmc6CiAgICAgICAgICAgIHJldHVybgogICAgICAgIHNlbGYuX3N0b3BfZXZlbnQuY2xlYXIoKQogICAgICAgIHNlbGYuX3RocmVhZCA9IHRocmVhZGluZy5UaHJlYWQodGFyZ2V0PXNlbGYuX3J1biwgbmFtZT0iVHJhbnNsYXRvclNlcnZpY2UiLCBkYWVtb249VHJ1ZSkKICAgICAgICBzZWxmLl9ydW5uaW5nID0gVHJ1ZQogICAgICAgIHNlbGYuX3RocmVhZC5zdGFydCgpCgogICAgZGVmIHN0b3Aoc2VsZiwgdGltZW91dDogZmxvYXQgPSA1LjApIC0+IGJvb2w6CiAgICAgICAgc2VsZi5fc3RvcF9ldmVudC5zZXQoKQogICAgICAgIGlmIHNlbGYuX3RocmVhZCBhbmQgc2VsZi5fdGhyZWFkLmlzX2FsaXZlKCk6CiAgICAgICAgICAgIHNlbGYuX3RocmVhZC5qb2luKHRpbWVvdXQ9dGltZW91dCkKICAgICAgICBzdG9wcGVkID0gbm90IChzZWxmLl90aHJlYWQgYW5kIHNlbGYuX3RocmVhZC5pc19hbGl2ZSgpKQogICAgICAgIGlmIHN0b3BwZWQ6CiAgICAgICAgICAgIHNlbGYuX3J1bm5pbmcgPSBGYWxzZQogICAgICAgICAgICBzZWxmLl90aHJlYWQgPSBOb25lCiAgICAgICAgcmV0dXJuIHN0b3BwZWQKCiAgICBkZWYgX3J1bihzZWxmKSAtPiBOb25lOgogICAgICAgIG5vd190ZXh0ID0gZGF0ZXRpbWUubm93KCkuc3RyZnRpbWUoIiVtLyVkLyVZLCAlSDolTSIpCiAgICAgICAgbWVzc2FnZXMgPSBbeyJyb2xlIjogInN5c3RlbSIsICJjb250ZW50Ijogc2VsZi5jb25maWcuc3lzdGVtX3Byb21wdChub3dfdGV4dCl9XQogICAgICAgIHRvdGFsX3Rva2VucyA9IDAKICAgICAgICB0cmFuc2xhdG9yX2NhY2hlID0geyJlbiI6IFtdLCAiemgiOiBbXX0KICAgICAgICBzZWxmLl9wdXRfc3RhdHVzKCJtZXNzYWdlIiwgbWVzc2FnZT0i57+76K+R57q/56iL5bey5ZCv5YqoIikKCiAgICAgICAgdHJ5OgogICAgICAgICAgICB3aGlsZSBub3Qgc2VsZi5fc3RvcF9ldmVudC5pc19zZXQoKToKICAgICAgICAgICAgICAgIHN0YXJ0X3RpbWUgPSB0aW1lLnRpbWUoKQogICAgICAgICAgICAgICAgcmF3X3RleHQgPSBzZWxmLmNhcHRpb25zLmdldF90ZXh0KCkKICAgICAgICAgICAgICAgIGlmIG5vdCByYXdfdGV4dDoKICAgICAgICAgICAgICAgICAgICBzZWxmLl9zbGVlcF9zaG9ydCgpCiAgICAgICAgICAgICAgICAgICAgY29udGludWUKCiAgICAgICAgICAgICAgICB1cGRhdGUgPSBzZWxmLmNhcHRpb25zLnByb2Nlc3NfdGV4dChyYXdfdGV4dCkKICAgICAgICAgICAgICAgIGlmIG5vdCB1cGRhdGUuY29tcGxldGVfc2VudGVuY2VzIGFuZCBub3QgdXBkYXRlLmxpdmVfc2VudGVuY2Uuc3RyaXAoKToKICAgICAgICAgICAgICAgICAgICBzZWxmLl9zbGVlcF9zaG9ydCgpCiAgICAgICAgICAgICAgICAgICAgY29udGludWUKCiAgICAgICAgICAgICAgICBsaXZlX291dHB1dCA9ICIuLi4iCiAgICAgICAgICAgICAgICBpZiB1cGRhdGUuY29tcGxldGVfc2VudGVuY2VzOgogICAgICAgICAgICAgICAgICAgIGNvbXBsZXRlX2lucHV0ID0gIiAiLmpvaW4odXBkYXRlLmNvbXBsZXRlX3NlbnRlbmNlcykKICAgICAgICAgICAgICAgICAgICBvdXRwdXQsIHRvdGFsX3Rva2VucyA9IHNlbGYuX3RyYW5zbGF0ZV9jb21wbGV0ZShtZXNzYWdlcywgY29tcGxldGVfaW5wdXQsIHRvdGFsX3Rva2VucykKICAgICAgICAgICAgICAgICAgICBpZiBvdXRwdXQ6CiAgICAgICAgICAgICAgICAgICAgICAgIHRyYW5zbGF0b3JfY2FjaGVbImVuIl0uYXBwZW5kKHNlbGYucHJlcHJvY2Vzcyhjb21wbGV0ZV9pbnB1dCkpCiAgICAgICAgICAgICAgICAgICAgICAgIHRyYW5zbGF0b3JfY2FjaGVbInpoIl0uYXBwZW5kKG91dHB1dCkKICAgICAgICAgICAgICAgICAgICAgICAgbWVzc2FnZXMuYXBwZW5kKHsicm9sZSI6ICJhc3Npc3RhbnQiLCAiY29udGVudCI6IG91dHB1dH0pCgogICAgICAgICAgICAgICAgaWYgdXBkYXRlLmxpdmVfc2VudGVuY2U6CiAgICAgICAgICAgICAgICAgICAgbGl2ZV9vdXRwdXQsIHRvdGFsX3Rva2VucyA9IHNlbGYuX3RyYW5zbGF0ZV9saXZlKAogICAgICAgICAgICAgICAgICAgICAgICBtZXNzYWdlcywKICAgICAgICAgICAgICAgICAgICAgICAgdXBkYXRlLmxpdmVfc2VudGVuY2UsCiAgICAgICAgICAgICAgICAgICAgICAgIHRvdGFsX3Rva2VucywKICAgICAgICAgICAgICAgICAgICApCgogICAgICAgICAgICAgICAgc2VsZi5fcHV0X3N1YnRpdGxlKGxpdmVfb3V0cHV0LCB0cmFuc2xhdG9yX2NhY2hlKQogICAgICAgICAgICAgICAgc2VsZi5fcHV0X3N0YXR1cygKICAgICAgICAgICAgICAgICAgICAidG9rZW5fdXNhZ2UiLAogICAgICAgICAgICAgICAgICAgIGN1cnJlbnQ9dG90YWxfdG9rZW5zLAogICAgICAgICAgICAgICAgICAgIHRvdGFsPXNlbGYuY29uZmlnLnNlcnZlci5tb2RlbF9jb250ZXh0X3dpbmRvdywKICAgICAgICAgICAgICAgICkKICAgICAgICAgICAgICAgIHRyYW5zbGF0b3JfY2FjaGUsIG1lc3NhZ2VzID0gc2VsZi5fbWFpbnRhaW5fY29udGV4dCgKICAgICAgICAgICAgICAgICAgICB0cmFuc2xhdG9yX2NhY2hlLAogICAgICAgICAgICAgICAgICAgIHRvdGFsX3Rva2VucywKICAgICAgICAgICAgICAgICAgICBtZXNzYWdlcywKICAgICAgICAgICAgICAgICkKCiAgICAgICAgICAgICAgICBydW5fdGltZSA9IHRpbWUudGltZSgpIC0gc3RhcnRfdGltZQogICAgICAgICAgICAgICAgZGVsYXkgPSBtYXgoMC4wLCBzZWxmLmNvbmZpZy5sb2dpYy5kZWxheV90aW1lIC0gcnVuX3RpbWUpCiAgICAgICAgICAgICAgICBpZiBkZWxheToKICAgICAgICAgICAgICAgICAgICBzZWxmLl9zdG9wX2V2ZW50LndhaXQoZGVsYXkpCiAgICAgICAgZmluYWxseToKICAgICAgICAgICAgc2VsZi5fcnVubmluZyA9IEZhbHNlCiAgICAgICAgICAgIHNlbGYuX3B1dF9zdGF0dXMoIm1lc3NhZ2UiLCBtZXNzYWdlPSLnv7vor5Hnur/nqIvlt7LlgZzmraIiKQoKICAgIGRlZiBfdHJhbnNsYXRlX2NvbXBsZXRlKAogICAgICAgIHNlbGYsCiAgICAgICAgbWVzc2FnZXM6IGxpc3RbZGljdFtzdHIsIHN0cl1dLAogICAgICAgIHRleHQ6IHN0ciwKICAgICAgICBjdXJyZW50X3Rva2VuczogaW50LAogICAgKSAtPiB0dXBsZVtzdHIsIGludF06CiAgICAgICAgbWVzc2FnZXMuYXBwZW5kKHsicm9sZSI6ICJ1c2VyIiwgImNvbnRlbnQiOiB0ZXh0fSkKICAgICAgICB0cnk6CiAgICAgICAgICAgIGNvbXBsZXRpb24gPSBzZWxmLmNsaWVudC5jaGF0LmNvbXBsZXRpb25zLmNyZWF0ZSgKICAgICAgICAgICAgICAgIG1vZGVsPXNlbGYuY29uZmlnLnNlcnZlci5tb2RlbCwKICAgICAgICAgICAgICAgIG1lc3NhZ2VzPW1lc3NhZ2VzLAogICAgICAgICAgICAgICAgKipzZWxmLmNvbmZpZy5jb21wbGV0aW9uX2NvbmZpZywKICAgICAgICAgICAgKQogICAgICAgICAgICBvdXRwdXQgPSBjb21wbGV0aW9uLmNob2ljZXNbMF0ubWVzc2FnZS5jb250ZW50IG9yICIiCiAgICAgICAgICAgIHJldHVybiBvdXRwdXQsIHNlbGYuX2V4dHJhY3RfdG9rZW5zKGNvbXBsZXRpb24sIGN1cnJlbnRfdG9rZW5zKQogICAgICAgIGV4Y2VwdCBFeGNlcHRpb24gYXMgZXhjOgogICAgICAgICAgICBtZXNzYWdlcy5wb3AoKQogICAgICAgICAgICBzZWxmLl9wdXRfc3RhdHVzKCJlcnJvciIsIG1lc3NhZ2U9ZiLlrozmlbTlj6Xnv7vor5HlpLHotKU6IHtleGN9IikKICAgICAgICAgICAgcmV0dXJuICIiLCBjdXJyZW50X3Rva2VucwoKICAgIGRlZiBfdHJhbnNsYXRlX2xpdmUoCiAgICAgICAgc2VsZiwKICAgICAgICBtZXNzYWdlczogbGlzdFtkaWN0W3N0ciwgc3RyXV0sCiAgICAgICAgdGV4dDogc3RyLAogICAgICAgIGN1cnJlbnRfdG9rZW5zOiBpbnQsCiAgICApIC0+IHR1cGxlW3N0ciwgaW50XToKICAgICAgICBsaXZlX3Byb21wdCA9IGYie3RleHQuc3RyaXAoKX0uLi4iIGlmIG5vdCB0ZXh0LmVuZHN3aXRoKCIuIikgZWxzZSB0ZXh0CiAgICAgICAgbWVzc2FnZXMuYXBwZW5kKHsicm9sZSI6ICJ1c2VyIiwgImNvbnRlbnQiOiBsaXZlX3Byb21wdH0pCiAgICAgICAgdHJ5OgogICAgICAgICAgICBjb21wbGV0aW9uID0gc2VsZi5jbGllbnQuY2hhdC5jb21wbGV0aW9ucy5jcmVhdGUoCiAgICAgICAgICAgICAgICBtb2RlbD1zZWxmLmNvbmZpZy5zZXJ2ZXIubW9kZWwsCiAgICAgICAgICAgICAgICBtZXNzYWdlcz1tZXNzYWdlcywKICAgICAgICAgICAgICAgICoqc2VsZi5jb25maWcubGl2ZV9jb25maWcsCiAgICAgICAgICAgICkKICAgICAgICAgICAgb3V0cHV0ID0gY29tcGxldGlvbi5jaG9pY2VzWzBdLm1lc3NhZ2UuY29udGVudCBvciAiLi4uIgogICAgICAgICAgICByZXR1cm4gb3V0cHV0LCBzZWxmLl9leHRyYWN0X3Rva2Vucyhjb21wbGV0aW9uLCBjdXJyZW50X3Rva2VucykKICAgICAgICBleGNlcHQgRXhjZXB0aW9uIGFzIGV4YzoKICAgICAgICAgICAgc2VsZi5fcHV0X3N0YXR1cygiZXJyb3IiLCBtZXNzYWdlPWYi5a6e5pe25Y+l57+76K+R5aSx6LSlOiB7ZXhjfSIpCiAgICAgICAgICAgIHJldHVybiAiLi4uIiwgY3VycmVudF90b2tlbnMKICAgICAgICBmaW5hbGx5OgogICAgICAgICAgICBtZXNzYWdlcy5wb3AoKQoKICAgIGRlZiBfcHV0X3N1YnRpdGxlKHNlbGYsIGxpdmVfdGV4dDogc3RyLCB0cmFuc2xhdG9yX2NhY2hlOiBkaWN0W3N0ciwgbGlzdFtzdHJdXSkgLT4gTm9uZToKICAgICAgICBoaXN0b3J5ID0gIlxuIi5qb2luKHRyYW5zbGF0b3JfY2FjaGVbInpoIl0pCiAgICAgICAgc3VidGl0bGUgPSBmIntoaXN0b3J5fVxue2xpdmVfdGV4dH0iLnN0cmlwKCkKICAgICAgICBzZWxmLnN1YnRpdGxlX3F1ZXVlLnB1dCh7InN1YnRpdGxlIjogc3VidGl0bGV9KQoKICAgIGRlZiBfcHV0X3N0YXR1cyhzZWxmLCBzdGF0dXNfdHlwZTogc3RyLCAqKnBheWxvYWQpIC0+IE5vbmU6CiAgICAgICAgc2VsZi5zdGF0dXNfcXVldWUucHV0KHsidHlwZSI6IHN0YXR1c190eXBlLCAqKnBheWxvYWR9KQoKICAgIGRlZiBfc2xlZXBfc2hvcnQoc2VsZikgLT4gTm9uZToKICAgICAgICBzZWxmLl9zdG9wX2V2ZW50LndhaXQoMC4xKQoKICAgIGRlZiBfbWFpbnRhaW5fY29udGV4dCgKICAgICAgICBzZWxmLAogICAgICAgIHRyYW5zbGF0b3JfY2FjaGU6IGRpY3Rbc3RyLCBsaXN0W3N0cl1dLAogICAgICAgIHRvdGFsX3Rva2VuczogaW50LAogICAgICAgIG1lc3NhZ2VzOiBsaXN0W2RpY3Rbc3RyLCBzdHJdXSwKICAgICkgLT4gdHVwbGVbZGljdFtzdHIsIGxpc3Rbc3RyXV0sIGxpc3RbZGljdFtzdHIsIHN0cl1dXToKICAgICAgICBjYWNoZV9zaXplID0gc2VsZi5jb25maWcubG9naWMudHJhbnNsYXRvcl9jYWNoZQogICAgICAgIHRyYW5zbGF0b3JfY2FjaGVbImVuIl0gPSB0cmFuc2xhdG9yX2NhY2hlWyJlbiJdWy1jYWNoZV9zaXplOl0KICAgICAgICB0cmFuc2xhdG9yX2NhY2hlWyJ6aCJdID0gdHJhbnNsYXRvcl9jYWNoZVsiemgiXVstY2FjaGVfc2l6ZTpdCgogICAgICAgIHRocmVzaG9sZCA9IHNlbGYuY29uZmlnLnNlcnZlci5tb2RlbF9jb250ZXh0X3dpbmRvdyAtIHNlbGYuY29uZmlnLmxvZ2ljLmF2YWlsYWJsZV90b2tlbnMKICAgICAgICBpZiB0b3RhbF90b2tlbnMgPj0gdGhyZXNob2xkOgogICAgICAgICAgICBzZWxmLl9wdXRfc3RhdHVzKCJtZXNzYWdlIiwgbWVzc2FnZT0iVG9rZW4g5LiK5LiL5paH5o6l6L+R5LiK6ZmQ77yM5bey6KOB5Ymq5a+56K+d5Y6G5Y+yIikKICAgICAgICAgICAgbWVzc2FnZXMgPSBbbWVzc2FnZXNbMF1dICsgbWVzc2FnZXNbLTY6XSBpZiBsZW4obWVzc2FnZXMpID4gNiBlbHNlIFttZXNzYWdlc1swXV0KICAgICAgICByZXR1cm4gdHJhbnNsYXRvcl9jYWNoZSwgbWVzc2FnZXMKCiAgICBAc3RhdGljbWV0aG9kCiAgICBkZWYgcHJlcHJvY2Vzcyh0ZXh0OiBzdHIpIC0+IHN0cjoKICAgICAgICByZXR1cm4gcmUuc3ViKHIiKD88IVxkKVsuLDs6IT8tXSg/IVxkKSIsICIiLCB0ZXh0IG9yICIiKS5sb3dlcigpCgogICAgQHN0YXRpY21ldGhvZAogICAgZGVmIF9leHRyYWN0X3Rva2Vucyhjb21wbGV0aW9uOiBBbnksIGZhbGxiYWNrOiBpbnQpIC0+IGludDoKICAgICAgICB1c2FnZSA9IGdldGF0dHIoY29tcGxldGlvbiwgInVzYWdlIiwgTm9uZSkKICAgICAgICByZXR1cm4gZ2V0YXR0cih1c2FnZSwgInRvdGFsX3Rva2VucyIsIGZhbGxiYWNrKSBpZiB1c2FnZSBlbHNlIGZhbGxiYWNrCgogICAgQHN0YXRpY21ldGhvZAogICAgZGVmIF9jcmVhdGVfY2xpZW50KGNvbmZpZzogQXBwQ29uZmlnKToKICAgICAgICBmcm9tIG9wZW5haSBpbXBvcnQgT3BlbkFJCgogICAgICAgIHJldHVybiBPcGVuQUkoCiAgICAgICAgICAgIGJhc2VfdXJsPWNvbmZpZy5zZXJ2ZXIuYmFzZV91cmwsCiAgICAgICAgICAgIGFwaV9rZXk9Y29uZmlnLnNlcnZlci5hcGlfa2V5LAogICAgICAgICAgICB0aW1lb3V0PTIwLAogICAgICAgICkK
+import re
+import threading
+import time
+from datetime import datetime
+from queue import Queue
+from typing import TYPE_CHECKING, Any
+
+from .config import AppConfig
+
+if TYPE_CHECKING:
+    from .livecaptions import LiveCaptionsSource
+
+
+class TranslatorService:
+    def __init__(
+        self,
+        config: AppConfig,
+        captions: "LiveCaptionsSource",
+        subtitle_queue: Queue,
+        status_queue: Queue,
+        client: Any | None = None,
+    ):
+        self.config = config
+        self.captions = captions
+        self.subtitle_queue = subtitle_queue
+        self.status_queue = status_queue
+        self.client = client or self._create_client(config)
+        self._thread: threading.Thread | None = None
+        self._stop_event = threading.Event()
+        self._running = False
+
+    @property
+    def is_running(self) -> bool:
+        return self._running
+
+    def start(self) -> None:
+        if self._running:
+            return
+        self._stop_event.clear()
+        self._thread = threading.Thread(target=self._run, name="TranslatorService", daemon=True)
+        self._running = True
+        self._thread.start()
+
+    def stop(self, timeout: float = 5.0) -> bool:
+        self._stop_event.set()
+        if self._thread and self._thread.is_alive():
+            self._thread.join(timeout=timeout)
+        stopped = not (self._thread and self._thread.is_alive())
+        if stopped:
+            self._running = False
+            self._thread = None
+        return stopped
+
+    def _run(self) -> None:
+        now_text = datetime.now().strftime("%m/%d/%Y, %H:%M")
+        messages = [{"role": "system", "content": self.config.system_prompt(now_text)}]
+        total_tokens = 0
+        translator_cache = {"en": [], "zh": []}
+        self._put_status("message", message="翻译线程已启动")
+
+        try:
+            while not self._stop_event.is_set():
+                start_time = time.time()
+                raw_text = self.captions.get_text()
+                if not raw_text:
+                    self._sleep_short()
+                    continue
+
+                update = self.captions.process_text(raw_text)
+                if not update.complete_sentences and not update.live_sentence.strip():
+                    self._sleep_short()
+                    continue
+
+                live_output = "..."
+                if update.complete_sentences:
+                    complete_input = " ".join(update.complete_sentences)
+                    output, total_tokens = self._translate_complete(messages, complete_input, total_tokens)
+                    if output:
+                        translator_cache["en"].append(self.preprocess(complete_input))
+                        translator_cache["zh"].append(output)
+                        messages.append({"role": "assistant", "content": output})
+
+                if update.live_sentence:
+                    live_output, total_tokens = self._translate_live(
+                        messages,
+                        update.live_sentence,
+                        total_tokens,
+                    )
+
+                self._put_subtitle(live_output, translator_cache)
+                self._put_status(
+                    "token_usage",
+                    current=total_tokens,
+                    total=self.config.server.model_context_window,
+                )
+                translator_cache, messages = self._maintain_context(
+                    translator_cache,
+                    total_tokens,
+                    messages,
+                )
+
+                run_time = time.time() - start_time
+                delay = max(0.0, self.config.logic.delay_time - run_time)
+                if delay:
+                    self._stop_event.wait(delay)
+        finally:
+            self._running = False
+            self._put_status("message", message="翻译线程已停止")
+
+    def _translate_complete(
+        self,
+        messages: list[dict[str, str]],
+        text: str,
+        current_tokens: int,
+    ) -> tuple[str, int]:
+        messages.append({"role": "user", "content": text})
+        try:
+            completion = self.client.chat.completions.create(
+                model=self.config.server.model,
+                messages=messages,
+                **self.config.completion_config,
+            )
+            output = completion.choices[0].message.content or ""
+            return output, self._extract_tokens(completion, current_tokens)
+        except Exception as exc:
+            messages.pop()
+            self._put_status("error", message=f"完整句翻译失败: {exc}")
+            return "", current_tokens
+
+    def _translate_live(
+        self,
+        messages: list[dict[str, str]],
+        text: str,
+        current_tokens: int,
+    ) -> tuple[str, int]:
+        live_prompt = f"{text.strip()}..." if not text.endswith(".") else text
+        messages.append({"role": "user", "content": live_prompt})
+        try:
+            completion = self.client.chat.completions.create(
+                model=self.config.server.model,
+                messages=messages,
+                **self.config.live_config,
+            )
+            output = completion.choices[0].message.content or "..."
+            return output, self._extract_tokens(completion, current_tokens)
+        except Exception as exc:
+            self._put_status("error", message=f"实时句翻译失败: {exc}")
+            return "...", current_tokens
+        finally:
+            messages.pop()
+
+    def _put_subtitle(self, live_text: str, translator_cache: dict[str, list[str]]) -> None:
+        history = "\n".join(translator_cache["zh"])
+        subtitle = f"{history}\n{live_text}".strip()
+        self.subtitle_queue.put({"subtitle": subtitle})
+
+    def _put_status(self, status_type: str, **payload) -> None:
+        self.status_queue.put({"type": status_type, **payload})
+
+    def _sleep_short(self) -> None:
+        self._stop_event.wait(0.1)
+
+    def _maintain_context(
+        self,
+        translator_cache: dict[str, list[str]],
+        total_tokens: int,
+        messages: list[dict[str, str]],
+    ) -> tuple[dict[str, list[str]], list[dict[str, str]]]:
+        cache_size = self.config.logic.translator_cache
+        translator_cache["en"] = translator_cache["en"][-cache_size:]
+        translator_cache["zh"] = translator_cache["zh"][-cache_size:]
+
+        threshold = self.config.server.model_context_window - self.config.logic.available_tokens
+        if total_tokens >= threshold:
+            self._put_status("message", message="Token 上下文接近上限，已裁剪对话历史")
+            messages = [messages[0]] + messages[-6:] if len(messages) > 6 else [messages[0]]
+        return translator_cache, messages
+
+    @staticmethod
+    def preprocess(text: str) -> str:
+        return re.sub(r"(?<!\d)[.,;:!?-](?!\d)", "", text or "").lower()
+
+    @staticmethod
+    def _extract_tokens(completion: Any, fallback: int) -> int:
+        usage = getattr(completion, "usage", None)
+        return getattr(usage, "total_tokens", fallback) if usage else fallback
+
+    @staticmethod
+    def _create_client(config: AppConfig):
+        from openai import OpenAI
+
+        return OpenAI(
+            base_url=config.server.base_url,
+            api_key=config.server.api_key,
+            timeout=20,
+        )

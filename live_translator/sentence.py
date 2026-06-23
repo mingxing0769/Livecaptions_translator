@@ -1,1 +1,68 @@
-aW1wb3J0IHJlCgoKX0FCQlJFVklBVElPTlMgPSB7CiAgICAibXIiLCAibXJzIiwgIm1zIiwgImRyIiwgInByb2YiLCAic3IiLCAianIiLCAic3QiLCAidnMiLAogICAgImV0YyIsICJlLmciLCAiaS5lIiwgInUucyIsICJ1LmsiLCAiZmlhIiwgImYxIiwKfQoKCmRlZiBzcGxpdF9lbmdsaXNoX3NlbnRlbmNlcyh0ZXh0OiBzdHIpIC0+IGxpc3Rbc3RyXToKICAgICIiIkxpZ2h0d2VpZ2h0IHNlbnRlbmNlIHNwbGl0dGVyIHVzZWQgaW5zdGVhZCBvZiBOTFRLLiIiIgogICAgdGV4dCA9IHJlLnN1YihyIlxzKyIsICIgIiwgdGV4dCBvciAiIikuc3RyaXAoKQogICAgaWYgbm90IHRleHQ6CiAgICAgICAgcmV0dXJuIFtdCgogICAgc2VudGVuY2VzOiBsaXN0W3N0cl0gPSBbXQogICAgc3RhcnQgPSAwCiAgICBsZW5ndGggPSBsZW4odGV4dCkKICAgIGluZGV4ID0gMAoKICAgIHdoaWxlIGluZGV4IDwgbGVuZ3RoOgogICAgICAgIGNoYXIgPSB0ZXh0W2luZGV4XQogICAgICAgIGlmIGNoYXIgbm90IGluICIuIT8iOgogICAgICAgICAgICBpbmRleCArPSAxCiAgICAgICAgICAgIGNvbnRpbnVlCgogICAgICAgIGlmIGNoYXIgPT0gIi4iOgogICAgICAgICAgICBwcmV2X2NoYXIgPSB0ZXh0W2luZGV4IC0gMV0gaWYgaW5kZXggPiAwIGVsc2UgIiIKICAgICAgICAgICAgbmV4dF9jaGFyID0gdGV4dFtpbmRleCArIDFdIGlmIGluZGV4ICsgMSA8IGxlbmd0aCBlbHNlICIiCiAgICAgICAgICAgIGlmIHByZXZfY2hhci5pc2RpZ2l0KCkgYW5kIG5leHRfY2hhci5pc2RpZ2l0KCk6CiAgICAgICAgICAgICAgICBpbmRleCArPSAxCiAgICAgICAgICAgICAgICBjb250aW51ZQoKICAgICAgICAgICAgdG9rZW4gPSBfcHJldmlvdXNfdG9rZW4odGV4dCwgaW5kZXgpLmxvd2VyKCkucnN0cmlwKCIuIikKICAgICAgICAgICAgaWYgdG9rZW4gaW4gX0FCQlJFVklBVElPTlM6CiAgICAgICAgICAgICAgICBpbmRleCArPSAxCiAgICAgICAgICAgICAgICBjb250aW51ZQoKICAgICAgICBlbmQgPSBpbmRleCArIDEKICAgICAgICB3aGlsZSBlbmQgPCBsZW5ndGggYW5kIHRleHRbZW5kXSBpbiAiLiE/IjoKICAgICAgICAgICAgZW5kICs9IDEKICAgICAgICB3aGlsZSBlbmQgPCBsZW5ndGggYW5kIHRleHRbZW5kXSBpbiAiXCInKV19IjoKICAgICAgICAgICAgZW5kICs9IDEKCiAgICAgICAgaWYgZW5kID09IGxlbmd0aCBvciB0ZXh0W2VuZF0uaXNzcGFjZSgpOgogICAgICAgICAgICBzZW50ZW5jZSA9IHRleHRbc3RhcnQ6ZW5kXS5zdHJpcCgpCiAgICAgICAgICAgIGlmIHNlbnRlbmNlOgogICAgICAgICAgICAgICAgc2VudGVuY2VzLmFwcGVuZChzZW50ZW5jZSkKICAgICAgICAgICAgc3RhcnQgPSBlbmQKICAgICAgICAgICAgd2hpbGUgc3RhcnQgPCBsZW5ndGggYW5kIHRleHRbc3RhcnRdLmlzc3BhY2UoKToKICAgICAgICAgICAgICAgIHN0YXJ0ICs9IDEKICAgICAgICAgICAgaW5kZXggPSBzdGFydAogICAgICAgICAgICBjb250aW51ZQoKICAgICAgICBpbmRleCArPSAxCgogICAgdGFpbCA9IHRleHRbc3RhcnQ6XS5zdHJpcCgpCiAgICBpZiB0YWlsOgogICAgICAgIHNlbnRlbmNlcy5hcHBlbmQodGFpbCkKICAgIHJldHVybiBzZW50ZW5jZXMKCgpkZWYgX3ByZXZpb3VzX3Rva2VuKHRleHQ6IHN0ciwgZG90X2luZGV4OiBpbnQpIC0+IHN0cjoKICAgIHByZWZpeCA9IHRleHRbOmRvdF9pbmRleF0ucnN0cmlwKCkKICAgIGlmIG5vdCBwcmVmaXg6CiAgICAgICAgcmV0dXJuICIiCiAgICByZXR1cm4gcHJlZml4LnNwbGl0KClbLTFdCgo=
+import re
+
+
+_ABBREVIATIONS = {
+    "mr", "mrs", "ms", "dr", "prof", "sr", "jr", "st", "vs",
+    "etc", "e.g", "i.e", "u.s", "u.k", "fia", "f1",
+}
+
+
+def split_english_sentences(text: str) -> list[str]:
+    """Lightweight sentence splitter used instead of NLTK."""
+    text = re.sub(r"\s+", " ", text or "").strip()
+    if not text:
+        return []
+
+    sentences: list[str] = []
+    start = 0
+    length = len(text)
+    index = 0
+
+    while index < length:
+        char = text[index]
+        if char not in ".!?":
+            index += 1
+            continue
+
+        if char == ".":
+            prev_char = text[index - 1] if index > 0 else ""
+            next_char = text[index + 1] if index + 1 < length else ""
+            if prev_char.isdigit() and next_char.isdigit():
+                index += 1
+                continue
+
+            token = _previous_token(text, index).lower().rstrip(".")
+            if token in _ABBREVIATIONS:
+                index += 1
+                continue
+
+        end = index + 1
+        while end < length and text[end] in ".!?":
+            end += 1
+        while end < length and text[end] in "\"')]}":
+            end += 1
+
+        if end == length or text[end].isspace():
+            sentence = text[start:end].strip()
+            if sentence:
+                sentences.append(sentence)
+            start = end
+            while start < length and text[start].isspace():
+                start += 1
+            index = start
+            continue
+
+        index += 1
+
+    tail = text[start:].strip()
+    if tail:
+        sentences.append(tail)
+    return sentences
+
+
+def _previous_token(text: str, dot_index: int) -> str:
+    prefix = text[:dot_index].rstrip()
+    if not prefix:
+        return ""
+    return prefix.split()[-1]
+

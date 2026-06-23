@@ -1,1 +1,184 @@
-aW1wb3J0IHJlCmZyb20gZGF0YWNsYXNzZXMgaW1wb3J0IGRhdGFjbGFzcywgZmllbGQKZnJvbSB0eXBpbmcgaW1wb3J0IENhbGxhYmxlCgpmcm9tIC5zZW50ZW5jZSBpbXBvcnQgc3BsaXRfZW5nbGlzaF9zZW50ZW5jZXMKCgpORVhUX1NFTlRFTkNFX1BSRVZJRVdfV09SRFMgPSA1CgoKQGRhdGFjbGFzcwpjbGFzcyBDYXB0aW9uVXBkYXRlOgogICAgY29tcGxldGVfc2VudGVuY2VzOiBsaXN0W3N0cl0KICAgIGxpdmVfc2VudGVuY2U6IHN0cgogICAgYWN0aW9uOiBzdHIgPSAiIgoKCkBkYXRhY2xhc3MKY2xhc3MgQ2FwdGlvblRyYWNrZXI6CiAgICBzZW50ZW5jZV9zcGxpdHRlcjogQ2FsbGFibGVbW3N0cl0sIGxpc3Rbc3RyXV0gPSBzcGxpdF9lbmdsaXNoX3NlbnRlbmNlcwogICAgdG90YWxfc2VudGVuY2VzX2xpc3Q6IGxpc3Rbc3RyXSA9IGZpZWxkKGRlZmF1bHRfZmFjdG9yeT1saXN0KQogICAgYW5jaG9yX2hpc3Rvcnk6IGxpc3RbZGljdFtzdHIsIGxpc3Rbc3RyXV1dID0gZmllbGQoZGVmYXVsdF9mYWN0b3J5PWxpc3QpCiAgICBwcmV2aW91c19yYXdfdGV4dDogc3RyID0gIiIKCiAgICBAc3RhdGljbWV0aG9kCiAgICBkZWYgcHJlcHJvY2Vzcyh0ZXh0OiBzdHIsIHRvX2xpc3Q6IGJvb2wgPSBGYWxzZSk6CiAgICAgICAgdGV4dF9sb3dlciA9ICh0ZXh0IG9yICIiKS5sb3dlcigpCiAgICAgICAgdGV4dF9ub19wdW5jdCA9IHJlLnN1YihyIlsuLDs6IT9dIiwgIiIsIHRleHRfbG93ZXIpCiAgICAgICAgdGV4dF9ub3JtYWxpemVkID0gcmUuc3ViKHIiXHMrIiwgIiAiLCB0ZXh0X25vX3B1bmN0KS5zdHJpcCgpCiAgICAgICAgaWYgdG9fbGlzdDoKICAgICAgICAgICAgcmV0dXJuIFt3b3JkIGZvciB3b3JkIGluIHRleHRfbm9ybWFsaXplZC5zcGxpdCgpIGlmIHdvcmRdCiAgICAgICAgcmV0dXJuIHRleHRfbm9ybWFsaXplZAoKICAgIEBzdGF0aWNtZXRob2QKICAgIGRlZiBmaW5kX2xhc3Rfc3VibGlzdF9lbmRfaW5kZXgobWFpbl9saXN0OiBsaXN0W3N0cl0sIHN1Yl9saXN0OiBsaXN0W3N0cl0pIC0+IGludDoKICAgICAgICBpZiBub3Qgc3ViX2xpc3Qgb3Igbm90IG1haW5fbGlzdDoKICAgICAgICAgICAgcmV0dXJuIC0xCiAgICAgICAgc3ViX2xlbiA9IGxlbihzdWJfbGlzdCkKICAgICAgICBmb3IgaSBpbiByYW5nZShsZW4obWFpbl9saXN0KSAtIHN1Yl9sZW4sIC0xLCAtMSk6CiAgICAgICAgICAgIGlmIG1haW5fbGlzdFtpOmkgKyBzdWJfbGVuXSA9PSBzdWJfbGlzdDoKICAgICAgICAgICAgICAgIHJldHVybiBpICsgc3ViX2xlbgogICAgICAgIHJldHVybiAtMQoKICAgIEBzdGF0aWNtZXRob2QKICAgIGRlZiBmaW5kX2ZpcnN0X3N1Ymxpc3Rfc3RhcnRfaW5kZXgoCiAgICAgICAgbWFpbl9saXN0OiBsaXN0W3N0cl0sCiAgICAgICAgc3ViX2xpc3Q6IGxpc3Rbc3RyXSwKICAgICAgICBzdGFydF9mcm9tOiBpbnQgPSAwLAogICAgKSAtPiBpbnQ6CiAgICAgICAgaWYgbm90IHN1Yl9saXN0IG9yIG5vdCBtYWluX2xpc3Q6CiAgICAgICAgICAgIHJldHVybiAtMQogICAgICAgIHN1Yl9sZW4gPSBsZW4oc3ViX2xpc3QpCiAgICAgICAgZm9yIGkgaW4gcmFuZ2Uoc3RhcnRfZnJvbSwgbGVuKG1haW5fbGlzdCkgLSBzdWJfbGVuICsgMSk6CiAgICAgICAgICAgIGlmIG1haW5fbGlzdFtpOmkgKyBzdWJfbGVuXSA9PSBzdWJfbGlzdDoKICAgICAgICAgICAgICAgIHJldHVybiBpCiAgICAgICAgcmV0dXJuIC0xCgogICAgZGVmIHByb2Nlc3Moc2VsZiwgcmF3X3RleHQ6IHN0cikgLT4gQ2FwdGlvblVwZGF0ZToKICAgICAgICAiIiJSZXR1cm4gY29tcGxldGUgYW5kIGxpdmUgY2FwdGlvbiB0ZXh0IHdoaWxlIHByZXNlcnZpbmcgdGhlIGxlZ2FjeSBhbmNob3IgbG9naWMuIiIiCiAgICAgICAgaWYgbm90IHJhd190ZXh0IG9yIHJhd190ZXh0ID09IHNlbGYucHJldmlvdXNfcmF3X3RleHQ6CiAgICAgICAgICAgIHJldHVybiBDYXB0aW9uVXBkYXRlKFtdLCAiIiwgIm5vX2NoYW5nZSIpCgogICAgICAgIHNlbGYucHJldmlvdXNfcmF3X3RleHQgPSByYXdfdGV4dAogICAgICAgIGN1cnJlbnRfc2VudGVuY2VzID0gc2VsZi5zZW50ZW5jZV9zcGxpdHRlcihyYXdfdGV4dCkKICAgICAgICBpZiBsZW4oY3VycmVudF9zZW50ZW5jZXMpIDwgMToKICAgICAgICAgICAgcmV0dXJuIENhcHRpb25VcGRhdGUoW10sICIiLCAiZW1wdHkiKQoKICAgICAgICBuZXdseV9hZGRlZF9zZW50ZW5jZXM6IGxpc3Rbc3RyXSA9IFtdCiAgICAgICAgbGl2ZV9zZW50ZW5jZV9mcmFnbWVudCA9ICIiCiAgICAgICAgYWN0aW9uX3Rha2VuID0gTm9uZQoKICAgICAgICBpZiBub3Qgc2VsZi5hbmNob3JfaGlzdG9yeToKICAgICAgICAgICAgYWN0aW9uX3Rha2VuID0gImZpcnN0X3J1biIKICAgICAgICAgICAgbmV3bHlfYWRkZWRfc2VudGVuY2VzID0gc2VsZi5fcmVzZXRfYW5kX3Byb2Nlc3NfYWxsKGN1cnJlbnRfc2VudGVuY2VzKQogICAgICAgICAgICBsaXZlX3NlbnRlbmNlX2ZyYWdtZW50ID0gY3VycmVudF9zZW50ZW5jZXNbLTFdIGlmIGN1cnJlbnRfc2VudGVuY2VzIGVsc2UgIiIKICAgICAgICBlbHNlOgogICAgICAgICAgICBjdXJyZW50X3RleHRfd29yZHMgPSBzZWxmLnByZXByb2Nlc3MocmF3X3RleHQsIHRvX2xpc3Q9VHJ1ZSkKICAgICAgICAgICAgbGF0ZXN0X2FuY2hvciA9IHNlbGYuYW5jaG9yX2hpc3RvcnlbLTFdCiAgICAgICAgICAgIGFuY2hvcl9lbmRfd29yZF9pbmRleCA9IHNlbGYuZmluZF9sYXN0X3N1Ymxpc3RfZW5kX2luZGV4KAogICAgICAgICAgICAgICAgY3VycmVudF90ZXh0X3dvcmRzLAogICAgICAgICAgICAgICAgbGF0ZXN0X2FuY2hvclsid29yZHMiXSwKICAgICAgICAgICAgKQoKICAgICAgICAgICAgaWYgYW5jaG9yX2VuZF93b3JkX2luZGV4ICE9IC0xOgogICAgICAgICAgICAgICAgYWN0aW9uX3Rha2VuID0gIm5vcm1hbCIKICAgICAgICAgICAgZWxpZiBsZW4oc2VsZi5hbmNob3JfaGlzdG9yeSkgPiAxOgogICAgICAgICAgICAgICAgcHJldl9hbmNob3IgPSBzZWxmLmFuY2hvcl9oaXN0b3J5Wy0yXQogICAgICAgICAgICAgICAgcHJldl9hbmNob3JfZW5kX2lkeCA9IHNlbGYuZmluZF9sYXN0X3N1Ymxpc3RfZW5kX2luZGV4KAogICAgICAgICAgICAgICAgICAgIGN1cnJlbnRfdGV4dF93b3JkcywKICAgICAgICAgICAgICAgICAgICBwcmV2X2FuY2hvclsid29yZHMiXSwKICAgICAgICAgICAgICAgICkKCiAgICAgICAgICAgICAgICBpZiBwcmV2X2FuY2hvcl9lbmRfaWR4ICE9IC0xOgogICAgICAgICAgICAgICAgICAgIG5leHRfcHJldmlld19zdGFydF9pZHggPSBzZWxmLmZpbmRfZmlyc3Rfc3VibGlzdF9zdGFydF9pbmRleCgKICAgICAgICAgICAgICAgICAgICAgICAgY3VycmVudF90ZXh0X3dvcmRzLAogICAgICAgICAgICAgICAgICAgICAgICBsYXRlc3RfYW5jaG9yWyJuZXh0X3ByZXZpZXciXSwKICAgICAgICAgICAgICAgICAgICAgICAgc3RhcnRfZnJvbT1wcmV2X2FuY2hvcl9lbmRfaWR4LAogICAgICAgICAgICAgICAgICAgICkKCiAgICAgICAgICAgICAgICAgICAgaWYgbmV4dF9wcmV2aWV3X3N0YXJ0X2lkeCAhPSAtMToKICAgICAgICAgICAgICAgICAgICAgICAgcmVjb25zdHJ1Y3RlZF93b3JkcyA9IGN1cnJlbnRfdGV4dF93b3Jkc1sKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHByZXZfYW5jaG9yX2VuZF9pZHg6bmV4dF9wcmV2aWV3X3N0YXJ0X2lkeAogICAgICAgICAgICAgICAgICAgICAgICBdCiAgICAgICAgICAgICAgICAgICAgICAgIGlmIHJlY29uc3RydWN0ZWRfd29yZHM6CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBhY3Rpb25fdGFrZW4gPSAicmVwYWlyIgogICAgICAgICAgICAgICAgICAgICAgICAgICAgc2VsZi5hbmNob3JfaGlzdG9yeVstMV1bIndvcmRzIl0gPSByZWNvbnN0cnVjdGVkX3dvcmRzCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBsYXRlc3RfYW5jaG9yID0gc2VsZi5hbmNob3JfaGlzdG9yeVstMV0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIGFuY2hvcl9lbmRfd29yZF9pbmRleCA9IHNlbGYuZmluZF9sYXN0X3N1Ymxpc3RfZW5kX2luZGV4KAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGN1cnJlbnRfdGV4dF93b3JkcywKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBsYXRlc3RfYW5jaG9yWyJ3b3JkcyJdLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgKQogICAgICAgICAgICAgICAgICAgICAgICBlbHNlOgogICAgICAgICAgICAgICAgICAgICAgICAgICAgYWN0aW9uX3Rha2VuID0gTm9uZQogICAgICAgICAgICAgICAgZWxzZToKICAgICAgICAgICAgICAgICAgICBuZXh0X3ByZXZpZXdfc3RhcnRfaWR4ID0gc2VsZi5maW5kX2ZpcnN0X3N1Ymxpc3Rfc3RhcnRfaW5kZXgoCiAgICAgICAgICAgICAgICAgICAgICAgIGN1cnJlbnRfdGV4dF93b3JkcywKICAgICAgICAgICAgICAgICAgICAgICAgbGF0ZXN0X2FuY2hvclsibmV4dF9wcmV2aWV3Il0sCiAgICAgICAgICAgICAgICAgICAgKQogICAgICAgICAgICAgICAgICAgIGlmIG5leHRfcHJldmlld19zdGFydF9pZHggIT0gLTE6CiAgICAgICAgICAgICAgICAgICAgICAgIGFjdGlvbl90YWtlbiA9ICJmYWxsYmFjayIKICAgICAgICAgICAgICAgICAgICAgICAgYW5jaG9yX2VuZF93b3JkX2luZGV4ID0gbmV4dF9wcmV2aWV3X3N0YXJ0X2lkeAoKICAgICAgICAgICAgaWYgbm90IGFjdGlvbl90YWtlbjoKICAgICAgICAgICAgICAgIGFjdGlvbl90YWtlbiA9ICJyZXNldCIKICAgICAgICAgICAgICAgIG5ld2x5X2FkZGVkX3NlbnRlbmNlcyA9IHNlbGYuX3Jlc2V0X2FuZF9wcm9jZXNzX2FsbChjdXJyZW50X3NlbnRlbmNlcykKICAgICAgICAgICAgZWxpZiBhbmNob3JfZW5kX3dvcmRfaW5kZXggIT0gLTEgYW5kIGFuY2hvcl9lbmRfd29yZF9pbmRleCA8IGxlbihjdXJyZW50X3RleHRfd29yZHMpOgogICAgICAgICAgICAgICAgd29yZF9zcGFucyA9IFttYXRjaC5zcGFuKCkgZm9yIG1hdGNoIGluIHJlLmZpbmRpdGVyKHIiXFMrIiwgcmF3X3RleHQpXQogICAgICAgICAgICAgICAgaWYgYW5jaG9yX2VuZF93b3JkX2luZGV4IDwgbGVuKHdvcmRfc3BhbnMpOgogICAgICAgICAgICAgICAgICAgIG5ld190ZXh0X3N0YXJ0X2NoYXJfaW5kZXggPSB3b3JkX3NwYW5zW2FuY2hvcl9lbmRfd29yZF9pbmRleF1bMF0KICAgICAgICAgICAgICAgICAgICBuZXdfdGV4dF90b19wcm9jZXNzID0gcmF3X3RleHRbbmV3X3RleHRfc3RhcnRfY2hhcl9pbmRleDpdCiAgICAgICAgICAgICAgICBlbHNlOgogICAgICAgICAgICAgICAgICAgIG5ld190ZXh0X3RvX3Byb2Nlc3MgPSAiIgoKICAgICAgICAgICAgICAgIG5ld19wb3RlbnRpYWxfc2VudGVuY2VzID0gc2VsZi5zZW50ZW5jZV9zcGxpdHRlcihuZXdfdGV4dF90b19wcm9jZXNzKQogICAgICAgICAgICAgICAgaWYgbGVuKG5ld19wb3RlbnRpYWxfc2VudGVuY2VzKSA+IDE6CiAgICAgICAgICAgICAgICAgICAgbmV3bHlfYWRkZWRfc2VudGVuY2VzID0gc2VsZi5faGFuZGxlX3NlbnRlbmNlX2JhdGNoKAogICAgICAgICAgICAgICAgICAgICAgICBuZXdfcG90ZW50aWFsX3NlbnRlbmNlc1s6LTFdLAogICAgICAgICAgICAgICAgICAgICAgICBuZXdfcG90ZW50aWFsX3NlbnRlbmNlc1stMV0sCiAgICAgICAgICAgICAgICAgICAgKQogICAgICAgICAgICAgICAgICAgIGxpdmVfc2VudGVuY2VfZnJhZ21lbnQgPSBuZXdfcG90ZW50aWFsX3NlbnRlbmNlc1stMV0KICAgICAgICAgICAgICAgIGVsc2U6CiAgICAgICAgICAgICAgICAgICAgbGl2ZV9zZW50ZW5jZV9mcmFnbWVudCA9IG5ld190ZXh0X3RvX3Byb2Nlc3MKCiAgICAgICAgcmV0dXJuIENhcHRpb25VcGRhdGUobmV3bHlfYWRkZWRfc2VudGVuY2VzLCBsaXZlX3NlbnRlbmNlX2ZyYWdtZW50LCBhY3Rpb25fdGFrZW4gb3IgIiIpCgogICAgZGVmIF9oYW5kbGVfc2VudGVuY2VfYmF0Y2goCiAgICAgICAgc2VsZiwKICAgICAgICBzZW50ZW5jZXNfdG9fcHJvY2VzczogbGlzdFtzdHJdLAogICAgICAgIGxhc3RfaW5jb21wbGV0ZV9zZW50ZW5jZTogc3RyLAogICAgKSAtPiBsaXN0W3N0cl06CiAgICAgICAgYWRkZWRfc2VudGVuY2VzOiBsaXN0W3N0cl0gPSBbXQoKICAgICAgICBmb3IgaW5kZXgsIHNlbnRlbmNlIGluIGVudW1lcmF0ZShzZW50ZW5jZXNfdG9fcHJvY2Vzcyk6CiAgICAgICAgICAgIGNsZWFuX3NlbnRlbmNlID0gc2VudGVuY2Uuc3RyaXAoKQogICAgICAgICAgICBpZiBub3QgY2xlYW5fc2VudGVuY2U6CiAgICAgICAgICAgICAgICBjb250aW51ZQoKICAgICAgICAgICAgYWRkZWRfc2VudGVuY2VzLmFwcGVuZChjbGVhbl9zZW50ZW5jZSkKICAgICAgICAgICAgc2VsZi50b3RhbF9zZW50ZW5jZXNfbGlzdC5hcHBlbmQoY2xlYW5fc2VudGVuY2UpCgogICAgICAgICAgICBpZiBpbmRleCArIDEgPCBsZW4oc2VudGVuY2VzX3RvX3Byb2Nlc3MpOgogICAgICAgICAgICAgICAgbmV4dF9wcmV2aWV3X3RleHQgPSBzZW50ZW5jZXNfdG9fcHJvY2Vzc1tpbmRleCArIDFdCiAgICAgICAgICAgIGVsc2U6CiAgICAgICAgICAgICAgICBuZXh0X3ByZXZpZXdfdGV4dCA9IGxhc3RfaW5jb21wbGV0ZV9zZW50ZW5jZQoKICAgICAgICAgICAgbmV4dF9wcmV2aWV3X3dvcmRzID0gc2VsZi5wcmVwcm9jZXNzKG5leHRfcHJldmlld190ZXh0LCB0b19saXN0PVRydWUpCiAgICAgICAgICAgIGlmIG5leHRfcHJldmlld193b3JkcyBhbmQgbm90IG5leHRfcHJldmlld190ZXh0LmVuZHN3aXRoKCIgIik6CiAgICAgICAgICAgICAgICBuZXh0X3ByZXZpZXdfd29yZHMgPSBuZXh0X3ByZXZpZXdfd29yZHNbOi0xXQogICAgICAgICAgICBuZXh0X3ByZXZpZXdfd29yZHMgPSBuZXh0X3ByZXZpZXdfd29yZHNbOk5FWFRfU0VOVEVOQ0VfUFJFVklFV19XT1JEU10KCiAgICAgICAgICAgIHNlbGYuYW5jaG9yX2hpc3RvcnkuYXBwZW5kKHsKICAgICAgICAgICAgICAgICJ3b3JkcyI6IHNlbGYucHJlcHJvY2VzcyhjbGVhbl9zZW50ZW5jZSwgdG9fbGlzdD1UcnVlKSwKICAgICAgICAgICAgICAgICJuZXh0X3ByZXZpZXciOiBuZXh0X3ByZXZpZXdfd29yZHMsCiAgICAgICAgICAgIH0pCgogICAgICAgIHJldHVybiBhZGRlZF9zZW50ZW5jZXMKCiAgICBkZWYgX3Jlc2V0X2FuZF9wcm9jZXNzX2FsbChzZWxmLCBjdXJyZW50X3NlbnRlbmNlczogbGlzdFtzdHJdKSAtPiBsaXN0W3N0cl06CiAgICAgICAgc2VsZi50b3RhbF9zZW50ZW5jZXNfbGlzdC5jbGVhcigpCiAgICAgICAgc2VsZi5hbmNob3JfaGlzdG9yeS5jbGVhcigpCiAgICAgICAgaWYgbGVuKGN1cnJlbnRfc2VudGVuY2VzKSA+IDE6CiAgICAgICAgICAgIHJldHVybiBzZWxmLl9oYW5kbGVfc2VudGVuY2VfYmF0Y2goY3VycmVudF9zZW50ZW5jZXNbLTU6LTFdLCBjdXJyZW50X3NlbnRlbmNlc1stMV0pCiAgICAgICAgcmV0dXJuIFtdCgo=
+import re
+from dataclasses import dataclass, field
+from typing import Callable
+
+from .sentence import split_english_sentences
+
+
+NEXT_SENTENCE_PREVIEW_WORDS = 5
+
+
+@dataclass
+class CaptionUpdate:
+    complete_sentences: list[str]
+    live_sentence: str
+    action: str = ""
+
+
+@dataclass
+class CaptionTracker:
+    sentence_splitter: Callable[[str], list[str]] = split_english_sentences
+    total_sentences_list: list[str] = field(default_factory=list)
+    anchor_history: list[dict[str, list[str]]] = field(default_factory=list)
+    previous_raw_text: str = ""
+
+    @staticmethod
+    def preprocess(text: str, to_list: bool = False):
+        text_lower = (text or "").lower()
+        text_no_punct = re.sub(r"[.,;:!?]", "", text_lower)
+        text_normalized = re.sub(r"\s+", " ", text_no_punct).strip()
+        if to_list:
+            return [word for word in text_normalized.split() if word]
+        return text_normalized
+
+    @staticmethod
+    def find_last_sublist_end_index(main_list: list[str], sub_list: list[str]) -> int:
+        if not sub_list or not main_list:
+            return -1
+        sub_len = len(sub_list)
+        for i in range(len(main_list) - sub_len, -1, -1):
+            if main_list[i:i + sub_len] == sub_list:
+                return i + sub_len
+        return -1
+
+    @staticmethod
+    def find_first_sublist_start_index(
+        main_list: list[str],
+        sub_list: list[str],
+        start_from: int = 0,
+    ) -> int:
+        if not sub_list or not main_list:
+            return -1
+        sub_len = len(sub_list)
+        for i in range(start_from, len(main_list) - sub_len + 1):
+            if main_list[i:i + sub_len] == sub_list:
+                return i
+        return -1
+
+    def process(self, raw_text: str) -> CaptionUpdate:
+        """Return complete and live caption text while preserving the legacy anchor logic."""
+        if not raw_text or raw_text == self.previous_raw_text:
+            return CaptionUpdate([], "", "no_change")
+
+        self.previous_raw_text = raw_text
+        current_sentences = self.sentence_splitter(raw_text)
+        if len(current_sentences) < 1:
+            return CaptionUpdate([], "", "empty")
+
+        newly_added_sentences: list[str] = []
+        live_sentence_fragment = ""
+        action_taken = None
+
+        if not self.anchor_history:
+            action_taken = "first_run"
+            newly_added_sentences = self._reset_and_process_all(current_sentences)
+            live_sentence_fragment = current_sentences[-1] if current_sentences else ""
+        else:
+            current_text_words = self.preprocess(raw_text, to_list=True)
+            latest_anchor = self.anchor_history[-1]
+            anchor_end_word_index = self.find_last_sublist_end_index(
+                current_text_words,
+                latest_anchor["words"],
+            )
+
+            if anchor_end_word_index != -1:
+                action_taken = "normal"
+            elif len(self.anchor_history) > 1:
+                prev_anchor = self.anchor_history[-2]
+                prev_anchor_end_idx = self.find_last_sublist_end_index(
+                    current_text_words,
+                    prev_anchor["words"],
+                )
+
+                if prev_anchor_end_idx != -1:
+                    next_preview_start_idx = self.find_first_sublist_start_index(
+                        current_text_words,
+                        latest_anchor["next_preview"],
+                        start_from=prev_anchor_end_idx,
+                    )
+
+                    if next_preview_start_idx != -1:
+                        reconstructed_words = current_text_words[
+                            prev_anchor_end_idx:next_preview_start_idx
+                        ]
+                        if reconstructed_words:
+                            action_taken = "repair"
+                            self.anchor_history[-1]["words"] = reconstructed_words
+                            latest_anchor = self.anchor_history[-1]
+                            anchor_end_word_index = self.find_last_sublist_end_index(
+                                current_text_words,
+                                latest_anchor["words"],
+                            )
+                        else:
+                            action_taken = None
+                else:
+                    next_preview_start_idx = self.find_first_sublist_start_index(
+                        current_text_words,
+                        latest_anchor["next_preview"],
+                    )
+                    if next_preview_start_idx != -1:
+                        action_taken = "fallback"
+                        anchor_end_word_index = next_preview_start_idx
+
+            if not action_taken:
+                action_taken = "reset"
+                newly_added_sentences = self._reset_and_process_all(current_sentences)
+            elif anchor_end_word_index != -1 and anchor_end_word_index < len(current_text_words):
+                word_spans = [match.span() for match in re.finditer(r"\S+", raw_text)]
+                if anchor_end_word_index < len(word_spans):
+                    new_text_start_char_index = word_spans[anchor_end_word_index][0]
+                    new_text_to_process = raw_text[new_text_start_char_index:]
+                else:
+                    new_text_to_process = ""
+
+                new_potential_sentences = self.sentence_splitter(new_text_to_process)
+                if len(new_potential_sentences) > 1:
+                    newly_added_sentences = self._handle_sentence_batch(
+                        new_potential_sentences[:-1],
+                        new_potential_sentences[-1],
+                    )
+                    live_sentence_fragment = new_potential_sentences[-1]
+                else:
+                    live_sentence_fragment = new_text_to_process
+
+        return CaptionUpdate(newly_added_sentences, live_sentence_fragment, action_taken or "")
+
+    def _handle_sentence_batch(
+        self,
+        sentences_to_process: list[str],
+        last_incomplete_sentence: str,
+    ) -> list[str]:
+        added_sentences: list[str] = []
+
+        for index, sentence in enumerate(sentences_to_process):
+            clean_sentence = sentence.strip()
+            if not clean_sentence:
+                continue
+
+            added_sentences.append(clean_sentence)
+            self.total_sentences_list.append(clean_sentence)
+
+            if index + 1 < len(sentences_to_process):
+                next_preview_text = sentences_to_process[index + 1]
+            else:
+                next_preview_text = last_incomplete_sentence
+
+            next_preview_words = self.preprocess(next_preview_text, to_list=True)
+            if next_preview_words and not next_preview_text.endswith(" "):
+                next_preview_words = next_preview_words[:-1]
+            next_preview_words = next_preview_words[:NEXT_SENTENCE_PREVIEW_WORDS]
+
+            self.anchor_history.append({
+                "words": self.preprocess(clean_sentence, to_list=True),
+                "next_preview": next_preview_words,
+            })
+
+        return added_sentences
+
+    def _reset_and_process_all(self, current_sentences: list[str]) -> list[str]:
+        self.total_sentences_list.clear()
+        self.anchor_history.clear()
+        if len(current_sentences) > 1:
+            return self._handle_sentence_batch(current_sentences[-5:-1], current_sentences[-1])
+        return []
+

@@ -1,1 +1,2 @@
-IiIiUmVhbC10aW1lIExpdmUgQ2FwdGlvbnMgdHJhbnNsYXRvciBwYWNrYWdlLiIiIgoK
+"""Real-time Live Captions translator package."""
+

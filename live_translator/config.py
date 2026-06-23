@@ -1,1 +1,219 @@
-aW1wb3J0IGNvbmZpZ3BhcnNlcgppbXBvcnQgc2h1dGlsCmZyb20gZGF0YWNsYXNzZXMgaW1wb3J0IGRhdGFjbGFzcwpmcm9tIHBhdGhsaWIgaW1wb3J0IFBhdGgKCgpDT05GSUdfUEFUSCA9IFBhdGgoImNvbmZpZy5pbmkiKQpTRVJWRVJfU0VDVElPTiA9ICJTZXJ2ZXIiCkxFR0FDWV9TRVJWRVJfU0VDVElPTiA9ICJTZXZlciIKCgpAZGF0YWNsYXNzKGZyb3plbj1UcnVlKQpjbGFzcyBTZXJ2ZXJDb25maWc6CiAgICBiYXNlX3VybDogc3RyCiAgICBhcGlfa2V5OiBzdHIKICAgIG1vZGVsOiBzdHIKICAgIG1vZGVsX2NvbnRleHRfd2luZG93OiBpbnQKCgpAZGF0YWNsYXNzKGZyb3plbj1UcnVlKQpjbGFzcyBMb2dpY0NvbmZpZzoKICAgIGF2YWlsYWJsZV90b2tlbnM6IGludAogICAgZGVsYXlfdGltZTogZmxvYXQKICAgIGFjdGl2ZV9wcm9tcHQ6IHN0cgogICAgbWF4X2lucHV0X3dvcmRzOiBpbnQKICAgIHRyYW5zbGF0b3JfY2FjaGU6IGludAoKCkBkYXRhY2xhc3MoZnJvemVuPVRydWUpCmNsYXNzIERpc3BsYXlDb25maWc6CiAgICBmb250X2ZhbWlseTogc3RyCiAgICBmb250X3NpemU6IGludAogICAgZGlzcGxheV9saW5lczogaW50CiAgICBzY3JvbGxiYXJfcG9saWN5OiBib29sCiAgICBoaWRlX2xpdmVjYXB0aW9uc193aW5kb3c6IGJvb2wKICAgIHVwZGF0ZV9pbnRlcnZhbF9tczogaW50CiAgICB4OiBpbnQKICAgIHk6IGludAogICAgd2lkdGg6IGludAogICAgaGVpZ2h0OiBpbnQKICAgIGJhY2tncm91bmRfY29sb3I6IHN0cgogICAgbWF4X3dpbmRvd193aWR0aDogaW50CgoKQGRhdGFjbGFzcyhmcm96ZW49VHJ1ZSkKY2xhc3MgQXBwQ29uZmlnOgogICAgcGFyc2VyOiBjb25maWdwYXJzZXIuQ29uZmlnUGFyc2VyCiAgICBwYXRoOiBQYXRoCiAgICBzZXJ2ZXI6IFNlcnZlckNvbmZpZwogICAgbG9naWM6IExvZ2ljQ29uZmlnCiAgICBkaXNwbGF5OiBEaXNwbGF5Q29uZmlnCiAgICBjb21wbGV0aW9uX2NvbmZpZzogZGljdAogICAgbGl2ZV9jb25maWc6IGRpY3QKCiAgICBkZWYgcHJvbXB0X3NlY3Rpb25zKHNlbGYpIC0+IGxpc3Rbc3RyXToKICAgICAgICByZXR1cm4gW3NlY3Rpb24gZm9yIHNlY3Rpb24gaW4gc2VsZi5wYXJzZXIuc2VjdGlvbnMoKSBpZiBzZWN0aW9uLnN0YXJ0c3dpdGgoIlByb21wdF8iKV0KCiAgICBkZWYgc3lzdGVtX3Byb21wdChzZWxmLCBub3dfdGV4dDogc3RyKSAtPiBzdHI6CiAgICAgICAgc2VjdGlvbiA9IHNlbGYubG9naWMuYWN0aXZlX3Byb21wdAogICAgICAgIGlmIG5vdCBzZWxmLnBhcnNlci5oYXNfc2VjdGlvbihzZWN0aW9uKToKICAgICAgICAgICAgc2VjdGlvbnMgPSBzZWxmLnByb21wdF9zZWN0aW9ucygpCiAgICAgICAgICAgIHNlY3Rpb24gPSBzZWN0aW9uc1swXSBpZiBzZWN0aW9ucyBlbHNlICIiCiAgICAgICAgcmF3X3Byb21wdCA9IHNlbGYucGFyc2VyLmdldChzZWN0aW9uLCAiY29udGVudCIsIGZhbGxiYWNrPSIiKQogICAgICAgIHJldHVybiByYXdfcHJvbXB0LmZvcm1hdChub3c9bm93X3RleHQpCgoKZGVmIGxvYWRfY29uZmlnKHBhdGg6IFBhdGggfCBzdHIgPSBDT05GSUdfUEFUSCwgbWlncmF0ZTogYm9vbCA9IFRydWUpIC0+IEFwcENvbmZpZzoKICAgIGNvbmZpZ19wYXRoID0gUGF0aChwYXRoKQogICAgcGFyc2VyID0gY29uZmlncGFyc2VyLkNvbmZpZ1BhcnNlcigpCiAgICBpZiBjb25maWdfcGF0aC5leGlzdHMoKToKICAgICAgICBwYXJzZXIucmVhZChjb25maWdfcGF0aCwgZW5jb2Rpbmc9InV0Zi04IikKICAgIGVsc2U6CiAgICAgICAgcGFyc2VyLnJlYWRfZGljdChkZWZhdWx0X2NvbmZpZ19kaWN0KCkpCiAgICAgICAgd3JpdGVfY29uZmlnKHBhcnNlciwgY29uZmlnX3BhdGgpCgogICAgY2hhbmdlZCA9IG5vcm1hbGl6ZV9jb25maWcocGFyc2VyKQogICAgaWYgY2hhbmdlZCBhbmQgbWlncmF0ZToKICAgICAgICBiYWNrdXBfcGF0aCA9IGNvbmZpZ19wYXRoLndpdGhfc3VmZml4KGNvbmZpZ19wYXRoLnN1ZmZpeCArICIuYmFrIikKICAgICAgICBpZiBjb25maWdfcGF0aC5leGlzdHMoKSBhbmQgbm90IGJhY2t1cF9wYXRoLmV4aXN0cygpOgogICAgICAgICAgICBzaHV0aWwuY29weTIoY29uZmlnX3BhdGgsIGJhY2t1cF9wYXRoKQogICAgICAgIHdyaXRlX2NvbmZpZyhwYXJzZXIsIGNvbmZpZ19wYXRoKQoKICAgIHJldHVybiBidWlsZF9hcHBfY29uZmlnKHBhcnNlciwgY29uZmlnX3BhdGgpCgoKZGVmIHdyaXRlX2NvbmZpZyhwYXJzZXI6IGNvbmZpZ3BhcnNlci5Db25maWdQYXJzZXIsIHBhdGg6IFBhdGggfCBzdHIgPSBDT05GSUdfUEFUSCkgLT4gTm9uZToKICAgIHdpdGggUGF0aChwYXRoKS5vcGVuKCJ3IiwgZW5jb2Rpbmc9InV0Zi04IikgYXMgZmlsZToKICAgICAgICBwYXJzZXIud3JpdGUoZmlsZSkKCgpkZWYgbm9ybWFsaXplX2NvbmZpZyhwYXJzZXI6IGNvbmZpZ3BhcnNlci5Db25maWdQYXJzZXIpIC0+IGJvb2w6CiAgICBjaGFuZ2VkID0gRmFsc2UKICAgIGRlZmF1bHRzID0gZGVmYXVsdF9jb25maWdfZGljdCgpCgogICAgaWYgcGFyc2VyLmhhc19zZWN0aW9uKExFR0FDWV9TRVJWRVJfU0VDVElPTik6CiAgICAgICAgaWYgbm90IHBhcnNlci5oYXNfc2VjdGlvbihTRVJWRVJfU0VDVElPTik6CiAgICAgICAgICAgIHBhcnNlci5hZGRfc2VjdGlvbihTRVJWRVJfU0VDVElPTikKICAgICAgICAgICAgY2hhbmdlZCA9IFRydWUKICAgICAgICBmb3Iga2V5LCB2YWx1ZSBpbiBwYXJzZXIuaXRlbXMoTEVHQUNZX1NFUlZFUl9TRUNUSU9OKToKICAgICAgICAgICAgcGFyc2VyLnNldChTRVJWRVJfU0VDVElPTiwga2V5LCB2YWx1ZSkKICAgICAgICAgICAgY2hhbmdlZCA9IFRydWUKICAgICAgICBwYXJzZXIucmVtb3ZlX3NlY3Rpb24oTEVHQUNZX1NFUlZFUl9TRUNUSU9OKQogICAgICAgIGNoYW5nZWQgPSBUcnVlCgogICAgZm9yIHNlY3Rpb24sIHZhbHVlcyBpbiBkZWZhdWx0cy5pdGVtcygpOgogICAgICAgIGlmIG5vdCBwYXJzZXIuaGFzX3NlY3Rpb24oc2VjdGlvbik6CiAgICAgICAgICAgIHBhcnNlci5hZGRfc2VjdGlvbihzZWN0aW9uKQogICAgICAgICAgICBjaGFuZ2VkID0gVHJ1ZQogICAgICAgIGZvciBrZXksIHZhbHVlIGluIHZhbHVlcy5pdGVtcygpOgogICAgICAgICAgICBpZiBub3QgcGFyc2VyLmhhc19vcHRpb24oc2VjdGlvbiwga2V5KToKICAgICAgICAgICAgICAgIHBhcnNlci5zZXQoc2VjdGlvbiwga2V5LCBzdHIodmFsdWUpKQogICAgICAgICAgICAgICAgY2hhbmdlZCA9IFRydWUKCiAgICByZXR1cm4gY2hhbmdlZAoKCmRlZiBidWlsZF9hcHBfY29uZmlnKHBhcnNlcjogY29uZmlncGFyc2VyLkNvbmZpZ1BhcnNlciwgcGF0aDogUGF0aCkgLT4gQXBwQ29uZmlnOgogICAgcmV0dXJuIEFwcENvbmZpZygKICAgICAgICBwYXJzZXI9cGFyc2VyLAogICAgICAgIHBhdGg9cGF0aCwKICAgICAgICBzZXJ2ZXI9U2VydmVyQ29uZmlnKAogICAgICAgICAgICBiYXNlX3VybD1wYXJzZXIuZ2V0KFNFUlZFUl9TRUNUSU9OLCAiYmFzZV91cmwiLCBmYWxsYmFjaz0iIiksCiAgICAgICAgICAgIGFwaV9rZXk9cGFyc2VyLmdldChTRVJWRVJfU0VDVElPTiwgImFwaV9rZXkiLCBmYWxsYmFjaz0iIiksCiAgICAgICAgICAgIG1vZGVsPXBhcnNlci5nZXQoU0VSVkVSX1NFQ1RJT04sICJtb2RlbCIsIGZhbGxiYWNrPSIiKSwKICAgICAgICAgICAgbW9kZWxfY29udGV4dF93aW5kb3c9cGFyc2VyLmdldGludChTRVJWRVJfU0VDVElPTiwgIm1vZGVsX2NvbnRleHRfd2luZG93IiwgZmFsbGJhY2s9NDA5NiksCiAgICAgICAgKSwKICAgICAgICBsb2dpYz1Mb2dpY0NvbmZpZygKICAgICAgICAgICAgYXZhaWxhYmxlX3Rva2Vucz1wYXJzZXIuZ2V0aW50KCJMb2dpYyIsICJhdmFpbGFibGVfdG9rZW5zIiwgZmFsbGJhY2s9MjU2KSwKICAgICAgICAgICAgZGVsYXlfdGltZT1wYXJzZXIuZ2V0ZmxvYXQoIkxvZ2ljIiwgImRlbGF5X3RpbWUiLCBmYWxsYmFjaz0xLjApLAogICAgICAgICAgICBhY3RpdmVfcHJvbXB0PXBhcnNlci5nZXQoIkxvZ2ljIiwgImFjdGl2ZV9wcm9tcHQiLCBmYWxsYmFjaz0iUHJvbXB0X0dlbmVyYWwiKSwKICAgICAgICAgICAgbWF4X2lucHV0X3dvcmRzPXBhcnNlci5nZXRpbnQoIkxvZ2ljIiwgIm1heF9pbnB1dF93b3JkcyIsIGZhbGxiYWNrPTMwMCksCiAgICAgICAgICAgIHRyYW5zbGF0b3JfY2FjaGU9cGFyc2VyLmdldGludCgiTG9naWMiLCAidHJhbnNsYXRvcl9jYWNoZSIsIGZhbGxiYWNrPTEwKSwKICAgICAgICApLAogICAgICAgIGRpc3BsYXk9RGlzcGxheUNvbmZpZygKICAgICAgICAgICAgZm9udF9mYW1pbHk9cGFyc2VyLmdldCgiRGlzcGxheV9zZXQiLCAiZm9udF9mYW1pbHkiLCBmYWxsYmFjaz0i5b6u6L2v6ZuF6buRIiksCiAgICAgICAgICAgIGZvbnRfc2l6ZT1wYXJzZXIuZ2V0aW50KCJEaXNwbGF5X3NldCIsICJmb250X3NpemUiLCBmYWxsYmFjaz0xNSksCiAgICAgICAgICAgIGRpc3BsYXlfbGluZXM9cGFyc2VyLmdldGludCgiRGlzcGxheV9zZXQiLCAiZGlzcGxheV9saW5lcyIsIGZhbGxiYWNrPTMpLAogICAgICAgICAgICBzY3JvbGxiYXJfcG9saWN5PXBhcnNlci5nZXRib29sZWFuKCJEaXNwbGF5X3NldCIsICJzY3JvbGxiYXJwb2xpY3kiLCBmYWxsYmFjaz1GYWxzZSksCiAgICAgICAgICAgIGhpZGVfbGl2ZWNhcHRpb25zX3dpbmRvdz1wYXJzZXIuZ2V0Ym9vbGVhbigiRGlzcGxheV9zZXQiLCAiaGlkZV9saXZlY2FwdGlvbnNfd2luZG93IiwgZmFsbGJhY2s9VHJ1ZSksCiAgICAgICAgICAgIHVwZGF0ZV9pbnRlcnZhbF9tcz1wYXJzZXIuZ2V0aW50KCJEaXNwbGF5X3NldCIsICJ1cGRhdGVfaW50ZXJ2YWxfbXMiLCBmYWxsYmFjaz01MCksCiAgICAgICAgICAgIHg9cGFyc2VyLmdldGludCgiRGlzcGxheV9zZXQiLCAieCIsIGZhbGxiYWNrPTM5MCksCiAgICAgICAgICAgIHk9cGFyc2VyLmdldGludCgiRGlzcGxheV9zZXQiLCAieSIsIGZhbGxiYWNrPTcwMCksCiAgICAgICAgICAgIHdpZHRoPXBhcnNlci5nZXRpbnQoIkRpc3BsYXlfc2V0IiwgIndpZHRoIiwgZmFsbGJhY2s9MTAwMCksCiAgICAgICAgICAgIGhlaWdodD1wYXJzZXIuZ2V0aW50KCJEaXNwbGF5X3NldCIsICJoZWlnaHQiLCBmYWxsYmFjaz04MCksCiAgICAgICAgICAgIGJhY2tncm91bmRfY29sb3I9cGFyc2VyLmdldCgiRGlzcGxheV9zZXQiLCAiYmFja2dyb3VuZF9jb2xvciIsIGZhbGxiYWNrPSIwLCAwLCAwLCA3MCIpLAogICAgICAgICAgICBtYXhfd2luZG93X3dpZHRoPXBhcnNlci5nZXRpbnQoIkRpc3BsYXlfc2V0IiwgIm1heF93aW5kb3dfd2lkdGgiLCBmYWxsYmFjaz0xMjAwKSwKICAgICAgICApLAogICAgICAgIGNvbXBsZXRpb25fY29uZmlnPXBhcnNlX2xsbV9jb25maWcocGFyc2VyLCAiQ09NUExFVElPTl9DT05GSUciKSwKICAgICAgICBsaXZlX2NvbmZpZz1wYXJzZV9sbG1fY29uZmlnKHBhcnNlciwgIkxJVkVfQ09ORklHIiksCiAgICApCgoKZGVmIHBhcnNlX2xsbV9jb25maWcocGFyc2VyOiBjb25maWdwYXJzZXIuQ29uZmlnUGFyc2VyLCBzZWN0aW9uOiBzdHIpIC0+IGRpY3Q6CiAgICBwYXJzZWQgPSB7fQogICAgaWYgbm90IHBhcnNlci5oYXNfc2VjdGlvbihzZWN0aW9uKToKICAgICAgICByZXR1cm4gcGFyc2VkCiAgICBmb3Iga2V5LCB2YWx1ZSBpbiBwYXJzZXIuaXRlbXMoc2VjdGlvbik6CiAgICAgICAgdmFsdWUgPSB2YWx1ZS5zdHJpcCgpCiAgICAgICAgdHJ5OgogICAgICAgICAgICBwYXJzZWRba2V5XSA9IGZsb2F0KHZhbHVlKSBpZiAiLiIgaW4gdmFsdWUgZWxzZSBpbnQodmFsdWUpCiAgICAgICAgZXhjZXB0IFZhbHVlRXJyb3I6CiAgICAgICAgICAgIHBhcnNlZFtrZXldID0gdmFsdWUKICAgIHJldHVybiBwYXJzZWQKCgpkZWYgZGVmYXVsdF9jb25maWdfZGljdCgpIC0+IGRpY3Rbc3RyLCBkaWN0W3N0ciwgc3RyXV06CiAgICByZXR1cm4gewogICAgICAgICJDT01QTEVUSU9OX0NPTkZJRyI6IHsKICAgICAgICAgICAgIm1heF90b2tlbnMiOiAiNTEyIiwKICAgICAgICAgICAgInRvcF9wIjogIjAuOTUiLAogICAgICAgICAgICAidGVtcGVyYXR1cmUiOiAiMC44IiwKICAgICAgICAgICAgInNlZWQiOiAiNDIiLAogICAgICAgIH0sCiAgICAgICAgIkxJVkVfQ09ORklHIjogewogICAgICAgICAgICAidGVtcGVyYXR1cmUiOiAiMC42IiwKICAgICAgICAgICAgIm1heF90b2tlbnMiOiAiNTEyIiwKICAgICAgICAgICAgInRvcF9wIjogIjAuOTUiLAogICAgICAgICAgICAic2VlZCI6ICI0MiIsCiAgICAgICAgfSwKICAgICAgICAiTG9naWMiOiB7CiAgICAgICAgICAgICJhdmFpbGFibGVfdG9rZW5zIjogIjEyOCIsCiAgICAgICAgICAgICJkZWxheV90aW1lIjogIjAuOCIsCiAgICAgICAgICAgICJhY3RpdmVfcHJvbXB0IjogIlByb21wdF9GMSIsCiAgICAgICAgICAgICJtYXhfaW5wdXRfd29yZHMiOiAiMzAwIiwKICAgICAgICAgICAgInRyYW5zbGF0b3JfY2FjaGUiOiAiMTAiLAogICAgICAgIH0sCiAgICAgICAgIkRpc3BsYXlfc2V0IjogewogICAgICAgICAgICAiZm9udF9mYW1pbHkiOiAi5b6u6L2v6ZuF6buRIiwKICAgICAgICAgICAgImZvbnRfc2l6ZSI6ICIxNSIsCiAgICAgICAgICAgICJkaXNwbGF5X2xpbmVzIjogIjMiLAogICAgICAgICAgICAic2Nyb2xsYmFycG9saWN5IjogIkZhbHNlIiwKICAgICAgICAgICAgImhpZGVfbGl2ZWNhcHRpb25zX3dpbmRvdyI6ICJGYWxzZSIsCiAgICAgICAgICAgICJ1cGRhdGVfaW50ZXJ2YWxfbXMiOiAiNTAiLAogICAgICAgICAgICAieCI6ICIzOTAiLAogICAgICAgICAgICAieSI6ICI3MDAiLAogICAgICAgICAgICAid2lkdGgiOiAiMTAwMCIsCiAgICAgICAgICAgICJoZWlnaHQiOiAiODAiLAogICAgICAgICAgICAiYmFja2dyb3VuZF9jb2xvciI6ICIwLCAwLCAwLCA3MCIsCiAgICAgICAgICAgICJtYXhfd2luZG93X3dpZHRoIjogIjEyMDAiLAogICAgICAgIH0sCiAgICAgICAgU0VSVkVSX1NFQ1RJT046IHsKICAgICAgICAgICAgImJhc2VfdXJsIjogImh0dHA6Ly8xMjcuMC4wLjE6NTAwMC92MSIsCiAgICAgICAgICAgICJhcGlfa2V5IjogImxtLXN0dWRpbyIsCiAgICAgICAgICAgICJtb2RlbCI6ICJwdWJsaXNoZXJAcTNfa194bCIsCiAgICAgICAgICAgICJtb2RlbF9jb250ZXh0X3dpbmRvdyI6ICI4MTkyIiwKICAgICAgICB9LAogICAgICAgICJQcm9tcHRfR2VuZXJhbCI6IHsKICAgICAgICAgICAgIm5hbWUiOiAi6YCa55So57+76K+RIiwKICAgICAgICAgICAgImNvbnRlbnQiOiAi5L2g5aW9ISDnjrDlnKjmmK/ljJfkuqzml7bpl7R7bm93feOAglxu5L2g5piv5oiR55qE5ZCM5aOw5Lyg6K+R5Yqp5omL77yM6K+35bCG6Iux5paH5paH5pys57+76K+R5Li6566A5rSB44CB6Ieq54S244CB5YeG56Gu55qE5Lit5paH44CCIiwKICAgICAgICB9LAogICAgICAgICJQcm9tcHRfRjEiOiB7CiAgICAgICAgICAgICJuYW1lIjogIkYx6LWb5LqL5LiT55SoIiwKICAgICAgICAgICAgImNvbnRlbnQiOiAi5L2g5aW9ISDnjrDlnKjmmK/ljJfkuqzml7bpl7R7bm93feOAglxu5L2g5piv5oiR55qERjHotZvkuovlkIzlo7DkvKDor5HliqnmiYvvvIzor7flsIZGMei1m+S6i+iLseaWh+ivhOiuuue/u+ivkeS4uueugOa0geOAgeS4k+S4muOAgeWHhuehrueahOS4reaWh+OAgiIsCiAgICAgICAgfSwKICAgICAgICAiUHJvbXB0X+iHquWumuS5iSI6IHsKICAgICAgICAgICAgIm5hbWUiOiAi6Ieq5a6a5LmJIiwKICAgICAgICAgICAgImNvbnRlbnQiOiAiIiwKICAgICAgICB9LAogICAgfQo=
+import configparser
+import shutil
+from dataclasses import dataclass
+from pathlib import Path
+
+
+CONFIG_PATH = Path("config.ini")
+SERVER_SECTION = "Server"
+LEGACY_SERVER_SECTION = "Sever"
+
+
+@dataclass(frozen=True)
+class ServerConfig:
+    base_url: str
+    api_key: str
+    model: str
+    model_context_window: int
+
+
+@dataclass(frozen=True)
+class LogicConfig:
+    available_tokens: int
+    delay_time: float
+    active_prompt: str
+    max_input_words: int
+    translator_cache: int
+
+
+@dataclass(frozen=True)
+class DisplayConfig:
+    font_family: str
+    font_size: int
+    display_lines: int
+    scrollbar_policy: bool
+    hide_livecaptions_window: bool
+    update_interval_ms: int
+    x: int
+    y: int
+    width: int
+    height: int
+    background_color: str
+    max_window_width: int
+
+
+@dataclass(frozen=True)
+class AppConfig:
+    parser: configparser.ConfigParser
+    path: Path
+    server: ServerConfig
+    logic: LogicConfig
+    display: DisplayConfig
+    completion_config: dict
+    live_config: dict
+
+    def prompt_sections(self) -> list[str]:
+        return [section for section in self.parser.sections() if section.startswith("Prompt_")]
+
+    def system_prompt(self, now_text: str) -> str:
+        section = self.logic.active_prompt
+        if not self.parser.has_section(section):
+            sections = self.prompt_sections()
+            section = sections[0] if sections else ""
+        raw_prompt = self.parser.get(section, "content", fallback="")
+        return raw_prompt.format(now=now_text)
+
+
+def load_config(path: Path | str = CONFIG_PATH, migrate: bool = True) -> AppConfig:
+    config_path = Path(path)
+    parser = configparser.ConfigParser()
+    if config_path.exists():
+        parser.read(config_path, encoding="utf-8")
+    else:
+        parser.read_dict(default_config_dict())
+        write_config(parser, config_path)
+
+    changed = normalize_config(parser)
+    if changed and migrate:
+        backup_path = config_path.with_suffix(config_path.suffix + ".bak")
+        if config_path.exists() and not backup_path.exists():
+            shutil.copy2(config_path, backup_path)
+        write_config(parser, config_path)
+
+    return build_app_config(parser, config_path)
+
+
+def write_config(parser: configparser.ConfigParser, path: Path | str = CONFIG_PATH) -> None:
+    with Path(path).open("w", encoding="utf-8") as file:
+        parser.write(file)
+
+
+def normalize_config(parser: configparser.ConfigParser) -> bool:
+    changed = False
+    defaults = default_config_dict()
+
+    if parser.has_section(LEGACY_SERVER_SECTION):
+        if not parser.has_section(SERVER_SECTION):
+            parser.add_section(SERVER_SECTION)
+            changed = True
+        for key, value in parser.items(LEGACY_SERVER_SECTION):
+            parser.set(SERVER_SECTION, key, value)
+            changed = True
+        parser.remove_section(LEGACY_SERVER_SECTION)
+        changed = True
+
+    for section, values in defaults.items():
+        if not parser.has_section(section):
+            parser.add_section(section)
+            changed = True
+        for key, value in values.items():
+            if not parser.has_option(section, key):
+                parser.set(section, key, str(value))
+                changed = True
+
+    return changed
+
+
+def build_app_config(parser: configparser.ConfigParser, path: Path) -> AppConfig:
+    return AppConfig(
+        parser=parser,
+        path=path,
+        server=ServerConfig(
+            base_url=parser.get(SERVER_SECTION, "base_url", fallback=""),
+            api_key=parser.get(SERVER_SECTION, "api_key", fallback=""),
+            model=parser.get(SERVER_SECTION, "model", fallback=""),
+            model_context_window=parser.getint(SERVER_SECTION, "model_context_window", fallback=4096),
+        ),
+        logic=LogicConfig(
+            available_tokens=parser.getint("Logic", "available_tokens", fallback=256),
+            delay_time=parser.getfloat("Logic", "delay_time", fallback=1.0),
+            active_prompt=parser.get("Logic", "active_prompt", fallback="Prompt_General"),
+            max_input_words=parser.getint("Logic", "max_input_words", fallback=300),
+            translator_cache=parser.getint("Logic", "translator_cache", fallback=10),
+        ),
+        display=DisplayConfig(
+            font_family=parser.get("Display_set", "font_family", fallback="微软雅黑"),
+            font_size=parser.getint("Display_set", "font_size", fallback=15),
+            display_lines=parser.getint("Display_set", "display_lines", fallback=3),
+            scrollbar_policy=parser.getboolean("Display_set", "scrollbarpolicy", fallback=False),
+            hide_livecaptions_window=parser.getboolean("Display_set", "hide_livecaptions_window", fallback=True),
+            update_interval_ms=parser.getint("Display_set", "update_interval_ms", fallback=50),
+            x=parser.getint("Display_set", "x", fallback=390),
+            y=parser.getint("Display_set", "y", fallback=700),
+            width=parser.getint("Display_set", "width", fallback=1000),
+            height=parser.getint("Display_set", "height", fallback=80),
+            background_color=parser.get("Display_set", "background_color", fallback="0, 0, 0, 70"),
+            max_window_width=parser.getint("Display_set", "max_window_width", fallback=1200),
+        ),
+        completion_config=parse_llm_config(parser, "COMPLETION_CONFIG"),
+        live_config=parse_llm_config(parser, "LIVE_CONFIG"),
+    )
+
+
+def parse_llm_config(parser: configparser.ConfigParser, section: str) -> dict:
+    parsed = {}
+    if not parser.has_section(section):
+        return parsed
+    for key, value in parser.items(section):
+        value = value.strip()
+        try:
+            parsed[key] = float(value) if "." in value else int(value)
+        except ValueError:
+            parsed[key] = value
+    return parsed
+
+
+def default_config_dict() -> dict[str, dict[str, str]]:
+    return {
+        "COMPLETION_CONFIG": {
+            "max_tokens": "512",
+            "top_p": "0.95",
+            "temperature": "0.8",
+            "seed": "42",
+        },
+        "LIVE_CONFIG": {
+            "temperature": "0.6",
+            "max_tokens": "512",
+            "top_p": "0.95",
+            "seed": "42",
+        },
+        "Logic": {
+            "available_tokens": "128",
+            "delay_time": "0.8",
+            "active_prompt": "Prompt_F1",
+            "max_input_words": "300",
+            "translator_cache": "10",
+        },
+        "Display_set": {
+            "font_family": "微软雅黑",
+            "font_size": "15",
+            "display_lines": "3",
+            "scrollbarpolicy": "False",
+            "hide_livecaptions_window": "False",
+            "update_interval_ms": "50",
+            "x": "390",
+            "y": "700",
+            "width": "1000",
+            "height": "80",
+            "background_color": "0, 0, 0, 70",
+            "max_window_width": "1200",
+        },
+        SERVER_SECTION: {
+            "base_url": "http://127.0.0.1:5000/v1",
+            "api_key": "lm-studio",
+            "model": "publisher@q3_k_xl",
+            "model_context_window": "8192",
+        },
+        "Prompt_General": {
+            "name": "通用翻译",
+            "content": "你好! 现在是北京时间{now}。\n你是我的同声传译助手，请将英文文本翻译为简洁、自然、准确的中文。",
+        },
+        "Prompt_F1": {
+            "name": "F1赛事专用",
+            "content": "你好! 现在是北京时间{now}。\n你是我的F1赛事同声传译助手，请将F1赛事英文评论翻译为简洁、专业、准确的中文。",
+        },
+        "Prompt_自定义": {
+            "name": "自定义",
+            "content": "",
+        },
+    }

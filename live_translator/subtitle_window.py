@@ -1,1 +1,136 @@
-ZnJvbSBxdWV1ZSBpbXBvcnQgUXVldWUKCmZyb20gUHlRdDUuUXRDb3JlIGltcG9ydCBRdCwgUVRpbWVyCmZyb20gUHlRdDUuUXRHdWkgaW1wb3J0IFFDb2xvciwgUUZvbnQKZnJvbSBQeVF0NS5RdFdpZGdldHMgaW1wb3J0ICgKICAgIFFHcmFwaGljc0Ryb3BTaGFkb3dFZmZlY3QsCiAgICBRU2l6ZUdyaXAsCiAgICBRU2l6ZVBvbGljeSwKICAgIFFUZXh0RWRpdCwKICAgIFFWQm94TGF5b3V0LAogICAgUVdpZGdldCwKKQoKZnJvbSAuY29uZmlnIGltcG9ydCBBcHBDb25maWcKCgpjbGFzcyBTdWJ0aXRsZVdpbmRvdyhRV2lkZ2V0KToKICAgIGRlZiBfX2luaXRfXyhzZWxmLCBjb25maWc6IEFwcENvbmZpZywgdGV4dF9kYXRhOiBRdWV1ZSk6CiAgICAgICAgc3VwZXIoKS5fX2luaXRfXygpCiAgICAgICAgc2VsZi5jb25maWcgPSBjb25maWcKICAgICAgICBzZWxmLnRleHRfZGF0YSA9IHRleHRfZGF0YQogICAgICAgIHNlbGYuYmFja2dyb3VuZF93aWRnZXQgPSBOb25lCiAgICAgICAgc2VsZi5zaXplX2dyaXAgPSBOb25lCiAgICAgICAgc2VsZi5kcmFnX3Bvc2l0aW9uID0gTm9uZQogICAgICAgIHNlbGYudGV4dF9kaXNwbGF5ID0gTm9uZQogICAgICAgIHNlbGYuc2V0dXBfdWkoKQoKICAgICAgICBzZWxmLnRpbWVyID0gUVRpbWVyKCkKICAgICAgICBzZWxmLnRpbWVyLnRpbWVvdXQuY29ubmVjdChzZWxmLnVwZGF0ZV90ZXh0KQogICAgICAgIHNlbGYudGltZXIuc3RhcnQoY29uZmlnLmRpc3BsYXkudXBkYXRlX2ludGVydmFsX21zKQoKICAgIGRlZiBzZXR1cF91aShzZWxmKSAtPiBOb25lOgogICAgICAgIGRpc3BsYXkgPSBzZWxmLmNvbmZpZy5kaXNwbGF5CiAgICAgICAgc2VsZi5zZXRXaW5kb3dGbGFncyhRdC5GcmFtZWxlc3NXaW5kb3dIaW50IHwgUXQuV2luZG93U3RheXNPblRvcEhpbnQpCiAgICAgICAgc2VsZi5zZXRBdHRyaWJ1dGUoUXQuV0FfVHJhbnNsdWNlbnRCYWNrZ3JvdW5kKQogICAgICAgIHNlbGYuc2V0R2VvbWV0cnkoZGlzcGxheS54LCBkaXNwbGF5LnksIGRpc3BsYXkud2lkdGgsIGRpc3BsYXkuaGVpZ2h0KQoKICAgICAgICBtYWluX2xheW91dCA9IFFWQm94TGF5b3V0KHNlbGYpCiAgICAgICAgbWFpbl9sYXlvdXQuc2V0Q29udGVudHNNYXJnaW5zKDAsIDAsIDAsIDApCgogICAgICAgIHNlbGYuYmFja2dyb3VuZF93aWRnZXQgPSBRV2lkZ2V0KCkKICAgICAgICBzZWxmLmJhY2tncm91bmRfd2lkZ2V0LnNldFN0eWxlU2hlZXQoCiAgICAgICAgICAgIGYiYmFja2dyb3VuZC1jb2xvcjogcmdiYSh7ZGlzcGxheS5iYWNrZ3JvdW5kX2NvbG9yfSk7IGJvcmRlci1yYWRpdXM6IDVweDsiCiAgICAgICAgKQogICAgICAgIHNlbGYuYmFja2dyb3VuZF93aWRnZXQuc2V0TWF4aW11bVdpZHRoKGRpc3BsYXkubWF4X3dpbmRvd193aWR0aCkKCiAgICAgICAgc2hhZG93ID0gUUdyYXBoaWNzRHJvcFNoYWRvd0VmZmVjdCgpCiAgICAgICAgc2hhZG93LnNldEJsdXJSYWRpdXMoMTUpCiAgICAgICAgc2hhZG93LnNldENvbG9yKFFDb2xvcigwLCAwLCAwLCAxODApKQogICAgICAgIHNoYWRvdy5zZXRPZmZzZXQoMywgMykKICAgICAgICBzZWxmLmJhY2tncm91bmRfd2lkZ2V0LnNldEdyYXBoaWNzRWZmZWN0KHNoYWRvdykKICAgICAgICBtYWluX2xheW91dC5hZGRXaWRnZXQoc2VsZi5iYWNrZ3JvdW5kX3dpZGdldCkKCiAgICAgICAgaW5uZXJfbGF5b3V0ID0gUVZCb3hMYXlvdXQoc2VsZi5iYWNrZ3JvdW5kX3dpZGdldCkKICAgICAgICBpbm5lcl9sYXlvdXQuc2V0Q29udGVudHNNYXJnaW5zKDE1LCAxMCwgMTUsIDEwKQoKICAgICAgICBzZWxmLnNpemVfZ3JpcCA9IFFTaXplR3JpcChzZWxmLmJhY2tncm91bmRfd2lkZ2V0KQogICAgICAgIGlubmVyX2xheW91dC5hZGRXaWRnZXQoc2VsZi5zaXplX2dyaXAsIDAsIFF0LkFsaWduVG9wIHwgUXQuQWxpZ25SaWdodCkKCiAgICAgICAgc2VsZi50ZXh0X2Rpc3BsYXkgPSBRVGV4dEVkaXQoKQogICAgICAgIHNlbGYudGV4dF9kaXNwbGF5LnNldFJlYWRPbmx5KFRydWUpCiAgICAgICAgc2VsZi50ZXh0X2Rpc3BsYXkuc2V0VGV4dEludGVyYWN0aW9uRmxhZ3MoUXQuTm9UZXh0SW50ZXJhY3Rpb24pCiAgICAgICAgc2VsZi50ZXh0X2Rpc3BsYXkuc2V0Rm9udChRRm9udChkaXNwbGF5LmZvbnRfZmFtaWx5LCBkaXNwbGF5LmZvbnRfc2l6ZSkpCiAgICAgICAgc2VsZi50ZXh0X2Rpc3BsYXkuc2V0VmVydGljYWxTY3JvbGxCYXJQb2xpY3koCiAgICAgICAgICAgIFF0LlNjcm9sbEJhckFzTmVlZGVkIGlmIGRpc3BsYXkuc2Nyb2xsYmFyX3BvbGljeSBlbHNlIFF0LlNjcm9sbEJhckFsd2F5c09mZgogICAgICAgICkKICAgICAgICBzZWxmLnRleHRfZGlzcGxheS5zZXRTaXplUG9saWN5KFFTaXplUG9saWN5LkV4cGFuZGluZywgUVNpemVQb2xpY3kuRXhwYW5kaW5nKQoKICAgICAgICBmb250X21ldHJpY3MgPSBzZWxmLnRleHRfZGlzcGxheS5mb250TWV0cmljcygpCiAgICAgICAgaW5pdGlhbF9oZWlnaHQgPSBpbnQoZm9udF9tZXRyaWNzLmxpbmVTcGFjaW5nKCkgKiBkaXNwbGF5LmRpc3BsYXlfbGluZXMpICsgNAogICAgICAgIHNlbGYudGV4dF9kaXNwbGF5LnNldE1pbmltdW1IZWlnaHQoaW5pdGlhbF9oZWlnaHQpCiAgICAgICAgc2VsZi50ZXh0X2Rpc3BsYXkuc2V0U3R5bGVTaGVldCgiIiIKICAgICAgICAgICAgUVRleHRFZGl0IHsKICAgICAgICAgICAgICAgIGNvbG9yOiB3aGl0ZTsKICAgICAgICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50OwogICAgICAgICAgICAgICAgYm9yZGVyOiBub25lOwogICAgICAgICAgICAgICAgcGFkZGluZzogMHB4OwogICAgICAgICAgICB9CiAgICAgICAgICAgIFFTY3JvbGxCYXI6dmVydGljYWwgewogICAgICAgICAgICAgICAgYm9yZGVyOiBub25lOwogICAgICAgICAgICAgICAgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7CiAgICAgICAgICAgICAgICB3aWR0aDogOHB4OwogICAgICAgICAgICAgICAgbWFyZ2luOiAwcHg7CiAgICAgICAgICAgIH0KICAgICAgICAgICAgUVNjcm9sbEJhcjo6aGFuZGxlOnZlcnRpY2FsIHsKICAgICAgICAgICAgICAgIGJhY2tncm91bmQ6IHJnYmEoMjU1LCAyNTUsIDI1NSwgMC40KTsKICAgICAgICAgICAgICAgIG1pbi1oZWlnaHQ6IDI1cHg7CiAgICAgICAgICAgICAgICBib3JkZXItcmFkaXVzOiA0cHg7CiAgICAgICAgICAgIH0KICAgICAgICAgICAgUVNjcm9sbEJhcjo6aGFuZGxlOnZlcnRpY2FsOmhvdmVyIHsKICAgICAgICAgICAgICAgIGJhY2tncm91bmQ6IHJnYmEoMjU1LCAyNTUsIDI1NSwgMC43KTsKICAgICAgICAgICAgfQogICAgICAgICAgICBRU2Nyb2xsQmFyOjphZGQtbGluZTp2ZXJ0aWNhbCwKICAgICAgICAgICAgUVNjcm9sbEJhcjo6c3ViLWxpbmU6dmVydGljYWwgewogICAgICAgICAgICAgICAgYm9yZGVyOiBub25lOwogICAgICAgICAgICAgICAgYmFja2dyb3VuZDogbm9uZTsKICAgICAgICAgICAgICAgIGhlaWdodDogMHB4OwogICAgICAgICAgICB9CiAgICAgICAgICAgIFFTY3JvbGxCYXI6OmFkZC1wYWdlOnZlcnRpY2FsLAogICAgICAgICAgICBRU2Nyb2xsQmFyOjpzdWItcGFnZTp2ZXJ0aWNhbCB7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kOiBub25lOwogICAgICAgICAgICB9CiAgICAgICAgIiIiKQogICAgICAgIGlubmVyX2xheW91dC5hZGRXaWRnZXQoc2VsZi50ZXh0X2Rpc3BsYXkpCgogICAgZGVmIHVwZGF0ZV90ZXh0KHNlbGYpIC0+IE5vbmU6CiAgICAgICAgbGF0ZXN0ID0gTm9uZQogICAgICAgIHdoaWxlIG5vdCBzZWxmLnRleHRfZGF0YS5lbXB0eSgpOgogICAgICAgICAgICBsYXRlc3QgPSBzZWxmLnRleHRfZGF0YS5nZXQoKQogICAgICAgIGlmIGxhdGVzdCBpcyBOb25lOgogICAgICAgICAgICByZXR1cm4KCiAgICAgICAgdGV4dF9ibG9jayA9IGxhdGVzdC5nZXQoInN1YnRpdGxlIiwgIiIpIGlmIGlzaW5zdGFuY2UobGF0ZXN0LCBkaWN0KSBlbHNlIHN0cihsYXRlc3QpCiAgICAgICAgaWYgc2VsZi50ZXh0X2Rpc3BsYXkudG9QbGFpblRleHQoKSA9PSB0ZXh0X2Jsb2NrOgogICAgICAgICAgICByZXR1cm4KCiAgICAgICAgc2Nyb2xsYmFyID0gc2VsZi50ZXh0X2Rpc3BsYXkudmVydGljYWxTY3JvbGxCYXIoKQogICAgICAgIGlzX2F0X2JvdHRvbSA9IHNjcm9sbGJhci52YWx1ZSgpID49IHNjcm9sbGJhci5tYXhpbXVtKCkgLSAyCiAgICAgICAgc2VsZi50ZXh0X2Rpc3BsYXkuc2V0VGV4dCh0ZXh0X2Jsb2NrKQogICAgICAgIGlmIGlzX2F0X2JvdHRvbToKICAgICAgICAgICAgc2Nyb2xsYmFyLnNldFZhbHVlKHNjcm9sbGJhci5tYXhpbXVtKCkpCgogICAgZGVmIG1vdXNlUHJlc3NFdmVudChzZWxmLCBldmVudCk6CiAgICAgICAgaWYgZXZlbnQuYnV0dG9uKCkgPT0gUXQuTGVmdEJ1dHRvbjoKICAgICAgICAgICAgaWYgbm90IHNlbGYuc2l6ZV9ncmlwLmdlb21ldHJ5KCkuY29udGFpbnMoZXZlbnQucG9zKCkpOgogICAgICAgICAgICAgICAgc2VsZi5kcmFnX3Bvc2l0aW9uID0gZXZlbnQuZ2xvYmFsUG9zKCkgLSBzZWxmLmZyYW1lR2VvbWV0cnkoKS50b3BMZWZ0KCkKICAgICAgICAgICAgZWxzZToKICAgICAgICAgICAgICAgIHNlbGYuZHJhZ19wb3NpdGlvbiA9IE5vbmUKCiAgICBkZWYgbW91c2VNb3ZlRXZlbnQoc2VsZiwgZXZlbnQpOgogICAgICAgIGlmIGV2ZW50LmJ1dHRvbnMoKSAmIFF0LkxlZnRCdXR0b24gYW5kIHNlbGYuZHJhZ19wb3NpdGlvbjoKICAgICAgICAgICAgc2VsZi5tb3ZlKGV2ZW50Lmdsb2JhbFBvcygpIC0gc2VsZi5kcmFnX3Bvc2l0aW9uKQoKICAgIGRlZiBtb3VzZVJlbGVhc2VFdmVudChzZWxmLCBldmVudCk6CiAgICAgICAgc2VsZi5kcmFnX3Bvc2l0aW9uID0gTm9uZQoK
+from queue import Queue
+
+from PyQt5.QtCore import Qt, QTimer
+from PyQt5.QtGui import QColor, QFont
+from PyQt5.QtWidgets import (
+    QGraphicsDropShadowEffect,
+    QSizeGrip,
+    QSizePolicy,
+    QTextEdit,
+    QVBoxLayout,
+    QWidget,
+)
+
+from .config import AppConfig
+
+
+class SubtitleWindow(QWidget):
+    def __init__(self, config: AppConfig, text_data: Queue):
+        super().__init__()
+        self.config = config
+        self.text_data = text_data
+        self.background_widget = None
+        self.size_grip = None
+        self.drag_position = None
+        self.text_display = None
+        self.setup_ui()
+
+        self.timer = QTimer()
+        self.timer.timeout.connect(self.update_text)
+        self.timer.start(config.display.update_interval_ms)
+
+    def setup_ui(self) -> None:
+        display = self.config.display
+        self.setWindowFlags(Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint)
+        self.setAttribute(Qt.WA_TranslucentBackground)
+        self.setGeometry(display.x, display.y, display.width, display.height)
+
+        main_layout = QVBoxLayout(self)
+        main_layout.setContentsMargins(0, 0, 0, 0)
+
+        self.background_widget = QWidget()
+        self.background_widget.setStyleSheet(
+            f"background-color: rgba({display.background_color}); border-radius: 5px;"
+        )
+        self.background_widget.setMaximumWidth(display.max_window_width)
+
+        shadow = QGraphicsDropShadowEffect()
+        shadow.setBlurRadius(15)
+        shadow.setColor(QColor(0, 0, 0, 180))
+        shadow.setOffset(3, 3)
+        self.background_widget.setGraphicsEffect(shadow)
+        main_layout.addWidget(self.background_widget)
+
+        inner_layout = QVBoxLayout(self.background_widget)
+        inner_layout.setContentsMargins(15, 10, 15, 10)
+
+        self.size_grip = QSizeGrip(self.background_widget)
+        inner_layout.addWidget(self.size_grip, 0, Qt.AlignTop | Qt.AlignRight)
+
+        self.text_display = QTextEdit()
+        self.text_display.setReadOnly(True)
+        self.text_display.setTextInteractionFlags(Qt.NoTextInteraction)
+        self.text_display.setFont(QFont(display.font_family, display.font_size))
+        self.text_display.setVerticalScrollBarPolicy(
+            Qt.ScrollBarAsNeeded if display.scrollbar_policy else Qt.ScrollBarAlwaysOff
+        )
+        self.text_display.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+
+        font_metrics = self.text_display.fontMetrics()
+        initial_height = int(font_metrics.lineSpacing() * display.display_lines) + 4
+        self.text_display.setMinimumHeight(initial_height)
+        self.text_display.setStyleSheet("""
+            QTextEdit {
+                color: white;
+                background-color: transparent;
+                border: none;
+                padding: 0px;
+            }
+            QScrollBar:vertical {
+                border: none;
+                background: transparent;
+                width: 8px;
+                margin: 0px;
+            }
+            QScrollBar::handle:vertical {
+                background: rgba(255, 255, 255, 0.4);
+                min-height: 25px;
+                border-radius: 4px;
+            }
+            QScrollBar::handle:vertical:hover {
+                background: rgba(255, 255, 255, 0.7);
+            }
+            QScrollBar::add-line:vertical,
+            QScrollBar::sub-line:vertical {
+                border: none;
+                background: none;
+                height: 0px;
+            }
+            QScrollBar::add-page:vertical,
+            QScrollBar::sub-page:vertical {
+                background: none;
+            }
+        """)
+        inner_layout.addWidget(self.text_display)
+
+    def update_text(self) -> None:
+        latest = None
+        while not self.text_data.empty():
+            latest = self.text_data.get()
+        if latest is None:
+            return
+
+        text_block = latest.get("subtitle", "") if isinstance(latest, dict) else str(latest)
+        if self.text_display.toPlainText() == text_block:
+            return
+
+        scrollbar = self.text_display.verticalScrollBar()
+        is_at_bottom = scrollbar.value() >= scrollbar.maximum() - 2
+        self.text_display.setText(text_block)
+        if is_at_bottom:
+            scrollbar.setValue(scrollbar.maximum())
+
+    def mousePressEvent(self, event):
+        if event.button() == Qt.LeftButton:
+            if not self.size_grip.geometry().contains(event.pos()):
+                self.drag_position = event.globalPos() - self.frameGeometry().topLeft()
+            else:
+                self.drag_position = None
+
+    def mouseMoveEvent(self, event):
+        if event.buttons() & Qt.LeftButton and self.drag_position:
+            self.move(event.globalPos() - self.drag_position)
+
+    def mouseReleaseEvent(self, event):
+        self.drag_position = None
+

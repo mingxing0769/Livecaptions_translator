@@ -1,1 +1,7 @@
-b3BlbmFpPT0yLjguMA0KcHN1dGlsPT03LjEuMA0KcHlpbnN0YWxsZXI9PTYuMTYuMA0KUHlRdDU9PTUuMTUuMTENCnB5d2luMzI9PTMxMQ0KdWlhdXRvbWF0aW9uPT0yLjAuMjkNCg0K
+openai==2.8.0
+psutil==7.1.0
+pyinstaller==6.16.0
+PyQt5==5.15.11
+pywin32==311
+uiautomation==2.0.29
+

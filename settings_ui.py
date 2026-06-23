@@ -1,1 +1,5 @@
-ZnJvbSBsaXZlX3RyYW5zbGF0b3Iuc2V0dGluZ3NfdWkgaW1wb3J0IFNldHRpbmdzV2luZG93DQoNCg0KX19hbGxfXyA9IFsiU2V0dGluZ3NXaW5kb3ciXQ0KDQo=
+from live_translator.settings_ui import SettingsWindow
+
+
+__all__ = ["SettingsWindow"]
+

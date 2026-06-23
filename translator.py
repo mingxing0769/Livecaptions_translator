@@ -1,1 +1,5 @@
-ZnJvbSBsaXZlX3RyYW5zbGF0b3IudHJhbnNsYXRvcl9zZXJ2aWNlIGltcG9ydCBUcmFuc2xhdG9yU2VydmljZQ0KDQoNCl9fYWxsX18gPSBbIlRyYW5zbGF0b3JTZXJ2aWNlIl0NCg0K
+from live_translator.translator_service import TranslatorService
+
+
+__all__ = ["TranslatorService"]
+

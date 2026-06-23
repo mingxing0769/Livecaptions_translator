@@ -1,1 +1,27 @@
-aW1wb3J0IHN5cw0KaW1wb3J0IHRyYWNlYmFjaw0KDQpmcm9tIFB5UXQ1LlF0V2lkZ2V0cyBpbXBvcnQgUUFwcGxpY2F0aW9uDQoNCmZyb20gbGl2ZV90cmFuc2xhdG9yLmFwcCBpbXBvcnQgTWFpbkFwcGxpY2F0aW9uDQpmcm9tIGxpdmVfdHJhbnNsYXRvci5zZXR0aW5nc191aSBpbXBvcnQgU2V0dGluZ3NXaW5kb3cNCg0KDQpkZWYgbWFpbigpIC0+IGludDoNCiAgICB0cnk6DQogICAgICAgIGFwcCA9IFFBcHBsaWNhdGlvbihzeXMuYXJndikNCiAgICAgICAgc2V0dGluZ3Nfd2luZG93ID0gU2V0dGluZ3NXaW5kb3coKQ0KICAgICAgICBzZXR0aW5nc193aW5kb3cuc2hvdygpDQogICAgICAgIG1haW5fYXBwID0gTWFpbkFwcGxpY2F0aW9uKHNldHRpbmdzX3dpbmRvdykNCiAgICAgICAgc2V0dGluZ3Nfd2luZG93LnRvZ2dsZV90cmFuc2xhdGlvbl9yZXF1ZXN0ZWQuY29ubmVjdChtYWluX2FwcC50b2dnbGVfdHJhbnNsYXRpb25fcHJvY2VzcykNCiAgICAgICAgYXBwLmFib3V0VG9RdWl0LmNvbm5lY3QobWFpbl9hcHAuY2xlYW51cCkNCiAgICAgICAgcmV0dXJuIGFwcC5leGVjXygpDQogICAgZXhjZXB0IEV4Y2VwdGlvbiBhcyBleGM6DQogICAgICAgIHByaW50KGYi56iL5bqP6L+Q6KGM5Ye66ZSZOiB7ZXhjfSIpDQogICAgICAgIHRyYWNlYmFjay5wcmludF9leGMoKQ0KICAgICAgICByZXR1cm4gMQ0KDQoNCmlmIF9fbmFtZV9fID09ICJfX21haW5fXyI6DQogICAgc3lzLmV4aXQobWFpbigpKQ0KDQo=
+import sys
+import traceback
+
+from PyQt5.QtWidgets import QApplication
+
+from live_translator.app import MainApplication
+from live_translator.settings_ui import SettingsWindow
+
+
+def main() -> int:
+    try:
+        app = QApplication(sys.argv)
+        settings_window = SettingsWindow()
+        settings_window.show()
+        main_app = MainApplication(settings_window)
+        settings_window.toggle_translation_requested.connect(main_app.toggle_translation_process)
+        app.aboutToQuit.connect(main_app.cleanup)
+        return app.exec_()
+    except Exception as exc:
+        print(f"程序运行出错: {exc}")
+        traceback.print_exc()
+        return 1
+
+
+if __name__ == "__main__":
+    sys.exit(main())
+

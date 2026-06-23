@@ -1,1 +1,5 @@
-ZnJvbSBsaXZlX3RyYW5zbGF0b3IubGl2ZWNhcHRpb25zIGltcG9ydCBMaXZlQ2FwdGlvbnNTb3VyY2UNCg0KDQpfX2FsbF9fID0gWyJMaXZlQ2FwdGlvbnNTb3VyY2UiXQ0KDQo=
+from live_translator.livecaptions import LiveCaptionsSource
+
+
+__all__ = ["LiveCaptionsSource"]
+

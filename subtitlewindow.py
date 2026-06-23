@@ -1,1 +1,5 @@
-ZnJvbSBsaXZlX3RyYW5zbGF0b3Iuc3VidGl0bGVfd2luZG93IGltcG9ydCBTdWJ0aXRsZVdpbmRvdw0KDQoNCl9fYWxsX18gPSBbIlN1YnRpdGxlV2luZG93Il0NCg0K
+from live_translator.subtitle_window import SubtitleWindow
+
+
+__all__ = ["SubtitleWindow"]
+
